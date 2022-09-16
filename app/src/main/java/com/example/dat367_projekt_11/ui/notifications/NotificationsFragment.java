@@ -17,7 +17,7 @@ private FragmentNotificationsBinding binding;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(NotificationsViewModel.class);
+                new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(NotificationsViewModel.class);
 
     binding = FragmentNotificationsBinding.inflate(inflater, container, false);
     View root = binding.getRoot();

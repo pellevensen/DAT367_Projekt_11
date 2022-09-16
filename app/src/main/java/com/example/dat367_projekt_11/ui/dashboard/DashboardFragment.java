@@ -17,7 +17,7 @@ private FragmentDashboardBinding binding;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(DashboardViewModel.class);
+                new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(DashboardViewModel.class);
 
     binding = FragmentDashboardBinding.inflate(inflater, container, false);
     View root = binding.getRoot();

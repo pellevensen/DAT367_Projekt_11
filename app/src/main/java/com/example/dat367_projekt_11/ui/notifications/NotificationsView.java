@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.dat367_projekt_11.databinding.FragmentNotificationsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class NotificationsView extends Fragment {
 
 private FragmentNotificationsBinding binding;
 

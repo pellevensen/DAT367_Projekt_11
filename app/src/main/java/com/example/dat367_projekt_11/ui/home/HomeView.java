@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.dat367_projekt_11.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class HomeView extends Fragment {
 
 private FragmentHomeBinding binding;
 

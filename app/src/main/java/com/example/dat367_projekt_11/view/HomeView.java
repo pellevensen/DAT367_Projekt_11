@@ -1,4 +1,4 @@
-package com.example.dat367_projekt_11.ui.home;
+package com.example.dat367_projekt_11.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.dat367_projekt_11.databinding.FragmentHomeBinding;
+import com.example.dat367_projekt_11.viewModels.HomeViewModel;
 
 public class HomeView extends Fragment {
 

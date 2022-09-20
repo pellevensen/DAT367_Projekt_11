@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.dat367_projekt_11.databinding.FragmentDonechoresmodelBinding;
+
 import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
 
 public class DoneChoresView extends Fragment {
@@ -21,7 +22,7 @@ private FragmentDonechoresmodelBinding binding;
         DoneChoresViewModel doneChoresViewModel =
                 new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(DoneChoresViewModel.class);
 
-    binding = FragmentDashboardBinding.inflate(inflater, container, false);
+    binding = FragmentDonechoresmodelBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;

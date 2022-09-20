@@ -1,0 +1,35 @@
+package com.example.dat367_projekt_11.models;
+
+public class Chore implements IChore{
+    private final String name;
+    private final String description;
+    private final int points;
+    public Boolean isComplete;
+
+    public Chore(String name, String description, int points){
+        this.name = name;
+        this.description = description;
+        this.points = points;
+    }
+
+    private void isCompleted(){
+        this.isComplete = true;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+
+    public int getPoints(){
+        return this.points;
+    }
+    public boolean getChoreStatus(){
+        return this.isComplete;
+    }
+
+}

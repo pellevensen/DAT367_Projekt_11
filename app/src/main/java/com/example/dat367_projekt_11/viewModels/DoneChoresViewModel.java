@@ -10,7 +10,7 @@ public class DoneChoresViewModel extends ViewModel {
 
     public DoneChoresViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is done chores fragment");
     }
 
     public LiveData<String> getText() {

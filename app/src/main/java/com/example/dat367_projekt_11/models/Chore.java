@@ -12,7 +12,7 @@ public class Chore implements IChore{
         this.points = points;
     }
 
-    private void isCompleted(){
+    public void completeChore(){
         this.isComplete = true;
     }
 
@@ -28,7 +28,7 @@ public class Chore implements IChore{
     public int getPoints(){
         return this.points;
     }
-    public boolean getChoreStatus(){
+    public boolean isComplete(){
         return this.isComplete;
     }
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dat367_projekt_11.view.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 
 public class registration extends AppCompatActivity {
 
-    private EditText nameTextView, passwordTextView;
+    private EditText emailTextView, passwordTextView;
     private Button btn;
     private FirebaseAuth mAuth;
 
@@ -32,7 +33,7 @@ public class registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // initialising all views through id defined above
-        nameTextView = findViewById(R.id.nameTextView);
+        emailTextView = findViewById(R.id.emailTextView);
         passwordTextView = findViewById(R.id.passwordTextView);
         btn = findViewById(R.id.btn);
 
@@ -51,7 +52,7 @@ public class registration extends AppCompatActivity {
 
         // Take the value of two edit texts in Strings
         String email, password;
-        email = nameTextView.getText().toString();
+        email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
 
         // Validations for input email and password

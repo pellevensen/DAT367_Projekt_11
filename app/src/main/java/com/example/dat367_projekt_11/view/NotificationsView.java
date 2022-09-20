@@ -1,4 +1,4 @@
-package com.example.dat367_projekt_11.ui.notifications;
+package com.example.dat367_projekt_11.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.dat367_projekt_11.databinding.FragmentNotificationsBinding;
+import com.example.dat367_projekt_11.viewModels.NotificationsViewModel;
 
 public class NotificationsView extends Fragment {
 

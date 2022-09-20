@@ -1,6 +1,9 @@
-package com.example.dat367_projekt_11;
+package com.example.dat367_projekt_11.view;
 
 import android.os.Bundle;
+
+
+import com.example.dat367_projekt_11.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

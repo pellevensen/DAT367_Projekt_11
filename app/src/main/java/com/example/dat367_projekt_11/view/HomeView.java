@@ -1,4 +1,4 @@
-package com.example.dat367_projekt_11.ui.home;
+package com.example.dat367_projekt_11.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentHomeBinding;
+import com.example.dat367_projekt_11.viewModels.HomeViewModel;
 
 public class HomeView extends Fragment {
 

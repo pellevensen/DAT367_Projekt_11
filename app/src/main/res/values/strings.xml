@@ -18,4 +18,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="registrera">registrera</string>
     <string name="register" />
+    <string name="inputhint_email">Email</string>
 </resources>

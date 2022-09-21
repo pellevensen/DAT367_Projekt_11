@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView;
-    private Button btn;
+    private Button btn, registerBtn;
 
     private FirebaseAuth mAuth;
     @Override
@@ -42,6 +42,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 loginUserAccount();
+            }
+        });
+
+        registerBtn = findViewById(R.id.createHousehold);
+
+        // Set on Click Listener on Sign-in button
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
             }
         });
     }

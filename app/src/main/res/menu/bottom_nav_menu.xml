@@ -17,6 +17,6 @@
         android:title="@string/title_notifications"/>
     <item
         android:id="@+id/navigation_register"
-        android:title="Register"/>
+        android:title="@string/title_register" />
 
 </menu>

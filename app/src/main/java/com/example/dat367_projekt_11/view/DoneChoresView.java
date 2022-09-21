@@ -8,9 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.dat367_projekt_11.databinding.FragmentDonechoresmodelBinding;
-import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
 
+import com.example.dat367_projekt_11.databinding.FragmentDonechoresmodelBinding;
+
+import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
 
 public class DoneChoresView extends Fragment {
 

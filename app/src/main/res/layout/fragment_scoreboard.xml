@@ -10,4 +10,10 @@
         android:layout_height="match_parent"
         android:text="Hello" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="278dp"
+        android:layout_height="76dp"
+        android:text="Leaderboard" />
+
 </FrameLayout>

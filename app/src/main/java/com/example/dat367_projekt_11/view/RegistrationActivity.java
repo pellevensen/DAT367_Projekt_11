@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class registrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView;
     private Button btn;
@@ -87,7 +87,7 @@ public class registrationActivity extends AppCompatActivity {
 
                             // if the user created intent to login activity
                             Intent intent
-                                    = new Intent(registrationActivity.this,
+                                    = new Intent(RegistrationActivity.this,
                                     MainActivity.class);
                             startActivity(intent);
                         }

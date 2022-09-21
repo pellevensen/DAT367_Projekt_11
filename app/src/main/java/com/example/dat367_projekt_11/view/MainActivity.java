@@ -5,20 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 
 public class MainActivity extends AppCompatActivity {
 
-private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,7 +27,7 @@ private ActivityMainBinding binding;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, registrationActivity.class));
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             }
         });
 

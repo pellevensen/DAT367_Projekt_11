@@ -16,9 +16,11 @@
         android:text="60"
         android:textColor="#FFF"
         android:textSize="100sp"
+        app:layout_constraintBottom_toBottomOf="@+id/duharpoäng"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <TextView
         android:id="@+id/appTitle"
@@ -35,23 +37,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/duharpoäng"
         android:layout_width="74dp"
         android:layout_height="150dp"
         android:layout_marginTop="56dp"
+        android:layout_marginBottom="412dp"
         android:gravity="center"
         android:shadowColor="#000"
         android:shadowRadius="10"
         android:text="Du har\n\n\n\n\n Poäng"
         android:textColor="#FFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

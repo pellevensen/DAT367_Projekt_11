@@ -8,19 +8,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.dat367_projekt_11.databinding.FragmentNotificationsBinding;
-import com.example.dat367_projekt_11.viewModels.NotificationsViewModel;
 
-public class NotificationsView extends Fragment {
+import com.example.dat367_projekt_11.databinding.FragmentMainpageBinding;
+import com.example.dat367_projekt_11.databinding.FragmentMainpageBinding;
+import com.example.dat367_projekt_11.viewModels.MainPageViewModel;
 
-private FragmentNotificationsBinding binding;
+public class MainPageView extends Fragment {
+
+private FragmentMainpageBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(NotificationsViewModel.class);
+        MainPageViewModel notificationsViewModel =
+                new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory()).get(MainPageViewModel.class);
 
-    binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+    binding = FragmentMainpageBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.appTitle;

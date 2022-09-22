@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_donechoresmodel" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.dat367_projekt_11.view.NotificationsView"
+        android:id="@+id/navigation_mainpage"
+        android:name="com.example.dat367_projekt_11.view.MainPageView"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_mainpage" />
 </navigation>

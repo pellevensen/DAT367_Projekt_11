@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.dat367_projekt_11.MainActivity"
+        android:name="com.example.dat367_projekt_11.view.MainActivity"
         android:label="activity_register"
         tools:layout="@layout/activity_registration" />
 </navigation>

@@ -7,7 +7,22 @@
     tools:context=".view.ScoreboardFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#000"
+        android:shadowRadius="10"
+        android:text="Nummer 1"
+        android:textColor="#FFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <TextView
+        android:id="@+id/LeaderboardTitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -17,12 +32,12 @@
         android:textColor="#FFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="131dp" />
+        tools:layout_editor_absoluteY="171dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TidyAPPLeaderboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"

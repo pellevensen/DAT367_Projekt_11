@@ -7,49 +7,50 @@
     tools:context=".view.NotificationsView">
 
     <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:shadowColor="#000"
+        android:shadowRadius="10"
+        android:text="60"
+        android:textColor="#FFF"
+        android:textSize="100sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+
+    <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:layout_marginBottom="666dp"
-        android:text="@string/title_tidyApp"
-        android:textSize="50"
-        android:textStyle="bold"
-        android:textColor="#FFF"
         android:shadowColor="#000"
         android:shadowRadius="10"
+        android:text="@string/title_tidyApp"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/duharpoäng"
         android:layout_width="74dp"
         android:layout_height="150dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="56dp"
         android:gravity="center"
         android:shadowColor="#000"
         android:shadowRadius="10"
         android:text="Du har\n\n\n\n\n Poäng"
         android:textColor="#FFF"
-        android:textSize="20"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
-
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:shadowColor="#000"
-        android:shadowRadius="10"
-        android:text="60"
-        android:textColor="#FFF"
-        android:textSize="100"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 

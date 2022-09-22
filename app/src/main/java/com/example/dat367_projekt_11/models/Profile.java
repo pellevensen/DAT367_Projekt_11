@@ -11,4 +11,6 @@ public class Profile {
     public EditText getName() {
         return name;
     }
+
+
 }

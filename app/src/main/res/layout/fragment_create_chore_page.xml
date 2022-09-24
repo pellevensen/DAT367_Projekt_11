@@ -14,10 +14,12 @@
         android:layout_marginTop="23dp"
         android:layout_marginBottom="16dp"
         android:text="Create Chore"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        />
 
     <EditText
         android:id="@+id/editDescription"
@@ -40,7 +42,6 @@
         android:layout_marginStart="96dp"
         android:layout_marginEnd="97dp"
         android:ems="10"
-        android:inputType="textChoreName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,21 +64,21 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="10 points"
-            android:textSize="20" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="20 points"
-            android:textSize="20" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="30 points"
-            android:textSize="20" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <TextView

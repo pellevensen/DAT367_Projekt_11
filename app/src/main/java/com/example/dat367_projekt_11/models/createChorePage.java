@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.dat367_projekt_11.CreateChorePageViewModel;
+import com.example.dat367_projekt_11.viewModels.CreateChorePageViewModel;
 import com.example.dat367_projekt_11.R;
 
 public class createChorePage extends Fragment {
@@ -35,5 +35,6 @@ public class createChorePage extends Fragment {
         mViewModel = new ViewModelProvider(this).get(CreateChorePageViewModel.class);
         // TODO: Use the ViewModel
     }
+
 
 }

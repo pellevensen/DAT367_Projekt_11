@@ -3,24 +3,17 @@ package com.example.dat367_projekt_11.view;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
     }
 
     }

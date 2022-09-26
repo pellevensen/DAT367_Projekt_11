@@ -6,7 +6,7 @@ import java.util.List;
 public class Profile {
     private final String name;
     private int currentPoints;
-    private List<Chore> doneChores;
+    private List<Chore> doneChores;//delmängd av alla householdChores
 
 
     public Profile(String name) {

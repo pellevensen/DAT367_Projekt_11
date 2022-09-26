@@ -8,7 +8,7 @@ public class User {
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;
-    private List<Chore> householdChores;
+    private List<Chore> householdChores; //ev. hashmap,
 
     public User(String email, String password) {
         this.password = password;

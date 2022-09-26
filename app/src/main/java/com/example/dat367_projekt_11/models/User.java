@@ -1,12 +1,14 @@
 package com.example.dat367_projekt_11.models;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class User {
     private String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;
+    private List<Chore> householdChores;
 
     public User(String email, String password) {
         this.password = password;

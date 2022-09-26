@@ -24,4 +24,10 @@ public class Profile {
         chore.completeChore();
         doneChores.add(chore);
     }
+
+    public List<Chore> getDoneChores(){
+        return this.doneChores;
+    }
+
+
 }

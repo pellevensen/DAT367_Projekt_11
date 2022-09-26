@@ -14,11 +14,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginViewModel extends BaseObservable {
-    private User user;
-    private FirebaseAuth mAuth;
+    private final User user;
+    private final FirebaseAuth mAuth;
 
-    private String successMessage = "Login was successful";
-    private String errorMessage = "Email or Password not valid";
+    private final String successMessage = "Login was successful";
+    private final String errorMessage = "Email or Password not valid";
 
 
 
@@ -44,6 +44,7 @@ public class LoginViewModel extends BaseObservable {
 
     public LoginViewModel() {
         user = new User("test@gmail.com","abc123");
+        this.mAuth = FirebaseAuth.getInstance();
     }
 
     @Bindable
@@ -61,7 +62,6 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public void onLoginClicked(){
-        mAuth = FirebaseAuth.getInstance();
         checkIfPasswordEmailTypedIn(getUserEmail(), getUserPassword());
         mAuth.signInWithEmailAndPassword(getUserEmail(), getUserPassword()).addOnCompleteListener(
                 new OnCompleteListener<AuthResult>() {

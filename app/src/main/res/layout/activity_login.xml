@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="viewModelLogin"
+            name="viewModel"
             type="com.example.dat367_projekt_11.viewModels.LoginViewModel" />
     </data>
 
@@ -34,7 +34,7 @@
 
         <EditText
             android:id="@+id/emailTextView"
-            android:text="@{viewModelLogin.userEmail}"
+            android:text="@{viewModel.userEmail}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/passwordTextView"
@@ -52,7 +52,7 @@
 
         <EditText
             android:id="@+id/passwordTextView"
-            android:text="@{viewModelLogin.userPassword}"
+            android:text="@{viewModel.userPassword}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -69,8 +69,8 @@
 
         <Button
             android:id="@+id/login"
-            android:onClick="@{()-> viewModelLogin.onLoginClicked()}"
-            app:toastMessage="@{viewModelLogin.toastMessage}"
+            android:onClick="@{()-> viewModel.onLoginClicked()}"
+            app:toastMessage="@{viewModel.toastMessage}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

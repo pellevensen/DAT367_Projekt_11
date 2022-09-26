@@ -1,16 +1,27 @@
 package com.example.dat367_projekt_11.models;
 
-import android.widget.EditText;
 
-import com.google.firebase.auth.FirebaseUser;
+import java.util.List;
 
 public class Profile {
-    private FirebaseUser user;
-    private EditText name;
+    private final String name;
+    private int currentPoints;
+    private List<Chore> doneChores;//delmängd av alla householdChores
 
-    public EditText getName() {
+
+    public Profile(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
         return name;
     }
 
-
+    public int getCurrentPoints() {
+        return currentPoints;
+    }
+    public void completeChore(Chore chore){
+        chore.completeChore();
+        doneChores.add(chore);
+    }
 }

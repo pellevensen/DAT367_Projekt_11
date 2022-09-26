@@ -43,7 +43,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("test@gmail.com","abc123");
+        user = new User("","");
         this.mAuth = FirebaseAuth.getInstance();
     }
 

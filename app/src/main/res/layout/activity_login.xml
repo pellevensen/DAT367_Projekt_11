@@ -34,7 +34,7 @@
 
         <EditText
             android:id="@+id/emailTextView"
-            android:text="@{viewModel.userEmail}"
+            android:text="@={viewModel.userEmail}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/passwordTextView"
@@ -52,7 +52,7 @@
 
         <EditText
             android:id="@+id/passwordTextView"
-            android:text="@{viewModel.userPassword}"
+            android:text="@={viewModel.userPassword}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

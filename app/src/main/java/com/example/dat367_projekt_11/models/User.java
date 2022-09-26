@@ -1,15 +1,48 @@
 package com.example.dat367_projekt_11.models;
 
-import android.widget.EditText;
-
-import java.util.List;
+import java.util.HashMap;
 
 public class User {
-    private EditText householdName;
-    private List<Chore> householdChores;
-    private List<Profile> householdProfiles;
+    private String householdName;
+    HashMap<String, Profile> profileList = new HashMap<String, Profile>();
+    private String password;
+    private String email;
 
-    void addChore(Chore chore){householdChores.add(chore);}
-    void removeChore(Chore chore){householdChores.remove(chore);}
-    void addProfile(Profile profile){householdProfiles.add(profile);}
+    public User(String email, String password) {
+        this.password = password;
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getHouseholdName() {
+        return householdName;
+    }
+
+    public HashMap<String, Profile> getProfileList() {
+        return profileList;
+    }
+
+    public void addProfile(String name){
+        profileList.put(name, new Profile(name));
+    }
+
+    public void deleteProfile(String profileName){
+        profileList.remove(profileName);
+    }
+
 }

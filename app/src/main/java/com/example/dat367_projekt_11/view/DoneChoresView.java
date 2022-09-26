@@ -35,4 +35,5 @@ private FragmentDonechoresmodelBinding binding;
         super.onDestroyView();
         binding = null;
     }
+
 }

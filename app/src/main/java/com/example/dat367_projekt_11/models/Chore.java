@@ -1,6 +1,6 @@
 package com.example.dat367_projekt_11.models;
 
-public class Chore implements IChore{
+public class Chore {
     private final String name;
     private final String description;
     private final int points;

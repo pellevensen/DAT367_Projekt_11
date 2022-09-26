@@ -9,6 +9,7 @@ public class Profile {
     private List<Chore> doneChores;//delmängd av alla householdChores
 
 
+
     public Profile(String name) {
         this.name = name;
     }
@@ -21,9 +22,21 @@ public class Profile {
         return currentPoints;
     }
     public void completeChore(Chore chore){
-        chore.completeChore();
+        addChoretoCompletedChore(chore);
+        addPointToCurrentPoints(chore);
+
+       // chore.completeChore();
+      // doneChores.add(chore);
+    }
+
+    private void addPointToCurrentPoints(Chore chore){
+        this.currentPoints += chore.getPoints();
+    }
+
+    private void addChoretoCompletedChore(Chore chore){
         doneChores.add(chore);
     }
+
 
     public List<Chore> getDoneChores(){
         return this.doneChores;

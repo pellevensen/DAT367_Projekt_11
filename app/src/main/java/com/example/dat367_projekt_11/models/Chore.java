@@ -1,10 +1,10 @@
 package com.example.dat367_projekt_11.models;
 
-public class Chore implements IChore{
+public class Chore {
     private final String name;
     private final String description;
     private final int points;
-    public Boolean isComplete;
+    private boolean isComplete;
 
     public Chore(String name, String description, int points){
         this.name = name;

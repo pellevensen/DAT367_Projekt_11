@@ -10,7 +10,7 @@ public class DoneChoresViewModel extends ViewModel {
 
     public DoneChoresViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is done chores fragment");
+        mText.setValue("@string/done_ChoreTitle");
     }
 
     public LiveData<String> getText() {

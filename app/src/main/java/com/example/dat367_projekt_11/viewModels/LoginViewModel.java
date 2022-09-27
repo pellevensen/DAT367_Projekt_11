@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginViewModel extends BaseObservable {
     private final User user;
@@ -72,7 +73,8 @@ public class LoginViewModel extends BaseObservable {
                     {
                         if (task.isSuccessful()) {
                             setToastMessage(successMessage);
-
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            updateUI(currentUser);
                         }
 
                         else {
@@ -83,6 +85,10 @@ public class LoginViewModel extends BaseObservable {
                     }
                 });
     }
+
+    private void updateUI(FirebaseUser currentUser) {
+    }
+
     private void checkIfPasswordEmailTypedIn(String email, String password){
         if (TextUtils.isEmpty(email)) {
             setToastMessage("Please enter email!!");

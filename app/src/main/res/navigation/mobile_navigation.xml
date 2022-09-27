@@ -26,5 +26,5 @@
         android:id="@+id/mainActivity"
         android:name="com.example.dat367_projekt_11.view.MainActivity"
         android:label="activity_register"
-        tools:layout="@layout/activity_registration" />
+        tools:layout="@layout/fragment_scoreboard" />
 </navigation>

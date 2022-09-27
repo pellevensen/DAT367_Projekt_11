@@ -10,6 +10,7 @@ public class User {
     private String email;
     private List<Chore> householdChores; //ev. hashmap,
 
+
     public User(String email, String password) {
         this.password = password;
         this.email = email;
@@ -17,6 +18,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    private void addNewChoreToList(String name, String description, int points){
+       Chore chore = new Chore(name, description, points);
+       householdChores.add(chore);
+    }
+
+    public List<Chore> getHouseholdChores() {
+        return householdChores;
     }
 
     public String getPassword() {

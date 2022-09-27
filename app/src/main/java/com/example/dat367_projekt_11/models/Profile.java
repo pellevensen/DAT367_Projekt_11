@@ -6,9 +6,7 @@ import java.util.List;
 public class Profile {
     private final String name;
     private int currentPoints;
-    private List<Chore> doneChores;//delmängd av alla householdChores
-
-
+    private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
 
     public Profile(String name) {
         this.name = name;
@@ -21,13 +19,13 @@ public class Profile {
     public int getCurrentPoints() {
         return currentPoints;
     }
-    public void completeChore(Chore chore){
+
+    public void completeCurrentChore(Chore chore){
+        chore.completeChore();
         addChoretoCompletedChore(chore);
         addPointToCurrentPoints(chore);
-
-       // chore.completeChore();
-      // doneChores.add(chore);
     }
+    //istället för att hämta ut från individuell chore, hämta listan.
 
     private void addPointToCurrentPoints(Chore chore){
         this.currentPoints += chore.getPoints();

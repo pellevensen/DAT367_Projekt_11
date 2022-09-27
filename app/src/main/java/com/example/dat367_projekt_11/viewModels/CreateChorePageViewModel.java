@@ -38,8 +38,8 @@ public class CreateChorePageViewModel extends ViewModel {
 
         }
 
-        private void addNewChoreToList() {
-            user.addChore(getName(), getDescription(), getPoints());
+        private void addChore() {
+            user.addNewChoreToList(getName(), getDescription(), getPoints());
         }
 
 

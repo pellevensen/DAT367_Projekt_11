@@ -12,7 +12,10 @@ public class ScoreboardActivity extends AppCompatActivity {
 
     TextView Scores;
 
+    String memberName;
+    int memberScore;
     int best1, best2, best3;
+    String ThirdPlace, SecondPlace, FirstPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -22,48 +25,49 @@ public class ScoreboardActivity extends AppCompatActivity {
         Scores = (TextView) findViewById(R.id.Scores);
 
         SharedPreferences preferences = getSharedPreferences("PREF", +0);
+        memberScore = preferences.getInt("memberScore", memberScore);
         best1 = preferences.getInt("points1", 0);
         best2 = preferences.getInt("points2", 0);
         best3 = preferences.getInt("points3", 0);
 
-        if( RandomNamesPoints > best3){
-            ThirdPlace = RandomName;
-            best3 = RandomNamesPoints;
+        if( memberScore > best3){
+            ThirdPlace = memberName;
+            best3 = memberScore;
             SharedPreferences.Editor editor = preferences.edit();
             editor.putInt("points3", best3);
-            editor.putString(RandomName, ThirdPlace);
+            editor.putString(memberName, ThirdPlace);
             editor.apply();
         }
 
-        if( RandomNamesPoints > best2){
+        if( memberScore > best2){
             int temp = best2;
-            SecondPlace = RandomName;
-            best2 = RandomNamesPoints;
+            SecondPlace = memberName;
+            best2 = memberScore;
             best3 = temp;
             SharedPreferences.Editor editor = preferences.edit();
             editor.putInt("points3", best3);
-            editor.putString(SecondPlaceRandomName, ThirdPlace);
+            editor.putString(SecondPlace, ThirdPlace);
             editor.putInt("points2", best2);
-            editor.putString(RandomName, SecondPlace);
+            editor.putString(memberName, SecondPlace);
             editor.apply();
         }
 
-        if( RandomNamesPoints > best1){
+        if( memberScore > best1){
             int temp = best1;
-            FirstPlace = RandomName;
-            best1 = RandomNamesPoints;
+            FirstPlace = memberName;
+            best1 = memberScore;
             best2 = temp;
             SharedPreferences.Editor editor = preferences.edit();
             editor.putInt("points2", best2);
-            editor.putString(FirstPlaceRandomName, SecondPlace);
+            editor.putString(FirstPlace, SecondPlace);
             editor.putInt("points1", best1);
-            editor.putString(RandomName, FirstPlace);
+            editor.putString(memberName, FirstPlace);
             editor.apply();
         }
 
-        Scores.setText("#1" + RandomName + best1 + "\n" +
-                            "#2" + RandomName + best2 + "\n" +
-                            "#3" + RandomName + best3 + "\n");
+        Scores.setText("#1" + memberName + best1 + "\n" +
+                            "#2" + memberName + best2 + "\n" +
+                            "#3" + memberName + best3 + "\n");
 
     }
 

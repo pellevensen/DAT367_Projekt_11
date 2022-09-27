@@ -43,7 +43,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("","");
+        user = new User("","", "");
         this.mAuth = FirebaseAuth.getInstance();
     }
 
@@ -60,6 +60,7 @@ public class LoginViewModel extends BaseObservable {
         this.toastMessage = toastMessage;
         notifyPropertyChanged(BR.toastMessage);
     }
+
 
     public void onLoginClicked(){
         checkIfPasswordEmailTypedIn(getUserEmail(), getUserPassword());

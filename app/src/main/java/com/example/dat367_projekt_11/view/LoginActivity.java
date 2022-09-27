@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this, R.layout.activity_login);
-        activityLoginBinding.setViewModel(new LoginViewModel());
+        activityLoginBinding.setLoginViewModel(new LoginViewModel());
         activityLoginBinding.executePendingBindings();
 
     }

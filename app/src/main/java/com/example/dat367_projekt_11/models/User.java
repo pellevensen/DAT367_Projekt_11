@@ -8,9 +8,10 @@ public class User {
     private String password;
     private String email;
 
-    public User(String email, String password) {
+    public User(String email, String password, String householdName) {
         this.password = password;
         this.email = email;
+        this.householdName = householdName;
     }
 
     public void setPassword(String password) {
@@ -29,9 +30,12 @@ public class User {
     public String getEmail() {
         return email;
     }
+
     public String getHouseholdName() {
         return householdName;
     }
+    public void setHouseholdName(String householdName){ this.householdName = householdName;}
+
     public List<Profile> getProfileList() {
         return profileList;
     }

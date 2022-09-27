@@ -69,6 +69,8 @@
 
         <Button
             android:id="@+id/btn"
+            android:onClick="@{()-> viewModel.onRegistrationClicked()}"
+            app:toastMessage="@{viewModel.toastMessage}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

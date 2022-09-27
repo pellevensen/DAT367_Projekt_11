@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         activityLoginBinding.setLoginViewModel(new LoginViewModel());
         activityLoginBinding.executePendingBindings();
 
+
     }
 
     @BindingAdapter({"toastMessage"})

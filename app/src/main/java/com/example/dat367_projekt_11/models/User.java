@@ -25,6 +25,13 @@ public class User {
        householdChores.add(chore);
     }
 
+    public void removeCompletedChore(Chore chore){
+            if (chore.isComplete()){
+                householdChores.remove(chore);
+
+        }
+    }
+
 
     public List<Chore> getHouseholdChores() {
         return householdChores;

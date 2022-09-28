@@ -3,12 +3,13 @@ package com.example.dat367_projekt_11.models;
 import java.util.HashMap;
 import java.util.List;
 
-public class User implements ChoreStatusListener {
+public class User implements ChoreStatusListener{
     private String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;
     private List<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private List<ChoreListStatusListener> listeners;
 
 
     public User(String email, String password) {
@@ -23,11 +24,13 @@ public class User implements ChoreStatusListener {
     public void addNewChoreToList(String name, String description, int points){
        Chore chore = new Chore(name, description, points);
        householdChores.add(chore);
+       notifyListeners();
     }
 
     private void removeCompletedChore(Chore chore){
             if (chore.isComplete()){
                 householdChores.remove(chore);
+                notifyListeners();
 
         }
     }
@@ -68,6 +71,20 @@ public class User implements ChoreStatusListener {
     @Override
     public void update(Chore chore) {
         this.removeCompletedChore(chore);
+
+    }
+
+
+    private void subscibe(ChoreListStatusListener listener){
+        listeners.add(listener);
+
+    }
+
+
+    private void notifyListeners() {
+        for (ChoreListStatusListener listener : listeners) {
+            listener.update(householdChores);
+        }
 
     }
 }

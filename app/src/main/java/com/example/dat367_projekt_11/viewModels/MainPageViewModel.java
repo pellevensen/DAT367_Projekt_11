@@ -4,7 +4,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MainPageViewModel extends ViewModel {
+import com.example.dat367_projekt_11.models.Chore;
+import com.example.dat367_projekt_11.models.ChoreListStatusListener;
+
+import java.util.List;
+
+public class MainPageViewModel extends ViewModel implements ChoreListStatusListener {
 
     private final MutableLiveData<String> mText;
 
@@ -18,4 +23,10 @@ public class MainPageViewModel extends ViewModel {
     }
 
 
+    @Override
+    public void update(List<Chore> choreList) {
+        /*TODO koppla sidan till alla available chores
+
+         */
+    }
 }

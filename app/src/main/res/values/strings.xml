@@ -28,4 +28,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="title_tidyApp">TidyApp</string>
+    <string name="my_points">Points</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_description">Description :</string>
+    <string name="title_points">Points</string>
+    <string name="text_checkBox">Complete</string>
+    <string name="title_chore">Chore name</string>
+    <string name="done_ChoresTitel">Your completed chores</string>
 </resources>

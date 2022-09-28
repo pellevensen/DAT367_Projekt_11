@@ -6,7 +6,8 @@ import java.util.List;
 public class Profile implements ChoreStatusListener {
     private final String name;
     private int currentPoints;
-    private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
+    private List<Chore> doneChores;
+    private List<ChoreListStatusListener> listeners;
 
     public Profile(String name) {
         this.name = name;
@@ -24,11 +25,10 @@ public class Profile implements ChoreStatusListener {
     private void addChoretoCompletedChore(Chore chore){
         doneChores.add(chore);
     }
+
     private void addPointToCurrentPoints(Chore chore){
         this.currentPoints += chore.getPoints();
     }
-
-
 
 
     public List<Chore> getDoneChores(){
@@ -40,5 +40,16 @@ public class Profile implements ChoreStatusListener {
     public void update(Chore chore) {
         addPointToCurrentPoints(chore);
         addChoretoCompletedChore(chore);
+        notifyListeners();
     }
+
+    private void notifyListeners() {
+        for(ChoreListStatusListener listener : listeners){
+            listener.update(doneChores);
+        }
+    }
+    private void subscribe(ChoreListStatusListener listener) {
+        listeners.add(listener);
+    }
+
 }

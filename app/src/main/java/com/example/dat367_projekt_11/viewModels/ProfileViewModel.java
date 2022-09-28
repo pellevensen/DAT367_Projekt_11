@@ -25,7 +25,7 @@ public class ProfileViewModel extends BaseObservable {
         notifyPropertyChanged(BR.profileName);
     }
     public void onNewProfileClicked(){
-        user.addProfile(profile);
+        user.addProfile(getProfileName(), profile);
     }
 
 

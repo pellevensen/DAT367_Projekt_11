@@ -3,7 +3,7 @@ package com.example.dat367_projekt_11.models;
 import java.util.HashMap;
 import java.util.List;
 
-public class User {
+public class User implements IListener {
     private String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
@@ -25,7 +25,7 @@ public class User {
        householdChores.add(chore);
     }
 
-    public void removeCompletedChore(Chore chore){
+    private void removeCompletedChore(Chore chore){
             if (chore.isComplete()){
                 householdChores.remove(chore);
 
@@ -65,4 +65,9 @@ public class User {
         profileList.remove(profileName);
     }
 
+    @Override
+    public void update(Chore chore) {
+        this.removeCompletedChore(chore);
+
+    }
 }

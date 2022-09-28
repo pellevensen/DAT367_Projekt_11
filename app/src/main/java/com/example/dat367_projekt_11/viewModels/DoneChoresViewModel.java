@@ -5,16 +5,14 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.dat367_projekt_11.models.Chore;
+import com.example.dat367_projekt_11.models.ChoreListStatusListener;
 import com.example.dat367_projekt_11.models.Profile;
 
 import java.util.List;
 import java.util.Objects;
 
-public class DoneChoresViewModel extends ViewModel {
+public class DoneChoresViewModel extends ViewModel implements ChoreListStatusListener {
     private Profile profile;
-
-   // private final List<Chore> doneChores = Objects.requireNonNull(profile).getDoneChores();
-
     private final MutableLiveData<String> mText;
 
     public DoneChoresViewModel() {
@@ -24,5 +22,13 @@ public class DoneChoresViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    @Override
+    public void update(List<Chore> choreList) {
+        /*TODO implementera ett sätt att ta listan av donechores och presenterad dem som cards
+                för varje donechore
+         */
+
     }
 }

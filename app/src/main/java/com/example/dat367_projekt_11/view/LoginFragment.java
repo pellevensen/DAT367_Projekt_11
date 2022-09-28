@@ -10,6 +10,7 @@ public class LoginFragment extends Fragment {
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
+
     }
 
    /* private FragmentLoginBinding binding;

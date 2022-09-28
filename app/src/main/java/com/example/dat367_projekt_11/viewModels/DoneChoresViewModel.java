@@ -4,13 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.dat367_projekt_11.models.Chore;
+import com.example.dat367_projekt_11.models.Profile;
+
+import java.util.List;
+import java.util.Objects;
+
 public class DoneChoresViewModel extends ViewModel {
+    private Profile profile;
+
+   // private final List<Chore> doneChores = Objects.requireNonNull(profile).getDoneChores();
 
     private final MutableLiveData<String> mText;
 
     public DoneChoresViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is done chores fragment");
+        mText.setValue("@string/done_ChoreTitle");
     }
 
     public LiveData<String> getText() {

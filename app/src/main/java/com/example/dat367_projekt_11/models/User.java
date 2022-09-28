@@ -1,5 +1,8 @@
 package com.example.dat367_projekt_11.models;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.List;
 
 public class User {
@@ -7,11 +10,19 @@ public class User {
     private List<Profile> profileList;
     private String password;
     private String email;
+    private FirebaseAuth mAuth;
+    private FirebaseUser firebaseUser;
 
     public User(String email, String password, String householdName) {
         this.password = password;
         this.email = email;
         this.householdName = householdName;
+        this.mAuth = FirebaseAuth.getInstance();
+        this.firebaseUser = mAuth.getCurrentUser();
+    }
+
+    public FirebaseAuth getmAuth(){
+        return  mAuth;
     }
 
     public void setPassword(String password) {
@@ -39,8 +50,9 @@ public class User {
     public List<Profile> getProfileList() {
         return profileList;
     }
-    public void addProfile(String name){
-        profileList.add(new Profile(name));
+    public void addProfile(Profile profile){
+        profileList.add(profile);
     }
+
 
 }

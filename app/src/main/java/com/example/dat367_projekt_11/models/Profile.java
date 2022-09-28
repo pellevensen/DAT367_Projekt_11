@@ -1,7 +1,7 @@
 package com.example.dat367_projekt_11.models;
 
 public class Profile {
-    private final String name;
+    private String name;
     private int currentPoints;
 
     public Profile(String name) {
@@ -14,5 +14,9 @@ public class Profile {
 
     public int getCurrentPoints() {
         return currentPoints;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -11,12 +11,9 @@ import com.example.dat367_projekt_11.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginViewModel extends BaseObservable {
     private final User user;
-    private final FirebaseAuth mAuth;
 
     private final String successMessage = "Login was successful";
     private final String errorMessage = "Email or Password not valid";
@@ -45,7 +42,6 @@ public class LoginViewModel extends BaseObservable {
 
     public LoginViewModel() {
         user = new User("","", "");
-        this.mAuth = FirebaseAuth.getInstance();
     }
 
     @Bindable
@@ -65,7 +61,7 @@ public class LoginViewModel extends BaseObservable {
 
     public void onLoginClicked(){
         checkIfPasswordEmailTypedIn(getUserEmail(), getUserPassword());
-        mAuth.signInWithEmailAndPassword(getUserEmail(), getUserPassword()).addOnCompleteListener(
+        user.getmAuth().signInWithEmailAndPassword(getUserEmail(), getUserPassword()).addOnCompleteListener(
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(
@@ -73,8 +69,6 @@ public class LoginViewModel extends BaseObservable {
                     {
                         if (task.isSuccessful()) {
                             setToastMessage(successMessage);
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            updateUI(currentUser);
                         }
 
                         else {
@@ -84,9 +78,6 @@ public class LoginViewModel extends BaseObservable {
                         }
                     }
                 });
-    }
-
-    private void updateUI(FirebaseUser currentUser) {
     }
 
     private void checkIfPasswordEmailTypedIn(String email, String password){

@@ -4,7 +4,7 @@ package com.example.dat367_projekt_11.models;
 import java.util.List;
 
 public class Profile implements ChoreStatusListener {
-    private final String name;
+    private String name;
     private int currentPoints;
     private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
 
@@ -29,8 +29,6 @@ public class Profile implements ChoreStatusListener {
     }
 
 
-
-
     public List<Chore> getDoneChores(){
         return this.doneChores;
     }
@@ -40,5 +38,9 @@ public class Profile implements ChoreStatusListener {
     public void update(Chore chore) {
         addPointToCurrentPoints(chore);
         addChoretoCompletedChore(chore);
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

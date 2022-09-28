@@ -76,4 +76,7 @@ public class User {
     public void setHouseholdName(String householdName) {
         this.householdName = householdName;
     }
+
+    public void setCurrentProfile(Profile profile) {
+    }
 }

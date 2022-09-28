@@ -28,5 +28,9 @@ public class ProfileViewModel extends BaseObservable {
         user.addProfile(getProfileName(), profile);
     }
 
+    public void onProfileClicked(){
+        user.setCurrentProfile(profile);
+    }
+
 
 }

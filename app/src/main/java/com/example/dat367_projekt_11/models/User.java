@@ -8,7 +8,8 @@ public class User {
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;
-    private List<Chore> householdChores; //ev. hashmap,
+    private List<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+
 
     public User(String email, String password) {
         this.password = password;
@@ -17,6 +18,23 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void addNewChoreToList(String name, String description, int points){
+       Chore chore = new Chore(name, description, points);
+       householdChores.add(chore);
+    }
+
+    public void removeCompletedChore(Chore chore){
+            if (chore.isComplete()){
+                householdChores.remove(chore);
+
+        }
+    }
+
+
+    public List<Chore> getHouseholdChores() {
+        return householdChores;
     }
 
     public String getPassword() {

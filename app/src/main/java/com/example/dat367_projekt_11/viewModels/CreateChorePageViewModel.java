@@ -5,32 +5,42 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.dat367_projekt_11.models.Chore;
+import com.example.dat367_projekt_11.models.User;
+
+import java.util.Objects;
 
 public class CreateChorePageViewModel extends ViewModel {
-   /*public String getChoreName() {
-      return choreName;
-   }
 
-   public String getChoreDescription() {
-      return choreDescription;
-   }
 
-   private String choreName;
-   private String choreDescription;
+  private User user;
+  private String name;
+  private String description;
+  private int points;
 
-   public int getChorePoints() {
-      return chorePoints;
-   }
+        private String getName () {
+                return Objects.requireNonNull(this.name);
+        }
+        public void setName (String name){
+        this.name = Objects.requireNonNull(name);
+    }
 
-   private int chorePoints;
+        private String getDescription () {
+        return Objects.requireNonNull(this.name);
+    }
+        public void setDescription (String description){
+        this.description = Objects.requireNonNull(description);
+    }
 
-   private MutableLiveData<Chore> choreMutableLiveData;
+        private int getPoints () {
+            return Objects.requireNonNull(points);}
+        public void setPoints(int points){
+            this.points = Objects.requireNonNull(points);
 
-   LiveData<Chore> getChore(){return choreMutableLiveData;}
+        }
 
-   public void onDoneButtonCLicked(){
-         Chore chore = new Chore(getChoreName(),getChoreDescription(),getChorePoints());
+        private void addChore() {
+            user.addNewChoreToList(getName(), getDescription(), getPoints());
+        }
 
-      }*/
 
-   }
+}

@@ -3,7 +3,7 @@ package com.example.dat367_projekt_11.models;
 import java.util.HashMap;
 import java.util.List;
 
-public class User implements IListener {
+public class User implements ChoreStatusListener {
     private String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;

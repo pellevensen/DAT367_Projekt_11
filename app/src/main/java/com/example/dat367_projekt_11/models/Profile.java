@@ -3,7 +3,7 @@ package com.example.dat367_projekt_11.models;
 
 import java.util.List;
 
-public class Profile implements IListener{
+public class Profile implements ChoreStatusListener {
     private final String name;
     private int currentPoints;
     private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,

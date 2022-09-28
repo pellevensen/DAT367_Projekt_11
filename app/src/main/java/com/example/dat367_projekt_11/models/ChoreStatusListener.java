@@ -1,5 +1,5 @@
 package com.example.dat367_projekt_11.models;
 
-public interface IListener {
+public interface ChoreStatusListener {
     public void update(Chore chore);
 }

@@ -8,7 +8,7 @@ public class Chore{
     private final String description;
     private final int points;
     private boolean isComplete;
-    private List<IListener> listeners;
+    private List<ChoreStatusListener> listeners;
 
 
     public Chore(String name, String description, int points){
@@ -37,12 +37,12 @@ public class Chore{
         return this.isComplete;
     }
 
-    private void subscibe(IListener listener){
+    private void subscibe(ChoreStatusListener listener){
         listeners.add(listener);
 
     }
     private void notifyObservers() {
-        for (IListener listener : listeners) {
+        for (ChoreStatusListener listener : listeners) {
             if (this.isComplete()) {
                 listener.update(this);
             }

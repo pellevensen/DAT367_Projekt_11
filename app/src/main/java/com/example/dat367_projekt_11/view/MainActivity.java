@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.ActivityMainBinding;

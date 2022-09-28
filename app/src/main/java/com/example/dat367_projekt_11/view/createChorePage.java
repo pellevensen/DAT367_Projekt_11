@@ -1,4 +1,4 @@
-package com.example.dat367_projekt_11.models;
+package com.example.dat367_projekt_11.view;
 
 import androidx.lifecycle.ViewModelProvider;
 

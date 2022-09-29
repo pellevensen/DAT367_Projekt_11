@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.ChoreListStatusListener;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainPageViewModel extends ViewModel implements ChoreListStatusListener {
 
@@ -24,7 +24,7 @@ public class MainPageViewModel extends ViewModel implements ChoreListStatusListe
 
 
     @Override
-    public void update(List<Chore> choreList) {
+    public void update(ArrayList<Chore> choreList) {
         /*TODO koppla sidan till alla available chores
 
          */

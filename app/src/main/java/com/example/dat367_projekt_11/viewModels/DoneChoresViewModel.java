@@ -8,8 +8,7 @@ import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.ChoreListStatusListener;
 import com.example.dat367_projekt_11.models.Profile;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class DoneChoresViewModel extends ViewModel implements ChoreListStatusListener {
     private Profile profile;
@@ -25,7 +24,7 @@ public class DoneChoresViewModel extends ViewModel implements ChoreListStatusLis
     }
 
     @Override
-    public void update(List<Chore> choreList) {
+    public void update(ArrayList<Chore> choreList) {
         /*TODO implementera ett sätt att ta listan av donechores och presenterad dem som cards
                 för varje donechore
          */

@@ -1,20 +1,25 @@
 package com.example.dat367_projekt_11.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class User implements ChoreStatusListener{
-    private String householdName;
+    private final String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;
-    private List<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private List<ChoreListStatusListener> listeners;
+    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private ArrayList<ChoreListStatusListener> listeners;
+    //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 
 
-    public User(String email, String password) {
+    public User(String householdName, String email, String password, ArrayList<Chore> householdChores, ArrayList<ChoreListStatusListener> listeners) {
+        this.householdName = householdName;
         this.password = password;
         this.email = email;
+        this.householdChores = householdChores;
+        this.listeners = listeners;
     }
 
     public void setPassword(String password) {
@@ -61,7 +66,7 @@ public class User implements ChoreStatusListener{
     }
 
     public void addProfile(String name){
-        profileList.put(name, new Profile(name));
+        profileList.put(name, new Profile(name, new ArrayList<Chore>(), listeners));
     }
 
     public void deleteProfile(String profileName){

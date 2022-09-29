@@ -1,16 +1,20 @@
 package com.example.dat367_projekt_11.models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Profile implements ChoreStatusListener {
     private final String name;
-    private int currentPoints;
-    private List<Chore> doneChores;
-    private List<ChoreListStatusListener> listeners;
+    private int currentPoints = 0;
+    private ArrayList<Chore> doneChores;
+    private ArrayList<ChoreListStatusListener> listeners;
+    //konstruktorparametrar för donechores och listeners?
 
-    public Profile(String name) {
+    public Profile(String name, ArrayList<Chore> doneChores, ArrayList<ChoreListStatusListener> listeners) {
         this.name = name;
+        this.doneChores = doneChores;
+        this.listeners = listeners;
     }
 
     public String getName() {

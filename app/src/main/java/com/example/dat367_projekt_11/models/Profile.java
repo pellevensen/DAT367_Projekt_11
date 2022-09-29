@@ -3,8 +3,8 @@ package com.example.dat367_projekt_11.models;
 
 import java.util.List;
 
-public class Profile {
-    private final String name;
+public class Profile implements ChoreStatusListener {
+    private String name;
     private int currentPoints;
     private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
 
@@ -20,19 +20,12 @@ public class Profile {
         return currentPoints;
     }
 
-    public void completeCurrentChore(Chore chore){
-        chore.completeChore();
-        addChoretoCompletedChore(chore);
-        addPointToCurrentPoints(chore);
-    }
-    //istället för att hämta ut från individuell chore, hämta listan.
-
-    private void addPointToCurrentPoints(Chore chore){
-        this.currentPoints += chore.getPoints();
-    }
 
     private void addChoretoCompletedChore(Chore chore){
         doneChores.add(chore);
+    }
+    private void addPointToCurrentPoints(Chore chore){
+        this.currentPoints += chore.getPoints();
     }
 
 
@@ -41,4 +34,13 @@ public class Profile {
     }
 
 
+    @Override
+    public void update(Chore chore) {
+        addPointToCurrentPoints(chore);
+        addChoretoCompletedChore(chore);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

@@ -1,14 +1,15 @@
 package com.example.dat367_projekt_11;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
-import com.example.dat367_projekt_11.models.Profile;
+import static org.junit.Assert.assertEquals;
+
 import com.example.dat367_projekt_11.models.User;
+
+import org.junit.Test;
 
 public class UserUnitTest {
 private final User user;
     public UserUnitTest() {
-        user = new User("firstname.lastename@email.com","abc123");
+        user = new User("firstname.lastename@email.com","abc123", "hej");
     }
 
     @Test

@@ -5,12 +5,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
 
 
     @Override

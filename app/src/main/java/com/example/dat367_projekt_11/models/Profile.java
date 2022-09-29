@@ -1,15 +1,20 @@
 package com.example.dat367_projekt_11.models;
 
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class Profile implements ChoreStatusListener {
-    private String name;
-    private int currentPoints;
-    private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
+    private final String name;
+    private int currentPoints = 0;
+    private ArrayList<Chore> doneChores;
+    private ArrayList<ChoreListStatusListener> listeners;
+    //konstruktorparametrar för donechores och listeners?
 
-    public Profile(String name) {
+    public Profile(String name, ArrayList<Chore> doneChores, ArrayList<ChoreListStatusListener> listeners) {
         this.name = name;
+        this.doneChores = doneChores;
+        this.listeners = listeners;
     }
 
     public String getName() {
@@ -24,12 +29,13 @@ public class Profile implements ChoreStatusListener {
     private void addChoretoCompletedChore(Chore chore){
         doneChores.add(chore);
     }
+
     private void addPointToCurrentPoints(Chore chore){
         this.currentPoints += chore.getPoints();
     }
 
 
-    public List<Chore> getDoneChores(){
+    public ArrayList<Chore> getDoneChores(){
         return this.doneChores;
     }
 
@@ -38,9 +44,16 @@ public class Profile implements ChoreStatusListener {
     public void update(Chore chore) {
         addPointToCurrentPoints(chore);
         addChoretoCompletedChore(chore);
+        notifyListeners();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    private void notifyListeners() {
+        for(ChoreListStatusListener listener : listeners){
+            listener.update(doneChores);
+        }
     }
+    private void subscribe(ChoreListStatusListener listener) {
+        listeners.add(listener);
+    }
+
 }

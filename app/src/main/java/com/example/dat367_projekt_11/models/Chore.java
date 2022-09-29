@@ -1,24 +1,26 @@
 package com.example.dat367_projekt_11.models;
 
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Chore{
     private final String name;
     private final String description;
     private final int points;
     private boolean isComplete;
-    private List<ChoreStatusListener> listeners;
+    private ArrayList<ChoreStatusListener> listeners;
 
 
-    public Chore(String name, String description, int points){
+    public Chore(String name, String description, int points, ArrayList<ChoreStatusListener> listeners){
         this.name = name;
         this.description = description;
         this.points = points;
+        this.listeners = listeners;
     }
 
     public void completeChore(){
         this.isComplete = true;
+        notifySubscribers();
     }
 
     public String getName() {
@@ -37,15 +39,13 @@ public class Chore{
         return this.isComplete;
     }
 
-    private void subscibe(ChoreStatusListener listener){
+    private void subscribe(ChoreStatusListener listener){
         listeners.add(listener);
 
     }
-    private void notifyObservers() {
+    private void notifySubscribers() {
         for (ChoreStatusListener listener : listeners) {
-            if (this.isComplete()) {
                 listener.update(this);
-            }
         }
     }
 

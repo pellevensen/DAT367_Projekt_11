@@ -12,7 +12,9 @@ import java.util.List;
 
 public class ScoreboardModel /*extends AppCompatActivity*/ {
 
-   /* TextView Scores;
+   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin
+
+   TextView Scores;
 
     String memberName = "Pauline";
     int memberScore;

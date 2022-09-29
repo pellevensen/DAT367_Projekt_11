@@ -16,17 +16,16 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
 
-    BottomNavigationView bottomNavigationView;
     ScoreboardFragment scoreboardFragment = new ScoreboardFragment();
-
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+        /*AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_donechores, R.id.navigation_leaderboard, R.id.navigation_profile)
-                .build();
+                .build();*/
 
         bottomNavigationView = findViewById(R.id.nav_view);
 

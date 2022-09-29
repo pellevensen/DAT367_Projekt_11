@@ -1,4 +1,4 @@
-package com.example.dat367_projekt_11.models;
+package com.example.dat367_projekt_11.view;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,19 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
 
-import java.util.List;
+public class ScoreboardActivity extends AppCompatActivity {
 
-public class ScoreboardModel /*extends AppCompatActivity*/ {
+    TextView Scores;
 
-   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin
-
-   TextView Scores;
-
-    String memberName = "Pauline";
+    String memberName;
     int memberScore;
     int best1, best2, best3;
     String ThirdPlace, SecondPlace, FirstPlace;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -59,7 +54,7 @@ public class ScoreboardModel /*extends AppCompatActivity*/ {
 
         if( memberScore > best1){
             int temp = best1;
-            FirstPlace = memberName;
+            /*FirstPlace = memberName;*/
             best1 = memberScore;
             best2 = temp;
             SharedPreferences.Editor editor = preferences.edit();
@@ -70,10 +65,10 @@ public class ScoreboardModel /*extends AppCompatActivity*/ {
             editor.apply();
         }
 
-        Scores.setText("#1" + FirstPlace + best1 + "\n" +
-                "#2" + SecondPlace + best2 + "\n" +
-                "#3" + ThirdPlace + best3 + "\n");
+        Scores.setText("#1" + best1 + "\n" +
+                            "#2" + best2 + "\n" +
+                            "#3" + best3 + "\n");
 
-    }*/
+    }
 
 }

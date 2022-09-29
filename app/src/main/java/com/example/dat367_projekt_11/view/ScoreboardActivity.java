@@ -54,7 +54,7 @@ public class ScoreboardActivity extends AppCompatActivity {
 
         if( memberScore > best1){
             int temp = best1;
-            FirstPlace = memberName;
+            /*FirstPlace = memberName;*/
             best1 = memberScore;
             best2 = temp;
             SharedPreferences.Editor editor = preferences.edit();
@@ -65,9 +65,9 @@ public class ScoreboardActivity extends AppCompatActivity {
             editor.apply();
         }
 
-        Scores.setText("#1" + memberName + best1 + "\n" +
-                            "#2" + memberName + best2 + "\n" +
-                            "#3" + memberName + best3 + "\n");
+        Scores.setText("#1" + best1 + "\n" +
+                            "#2" + best2 + "\n" +
+                            "#3" + best3 + "\n");
 
     }
 

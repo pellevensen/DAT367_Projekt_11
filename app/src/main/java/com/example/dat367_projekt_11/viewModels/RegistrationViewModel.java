@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 public class RegistrationViewModel extends BaseObservable {
         private final User user;
         private final FirebaseAuth mAuth;
@@ -21,7 +23,7 @@ public class RegistrationViewModel extends BaseObservable {
         private final String errorMessage = "Email or Password not valid";
 
         public RegistrationViewModel() {
-                user = new User("","", "");
+                user = new User("","", "", new ArrayList<>(), new ArrayList<>());
                 this.mAuth = FirebaseAuth.getInstance();
         }
         @Bindable

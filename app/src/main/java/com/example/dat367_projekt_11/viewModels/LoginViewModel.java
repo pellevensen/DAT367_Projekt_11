@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
+import java.util.ArrayList;
+
 public class LoginViewModel extends BaseObservable {
     private final User user;
 
@@ -41,7 +43,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("","", "");
+        user = new User("","", "", new ArrayList<>(), new ArrayList<>());
     }
 
     @Bindable

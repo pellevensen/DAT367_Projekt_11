@@ -7,13 +7,15 @@ import com.example.dat367_projekt_11.BR;
 import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.models.User;
 
+import java.util.ArrayList;
+
 public class ProfileViewModel extends BaseObservable {
     private final User user;
     private final Profile profile;
 
     public ProfileViewModel() {
-        user = new User("","", "");
-        profile = new Profile("");
+        user = new User("","", "",new ArrayList<>(),new ArrayList<>());
+        profile = new Profile("",new ArrayList<>(), new ArrayList<>());
     }
     @Bindable
     public String getProfileName() {
@@ -24,13 +26,12 @@ public class ProfileViewModel extends BaseObservable {
         profile.setName(name);
         notifyPropertyChanged(BR.profileName);
     }
-    public void onNewProfileClicked(){
-        user.addProfile(getProfileName(), profile);
+   /* public void onNewProfileClicked(){
+        user.addProfile(getProfileName(), profile);*/
     }
 
-    public void onProfileClicked(){
-        user.setCurrentProfile(profile);
-    }
+   /* public void onProfileClicked(){
+        user.setCurrentProfile(profile);*/
 
 
-}
+

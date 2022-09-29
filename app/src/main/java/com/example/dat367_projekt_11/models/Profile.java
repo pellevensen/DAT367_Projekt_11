@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Profile implements ChoreStatusListener {
-    private final String name;
+    private String name;
     private int currentPoints = 0;
     private ArrayList<Chore> doneChores;
     private ArrayList<ChoreListStatusListener> listeners;
@@ -54,6 +54,10 @@ public class Profile implements ChoreStatusListener {
     }
     private void subscribe(ChoreListStatusListener listener) {
         listeners.add(listener);
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
 }

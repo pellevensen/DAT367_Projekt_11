@@ -7,7 +7,6 @@ import java.util.HashMap;
 public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
     private String householdName;
-    private final String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
     private String email;

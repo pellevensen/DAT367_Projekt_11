@@ -35,7 +35,7 @@ public class Profile implements ChoreStatusListener {
     }
 
 
-    public List<Chore> getDoneChores(){
+    public ArrayList<Chore> getDoneChores(){
         return this.doneChores;
     }
 

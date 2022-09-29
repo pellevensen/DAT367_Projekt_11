@@ -2,9 +2,8 @@ package com.example.dat367_projekt_11.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class User implements ChoreStatusListener{
+public class User implements ChoreStatusListener{ //lyssnar på chores boolean
     private final String householdName;
     HashMap<String, Profile> profileList = new HashMap<String, Profile>();
     private String password;
@@ -26,16 +25,16 @@ public class User implements ChoreStatusListener{
         this.password = password;
     }
 
-    public void addNewChoreToList(String name, String description, int points){
-       Chore chore = new Chore(name, description, points);
+    public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
+       Chore chore = new Chore(name, description, points, new ArrayList<ChoreStatusListener>());
        householdChores.add(chore);
-       notifyListeners();
+       notifyListeners(); // --> notifiera mainpageview
     }
 
-    private void removeCompletedChore(Chore chore){
+    private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                notifyListeners();
+                notifyListeners(); //--> notifiera completeschoreview
 
         }
     }
@@ -74,22 +73,23 @@ public class User implements ChoreStatusListener{
     }
 
     @Override
-    public void update(Chore chore) {
+    public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
         this.removeCompletedChore(chore);
 
     }
 
 
-    private void subscibe(ChoreListStatusListener listener){
+    private void subscribe(ChoreListStatusListener listener){ //broadcast
         listeners.add(listener);
 
     }
 
 
     private void notifyListeners() {
-        for (ChoreListStatusListener listener : listeners) {
+        for (ChoreListStatusListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 
     }
+
 }

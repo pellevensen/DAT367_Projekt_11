@@ -41,7 +41,7 @@ public class User implements ChoreStatusListener{
     }
 
 
-    public List<Chore> getHouseholdChores() {
+    public ArrayList<Chore> getHouseholdChores() {
         return householdChores;
     }
 

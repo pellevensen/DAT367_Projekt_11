@@ -14,8 +14,8 @@ public class ProfileViewModel extends BaseObservable {
     private final Profile profile;
 
     public ProfileViewModel() {
-        user = new User("","", "",new ArrayList<>(),new ArrayList<>());
-        profile = new Profile("",new ArrayList<>(), new ArrayList<>());
+        user = new User("","", "");
+        profile = new Profile("");
     }
     @Bindable
     public String getProfileName() {

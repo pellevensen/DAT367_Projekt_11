@@ -4,30 +4,33 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+
+
 public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
     private String householdName;
-    HashMap<String, Profile> profileList = new HashMap<String, Profile>();
+    private Map<String, Profile> profileList = new HashMap<>();
     private String password;
     private String email;
-    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false, SET of chore, hashset three set etc.istället, korrekt equal OCH korrekt hashcode
     private ArrayList<ChoreListStatusListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
+//kolla att sakerna är nollskilda, objekt required non null.
+    //design by contract
 
-
-    public User(String householdName, String email, String password, ArrayList<Chore> householdChores, ArrayList<ChoreListStatusListener> listeners) {
+    public User(String householdName, String email, String password) {
         this.householdName = householdName;
         this.password = password;
         this.email = email;
         this.householdName = householdName;
         this.mAuth = FirebaseAuth.getInstance();
-        this.householdChores = householdChores;
-        this.listeners = listeners;
     }
 
     public FirebaseAuth getmAuth(){
         return  mAuth;
     }
+    //returnera kopia? orginal kan mixtas med.
 
 
     public void setPassword(String password) {
@@ -35,7 +38,7 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     }
 
     public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
-       Chore chore = new Chore(name, description, points, new ArrayList<ChoreStatusListener>());
+       Chore chore = new Chore(name, description, points);
        householdChores.add(chore);
        notifyListeners(); // --> notifiera mainpageview
     }
@@ -48,8 +51,9 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
         }
     }
 
+    //defensiv inkopiering, defensiv utkopiering -> kan göra så man får en wrapper som gör unmodifiable. blir körningsfel om så händer. läs collectionsklassen.
 
-    public ArrayList<Chore> getHouseholdChores() {
+    public ArrayList<Chore> getHouseholdChores() { //jättemuterbar obs! collections. java utility collections.-> unmodifiable, ex of chores. kan ej modifiera listan
         return householdChores;
     }
 
@@ -69,12 +73,12 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
         return householdName;
     }
 
-    public HashMap<String, Profile> getProfileList() {
+    public Map<String, Profile> getProfileList() {
         return profileList;
     }
 
     public void addProfile(String name){
-        profileList.put(name, new Profile(name, new ArrayList<Chore>(), listeners));
+        profileList.put(name, new Profile(name));
     }
 
     public void deleteProfile(String profileName){

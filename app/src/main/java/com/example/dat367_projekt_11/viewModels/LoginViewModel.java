@@ -43,7 +43,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("","", "", new ArrayList<>(), new ArrayList<>());
+        user = new User("","", "");
     }
 
     @Bindable

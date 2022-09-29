@@ -9,12 +9,11 @@ public class Profile implements ChoreStatusListener {
     private int currentPoints = 0;
     private ArrayList<Chore> doneChores;
     private ArrayList<ChoreListStatusListener> listeners;
-    //konstruktorparametrar för donechores och listeners?
 
-    public Profile(String name, ArrayList<Chore> doneChores, ArrayList<ChoreListStatusListener> listeners) {
+
+    public Profile(String name) {
         this.name = name;
-        this.doneChores = doneChores;
-        this.listeners = listeners;
+
     }
 
     public String getName() {

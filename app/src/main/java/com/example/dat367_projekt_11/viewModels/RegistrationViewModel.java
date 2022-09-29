@@ -23,7 +23,7 @@ public class RegistrationViewModel extends BaseObservable {
         private final String errorMessage = "Email or Password not valid";
 
         public RegistrationViewModel() {
-                user = new User("","", "", new ArrayList<>(), new ArrayList<>());
+                user = new User("","", "");
                 this.mAuth = FirebaseAuth.getInstance();
         }
         @Bindable

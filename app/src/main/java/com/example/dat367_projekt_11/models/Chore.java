@@ -11,7 +11,7 @@ public class Chore{
     private ArrayList<ChoreStatusListener> listeners;
 
 
-    public Chore(String name, String description, int points, ArrayList<ChoreStatusListener> listeners){
+    public Chore(String name, String description, int points){
         this.name = name;
         this.description = description;
         this.points = points;

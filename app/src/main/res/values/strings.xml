@@ -37,4 +37,6 @@
     <string name="text_checkBox">Complete</string>
     <string name="title_chore">Chore name</string>
     <string name="done_ChoresTitel">Your completed chores</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

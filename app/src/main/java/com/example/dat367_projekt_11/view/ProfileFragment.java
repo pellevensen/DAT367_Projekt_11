@@ -12,18 +12,16 @@ import androidx.fragment.app.Fragment;
 import com.example.dat367_projekt_11.R;
 
 public class ProfileFragment extends Fragment {
-
-
-    private ProfileFragment mViewModel;
-
-    public static ProfileFragment newInstance() {
-        return new ProfileFragment();
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
+    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_chore, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        return view;
     }
 
 }

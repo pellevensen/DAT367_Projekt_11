@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backround_color"
+        android:background="@drawable/background_color"
         tools:context=".view.LoginActivity">
 
         <Button

@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.dat367_projekt_11.R;
 
@@ -17,9 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        NavHostFragment navHostFragment =
-                (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_login);
-        NavController navController = navHostFragment.getNavController();
+        DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         /*ActivityLoginBinding activityLoginBinding= DataBindingUtil.setContentView(this, R.layout.activity_login);
         activityLoginBinding.setLoginViewModel(new LoginViewModel());

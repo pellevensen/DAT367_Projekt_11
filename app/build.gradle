@@ -11,8 +11,8 @@ android {
 }
 
 android {
-    compileSdk 33
 
+    compileSdk 33
     defaultConfig {
         applicationId "com.example.dat367_projekt_11"
         minSdk 21
@@ -33,6 +33,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {

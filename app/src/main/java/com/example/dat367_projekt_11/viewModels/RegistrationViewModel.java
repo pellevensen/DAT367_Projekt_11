@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 public class RegistrationViewModel extends BaseObservable {
         private final User user;
         private final FirebaseAuth mAuth;

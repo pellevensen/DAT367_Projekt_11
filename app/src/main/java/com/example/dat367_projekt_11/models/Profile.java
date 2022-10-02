@@ -2,16 +2,12 @@ package com.example.dat367_projekt_11.models;
 
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ArrayList;
 
 
 public class Profile implements ChoreStatusListener {
     private String name;
     private int currentPoints;
     private final ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
-    private int currentPoints = 0;
-    private ArrayList<Chore> doneChores;
     private ArrayList<ChoreListStatusListener> listeners;
 
 

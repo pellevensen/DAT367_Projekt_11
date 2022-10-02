@@ -4,9 +4,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
@@ -16,7 +13,6 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     private String password;
     private String email;
     private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false, SET of chore, hashset three set etc.istället, korrekt equal OCH korrekt hashcode
     private ArrayList<ChoreListStatusListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 //kolla att sakerna är nollskilda, objekt required non null.
@@ -45,13 +41,13 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
        Chore chore = new Chore(name, description, points);
        householdChores.add(chore);
-       notifyListeners(); // --> notifiera mainpageview
+       //notifyListeners(); // --> notifiera mainpageview
     }
 
     private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                notifyListeners(); //--> notifiera completeschoreview
+                //notifyListeners(); //--> notifiera completeschoreview
 
         }
     }
@@ -100,10 +96,12 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     }
 
 
-    private void subscribe(ChoreListStatusListener listener){ //broadcast
+    private void subscribe(ChoreListStatusListener listener) { //broadcast
         listeners.add(listener);
+    }
 
     public void setCurrentProfile(Profile profile) {
+
     }
 
 

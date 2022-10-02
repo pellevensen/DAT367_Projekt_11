@@ -4,17 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.dat367_projekt_11.R;
+import com.example.dat367_projekt_11.databinding.FragmentProfileBinding;
+import com.example.dat367_projekt_11.models.Profile;
+import com.example.dat367_projekt_11.viewModels.LoginViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileFragment extends Fragment{
-    private Button addBtn;
+    private FragmentProfileBinding binding;
+    private LoginViewModel loginViewModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +28,24 @@ public class ProfileFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
+        binding.setLifecycleOwner(this);
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        binding.setLoginViewModel(loginViewModel);
+        populateData();
+        return binding.getRoot();
+    }
 
-        addBtn = view.findViewById(R.id.addProfile);
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_addProfileFragment);
-            }
-        });
+    private void populateData() {
+        List<Profile> profileModelList = new ArrayList<>();
 
-        return view;
+        profileModelList.add(new Profile("Mamma"));
+        profileModelList.add(new Profile("Pappa"));
+        profileModelList.add(new Profile("storasyster"));
+        profileModelList.add(new Profile("lillebror"));
+
+        ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
+        binding.setProfileAdapter(profileAdapter);
     }
 
 }

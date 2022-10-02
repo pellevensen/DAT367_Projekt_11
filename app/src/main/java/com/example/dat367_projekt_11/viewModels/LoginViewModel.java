@@ -7,9 +7,12 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.dat367_projekt_11.models.User;
 
+import java.util.HashMap;
+
 public class LoginViewModel extends ViewModel {
     public MutableLiveData<String> email = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
+    public MutableLiveData<HashMap> profileList = new MutableLiveData<>();
 
     private MutableLiveData<User> userMutableLiveData;
 
@@ -21,8 +24,6 @@ public class LoginViewModel extends ViewModel {
         return userMutableLiveData;
 
     }
-
-
     public void onLoginClicked() {
         User loginUser = new User(email.getValue(), password.getValue(), "");
         userMutableLiveData.setValue(loginUser);

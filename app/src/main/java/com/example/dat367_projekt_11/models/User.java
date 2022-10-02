@@ -3,13 +3,12 @@ package com.example.dat367_projekt_11.models;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class User {
     private final FirebaseAuth mAuth;
     private String householdName;
-    HashMap<String, Profile> profileList = new HashMap<String, Profile>();
+    private List<Profile> profileList;
     private String password;
     private String email;
     private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
@@ -21,6 +20,7 @@ public class User {
         this.householdName = householdName;
         this.mAuth = FirebaseAuth.getInstance();
         this.householdChores = new ArrayList<Chore>();
+        this.profileList = new ArrayList<>();
     }
 
     public FirebaseAuth getmAuth(){
@@ -62,16 +62,16 @@ public class User {
         return householdName;
     }
 
-    public HashMap<String, Profile> getProfileList() {
+    public List<Profile> getProfileList() {
         return profileList;
     }
 
-    public void addProfile(String name, Profile profile){
-        profileList.put(name, profile);
+    public void addProfile(Profile profile){
+        profileList.add(profile);
     }
 
-    public void deleteProfile(String profileName){
-        profileList.remove(profileName);
+    public void deleteProfile(Profile profile){
+        profileList.remove(profile);
     }
 
     public void setHouseholdName(String householdName) {

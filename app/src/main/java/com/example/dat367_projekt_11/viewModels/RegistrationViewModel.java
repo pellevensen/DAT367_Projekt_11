@@ -69,24 +69,23 @@ public class RegistrationViewModel extends BaseObservable {
 
         public void onRegistrationClicked(){
                 checkIfPasswordEmailTypedIn(getUserEmail(), getUserPassword());
-                mAuth.createUserWithEmailAndPassword(getUserEmail(), getUserPassword()).addOnCompleteListener(
-                        new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(
-                                        @NonNull Task<AuthResult> task)
-                                {
-                                        if (task.isSuccessful()) {
-                                                setToastMessage(successMessage);
+                if(checkTypedInBool(getUserEmail(),getUserPassword())) {
+                        mAuth.createUserWithEmailAndPassword(getUserEmail(), getUserPassword()).addOnCompleteListener(
+                                new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(
+                                                @NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                        setToastMessage(successMessage);
 
+                                                } else {
+
+                                                        setToastMessage(errorMessage);
+
+                                                }
                                         }
-
-                                        else {
-
-                                                setToastMessage(errorMessage);
-
-                                        }
-                                }
-                        });
+                                });
+                }
         }
         private void checkIfPasswordEmailTypedIn(String email, String password){
                 if (TextUtils.isEmpty(email)) {
@@ -95,6 +94,14 @@ public class RegistrationViewModel extends BaseObservable {
 
                 if (TextUtils.isEmpty(password)) {
                         setToastMessage("Please enter password!!");
+                }
+        }
+        private Boolean checkTypedInBool(String email, String password) {
+                if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
+                        return false;
+                }
+                else{
+                        return true;
                 }
         }
 }

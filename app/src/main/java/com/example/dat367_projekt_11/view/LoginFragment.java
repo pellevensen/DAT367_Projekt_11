@@ -13,16 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
-import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
 import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 import java.util.Objects;
 
-public class LoginFragment extends Fragment implements View.OnClickListener{
+public class LoginFragment extends Fragment{
     private Button signIn;
 
     private LoginViewModel loginViewModel;
@@ -62,22 +60,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             }
         });
         return binding.getRoot();
-        /*View view = inflater.inflate(R.layout.fragment_login, container, false);
-
-        signIn = view.findViewById(R.id.login);
-        //signIn.setOnClickListener(this);
-
-        return view;*/
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-    @Override
-    public void onClick(View view) {
-        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_profileFragment);
     }
 
 }

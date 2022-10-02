@@ -13,7 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 
-public class ProfileFragment extends Fragment{
+public class AddProfileFragment extends Fragment {
     private Button addBtn;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,17 +23,14 @@ public class ProfileFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        addBtn = view.findViewById(R.id.addProfile);
+        View view = inflater.inflate(R.layout.fragment_add_profile, container, false);
+        addBtn = view.findViewById(R.id.createProfileBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_addProfileFragment);
+                Navigation.findNavController(view).navigate(R.id.action_addProfileFragment_to_mainActivity);
             }
         });
-
         return view;
     }
-
 }

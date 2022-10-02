@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_nav"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/profileFragment">
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.dat367_projekt_11.view.StartFragment"
@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_startFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_registrationActivity"
+            app:destination="@id/registrationActivity" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -28,6 +31,9 @@
         tools:layout="@layout/fragment_profile"
         android:label="ProfileFragment" >
         <action
+            android:id="@+id/action_profileFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+        <action
             android:id="@+id/action_profileFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
     </fragment>
@@ -36,4 +42,16 @@
         android:name="com.example.dat367_projekt_11.view.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/registrationActivity"
+        android:name="com.example.dat367_projekt_11.view.RegistrationActivity"
+        android:label="RegistrationActivity" />
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.example.dat367_projekt_11.view.AddProfileFragment"
+        android:label="AddProfileFragment" >
+        <action
+            android:id="@+id/action_addProfileFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 </navigation>

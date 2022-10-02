@@ -6,7 +6,7 @@
     app:startDestination="@id/navigation_mainpage">
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_donechores"
         android:name="com.example.dat367_projekt_11.view.DoneChoresView"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_donechoresmodel" />
@@ -18,12 +18,8 @@
         tools:layout="@layout/fragment_mainpage" />
 
     <fragment
-        android:id="@+id/scoreboardFragment"
+        android:id="@+id/navigation_leaderboard"
         android:name="com.example.dat367_projekt_11.view.ScoreboardFragment"
-        android:label="fragment_scoreboard"
-        tools:layout="@layout/fragment_scoreboard" >
-    <action
-        android:id="@+id/action_navigation_mainpage_to_navigation_home"
-        app:destination="@id/navigation_mainpage" />
-    </fragment>
+        android:label="Scoreboard"
+        tools:layout="@layout/fragment_scoreboard" />
 </navigation>

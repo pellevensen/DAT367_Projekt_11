@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import java.util.List;
 public class ProfileFragment extends Fragment{
     private FragmentProfileBinding binding;
     private LoginViewModel loginViewModel;
+    private Button addProfile;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,5 +49,4 @@ public class ProfileFragment extends Fragment{
         ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
         binding.setProfileAdapter(profileAdapter);
     }
-
 }

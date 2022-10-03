@@ -44,19 +44,25 @@ public class LoginFragment extends Fragment{
         binding.setLoginViewModel(loginViewModel);
         loginViewModel.getUser().observe(getViewLifecycleOwner(), new Observer<User>() {
             @Override
-            public void onChanged(@Nullable User loginUser) {
+            public void onChanged(@Nullable User user) {
 
-                if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getEmail())) {
+                if (TextUtils.isEmpty(Objects.requireNonNull(user).getEmail())) {
                     Toast.makeText(getActivity(),"Enter an E-Mail Address",Toast.LENGTH_SHORT).show();
                 }
-                else if (TextUtils.isEmpty(Objects.requireNonNull(loginUser).getPassword())) {
+                else if (TextUtils.isEmpty(Objects.requireNonNull(user).getPassword())) {
                     Toast.makeText(getActivity(),"Enter a password",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    binding.emailTextView.setText(loginUser.getEmail());
-                    binding.passwordTextView.setText(loginUser.getPassword());
+                    binding.emailTextView.setText(user.getEmail());
+                    binding.passwordTextView.setText(user.getPassword());
                 }
 
+            }
+        });
+        loginViewModel.getToastMessage().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String string) {
+                Toast.makeText(getActivity(),string,Toast.LENGTH_SHORT).show();
             }
         });
         return binding.getRoot();

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav"
+    app:startDestination="@id/profileFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.dat367_projekt_11.view.StartFragment"
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_registrationActivity"
+            app:destination="@id/registrationActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.dat367_projekt_11.view.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.dat367_projekt_11.view.ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.dat367_projekt_11.view.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/registrationActivity"
+        android:name="com.example.dat367_projekt_11.view.RegistrationActivity"
+        android:label="RegistrationActivity" />
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.example.dat367_projekt_11.view.AddProfileFragment"
+        android:label="AddProfileFragment" >
+        <action
+            android:id="@+id/action_addProfileFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+</navigation>

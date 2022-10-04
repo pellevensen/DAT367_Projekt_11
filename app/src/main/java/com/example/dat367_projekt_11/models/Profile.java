@@ -16,6 +16,17 @@ public class Profile implements ChoreStatusListener {
         this.doneChores = new ArrayList<Chore>();
     }
 
+    /*public Profile(int currentPoints, ArrayList<Chore> doneChores) {
+        this.currentPoints = currentPoints;
+        this.doneChores = doneChores;
+    }*/
+
+    public Profile() {
+        int currentPoints = this.currentPoints;
+        this.doneChores = new ArrayList<Chore>();
+    }
+
+
     public String getName() {
         return name;
     }

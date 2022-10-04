@@ -4,38 +4,43 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/background_color.xml" value="0.364" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/backround_color.xml" value="0.2985" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.14" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.14" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_menu_camera.xml" value="0.193" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.14" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_register.xml" value="0.17083333333333334" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_registration.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_registration.xml" value="0.1" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/app_bar_nav.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/content_nav.xml" value="0.18489583333333334" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_add_profile.xml" value="0.18" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_chore.xml" value="0.1109375" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_create_chore_page.xml" value="0.1109375" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_dashboard.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_donechoresmodel.xml" value="0.14074074074074075" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_fullscreen.xml" value="0.3625" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_login.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_mainpage.xml" value="0.1109375" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_notifications.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_profile.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_scoreboard.xml" value="0.2351851851851852" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_start.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/layout/profile_card.xml" value="0.18" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/menu/activity_main_drawer.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/menu/nav.xml" value="0.18489583333333334" />
-        <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/menu/nav_login.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/Kristin/AndroidStudioProjects/DAT367_Projekt_11/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.241" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/background_color.xml" value="0.2285" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1735" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1735" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_leaderboard_black_24dp.xml" value="0.1735" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1705" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_main.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/activity_registration.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_create_chore_page.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_home.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_login.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_mainpage.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_scoreboard.xml" value="0.23233695652173914" />
+        <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21603260869565216" />
+        <entry key="app/src/main/res/layout/fragment_chore.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/fragment_donechoresmodel.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>

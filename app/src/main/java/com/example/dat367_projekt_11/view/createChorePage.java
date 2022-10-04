@@ -12,12 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.dat367_projekt_11.viewModels.CreateChorePageViewModel;
+import com.example.dat367_projekt_11.viewModels.CreateChoreViewModel;
 import com.example.dat367_projekt_11.R;
 
 public class createChorePage extends Fragment {
 
-    private CreateChorePageViewModel mViewModel;
+    private CreateChoreViewModel mViewModel;
 
     public static createChorePage newInstance() {
         return new createChorePage();
@@ -32,7 +32,7 @@ public class createChorePage extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CreateChorePageViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(CreateChoreViewModel.class);
         // TODO: Use the ViewModel
     }
 

@@ -6,7 +6,7 @@ import com.example.dat367_projekt_11.models.Household;
 
 import java.util.Objects;
 
-public class CreateChorePageViewModel extends ViewModel {
+public class CreateChoreViewModel extends ViewModel {
 
 
   private Household household;

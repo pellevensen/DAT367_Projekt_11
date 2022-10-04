@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="createChoreViewModel"
+            type="com.example.dat367_projekt_11.viewModels.CreateChoreViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

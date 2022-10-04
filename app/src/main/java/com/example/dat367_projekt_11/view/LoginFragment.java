@@ -13,9 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
-import com.example.dat367_projekt_11.models.Household;
+import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 import java.util.Objects;
@@ -42,19 +44,29 @@ public class LoginFragment extends Fragment{
         binding.setLifecycleOwner(this);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setLoginViewModel(loginViewModel);
-        loginViewModel.getUser().observe(getViewLifecycleOwner(), new Observer<Household>() {
+        loginViewModel.getUser().observe(getViewLifecycleOwner(), new Observer<User>() {
             @Override
-            public void onChanged(@Nullable Household loginHousehold) {
+            public void onChanged(@Nullable User user) {
 
-                if (TextUtils.isEmpty(Objects.requireNonNull(loginHousehold).getEmail())) {
+                if (TextUtils.isEmpty(Objects.requireNonNull(user).getEmail())) {
                     Toast.makeText(getActivity(),"Enter an E-Mail Address",Toast.LENGTH_SHORT).show();
                 }
-                else if (TextUtils.isEmpty(Objects.requireNonNull(loginHousehold).getPassword())) {
+                else if (TextUtils.isEmpty(Objects.requireNonNull(user).getPassword())) {
                     Toast.makeText(getActivity(),"Enter a password",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    binding.emailTextView.setText(loginHousehold.getEmail());
-                    binding.passwordTextView.setText(loginHousehold.getPassword());
+                    binding.emailTextView.setText(user.getEmail());
+                    binding.passwordTextView.setText(user.getPassword());
+                }
+
+            }
+        });
+        loginViewModel.getToastMessage().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String string) {
+                Toast.makeText(getActivity(),string,Toast.LENGTH_SHORT).show();
+                if (Objects.equals(string, "Logged in Successfully!")){
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_profileFragment);
                 }
 
             }

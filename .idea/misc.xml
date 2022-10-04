@@ -39,8 +39,11 @@
         <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_mainpage.xml" value="0.13269927536231885" />
         <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/layout/fragment_scoreboard.xml" value="0.23233695652173914" />
         <entry key="..\:/Users/Pauline/StudioProjects/DAT367_Projekt_11/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_chore.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/fragment_create_chore_page.xml" value="0.17481884057971014" />
+        <entry key="app/src/main/res/layout/fragment_donechoresmodel.xml" value="0.12183383991894631" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17481884057971014" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.12183383991894631" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25052083333333336" />
       </map>

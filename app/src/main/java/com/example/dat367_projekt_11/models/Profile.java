@@ -51,7 +51,7 @@ public class Profile implements ChoreStatusListener {
             listener.update(doneChores);
         }
     }
-    private void subscribe(ChoreListStatusListener listener) {
+    private void subscribe(IsCompleteListener listener) {
         listeners.add(listener);
     }
 

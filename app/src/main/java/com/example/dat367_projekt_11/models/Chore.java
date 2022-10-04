@@ -15,7 +15,6 @@ public class Chore{
         this.name = name;
         this.description = description;
         this.points = points;
-        this.listeners = listeners;
     }
 
     public void completeChore(){

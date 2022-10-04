@@ -20,6 +20,7 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<List> profileList = new MutableLiveData<>();
     private MutableLiveData<User> userMutableLiveData;
     private MutableLiveData<String> toastMessage = new MutableLiveData<>();
+    private MutableLiveData<Integer> navActionMutableLiveData = new MutableLiveData<>();
 
 
 
@@ -71,6 +72,14 @@ public class LoginViewModel extends ViewModel {
             toastMessage = new MutableLiveData<>();
         }
         return toastMessage;
+    }
+
+    public MutableLiveData<Integer> getNavActionMutableLiveData(){
+
+        if (navActionMutableLiveData == null) {
+            navActionMutableLiveData = new MutableLiveData<>();
+        }
+        return navActionMutableLiveData;
     }
     public void onLoginClicked() {
         User user = new User(email.getValue(), password.getValue(), householdName.getValue());

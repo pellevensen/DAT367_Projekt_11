@@ -13,7 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
 import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
@@ -63,6 +65,10 @@ public class LoginFragment extends Fragment{
             @Override
             public void onChanged(@Nullable String string) {
                 Toast.makeText(getActivity(),string,Toast.LENGTH_SHORT).show();
+                if (Objects.equals(string, "Logged in Successfully!")){
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_profileFragment);
+                }
+
             }
         });
         return binding.getRoot();

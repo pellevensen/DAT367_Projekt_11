@@ -22,7 +22,7 @@ public class Profile implements ChoreStatusListener {
     }*/
 
     public Profile() {
-        int currentPoints = this.currentPoints;
+        int currentPoints = 10/*this.currentPoints*/;
         this.doneChores = new ArrayList<Chore>();
     }
 

@@ -30,7 +30,7 @@ public class CreateChoreViewModel extends ViewModel {
         chore.setName(name.getValue());
         chore.setDescription(description.getValue());
         chore.setPoints(points.getValue());
-
+        addChore(chore);
 
     }
         private MutableLiveData<String> getName () {
@@ -45,8 +45,8 @@ public class CreateChoreViewModel extends ViewModel {
             return points;}
 
 
-        private void addChore() {
-            household.addNewChoreToList(getName(), getDescription(), getPoints());
+        private void addChore(Chore chore) {
+            household.addNewChoreToList(chore);
         }
 
 

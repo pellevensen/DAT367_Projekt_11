@@ -39,16 +39,15 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
         this.password = password;
     }
 
-    public void addNewChoreToList(MutableLiveData<String> name, MutableLiveData<String> description, MutableLiveData<Integer> points){ //när en chore skapas, meddelas alla som im. chorelist status listener
-       Chore chore = new Chore(name, description, points);
+    public void addNewChoreToList(Chore chore){ //när en chore skapas, meddelas alla som im. chorelist status listener
        householdChores.add(chore);
-       //notifyListeners(); // --> notifiera mainpageview
+       notifyListeners(); // --> notifiera mainpageview
     }
 
     private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                //notifyListeners(); //--> notifiera completeschoreview
+                notifyListeners(); //--> notifiera completeschoreview
 
         }
     }

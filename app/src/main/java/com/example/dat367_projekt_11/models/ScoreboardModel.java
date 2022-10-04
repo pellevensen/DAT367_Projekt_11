@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
 
-import java.util.List;
 
-public class ScoreboardModel /*extends AppCompatActivity*/ {
 
-   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin
+public class ScoreboardModel extends AppCompatActivity {
 
-   TextView Scores;
+   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin*/
+
+    TextView Scores;
 
     String memberName = "Pauline";
     int memberScore;
@@ -74,6 +74,6 @@ public class ScoreboardModel /*extends AppCompatActivity*/ {
                 "#2" + SecondPlace + best2 + "\n" +
                 "#3" + ThirdPlace + best3 + "\n");
 
-    }*/
+    }
 
 }

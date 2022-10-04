@@ -10,7 +10,7 @@ import com.example.dat367_projekt_11.R;
 
 public class ScoreboardActivity extends AppCompatActivity {
 
-    TextView Scores;
+    /*TextView Scores;
 
     String memberName;
     int memberScore;
@@ -55,7 +55,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         if( memberScore > best1){
             int temp = best1;
             /*FirstPlace = memberName;*/
-            best1 = memberScore;
+           /* best1 = memberScore;
             best2 = temp;
             SharedPreferences.Editor editor = preferences.edit();
             editor.putInt("points2", best2);
@@ -69,6 +69,6 @@ public class ScoreboardActivity extends AppCompatActivity {
                             "#2" + best2 + "\n" +
                             "#3" + best3 + "\n");
 
-    }
+    }*/
 
 }

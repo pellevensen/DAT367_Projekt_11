@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.dat367_projekt_11.databinding.FragmentCreateChorePageBinding;
@@ -31,6 +32,7 @@ public class CreateChoreView extends Fragment {
     private CreateChoreViewModel createChoreViewModel;
     private Button doneButton;
     private FragmentCreateChorePageBinding binding;
+    private RadioGroup radioGroup;
 
     public static CreateChoreView newInstance() {
         return new CreateChoreView();
@@ -69,10 +71,17 @@ public class CreateChoreView extends Fragment {
                     binding.descriptionText.setText(chore.getDescription());
 
                 }
+                switch(radioGroup.getCheckedRadioButtonId()){
+                    case(R.id.radioButton): /*Sätt poängen till 10*/break;
+                    case(R.id.radioButton2): /*Sätt poägen till 20*/break;
+                    case(R.id.radioButton3): /*Sätt poängen till 30*/break;
+
+                }
             }
         });
         return binding.getRoot();
     }
+
 
     @Override
     public void onDestroyView() {

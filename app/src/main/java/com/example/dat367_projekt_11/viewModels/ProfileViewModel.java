@@ -5,14 +5,14 @@ import androidx.databinding.Bindable;
 
 import com.example.dat367_projekt_11.BR;
 import com.example.dat367_projekt_11.models.Profile;
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 
 public class ProfileViewModel extends BaseObservable {
-    private final User user;
+    private final Household household;
     private final Profile profile;
 
     public ProfileViewModel() {
-        user = new User("","", "");
+        household = new Household("","", "");
         profile = new Profile("");
     }
     @Bindable
@@ -25,11 +25,11 @@ public class ProfileViewModel extends BaseObservable {
         notifyPropertyChanged(BR.profileName);
     }
     public void onNewProfileClicked(){
-        user.addProfile(profile);
+        household.addProfile(profile);
     }
 
     public void onProfileClicked(){
-        user.setCurrentProfile(profile);
+        household.setCurrentProfile(profile);
     }
 
 

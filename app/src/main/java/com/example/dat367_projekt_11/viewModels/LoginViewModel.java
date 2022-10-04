@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 
 import java.util.HashMap;
 
@@ -14,9 +14,9 @@ public class LoginViewModel extends ViewModel {
     public MutableLiveData<String> password = new MutableLiveData<>();
     public MutableLiveData<HashMap> profileList = new MutableLiveData<>();
 
-    private MutableLiveData<User> userMutableLiveData;
+    private MutableLiveData<Household> userMutableLiveData;
 
-    public MutableLiveData<User> getUser() {
+    public MutableLiveData<Household> getUser() {
 
         if (userMutableLiveData == null) {
             userMutableLiveData = new MutableLiveData<>();
@@ -25,12 +25,12 @@ public class LoginViewModel extends ViewModel {
 
     }
     public void onLoginClicked() {
-        User loginUser = new User(email.getValue(), password.getValue(), "");
-        userMutableLiveData.setValue(loginUser);
-        loginUser.setEmail(email.getValue());
-        loginUser.setPassword(password.getValue());
-        if(checkIfPasswordEmailTypedIn(loginUser.getEmail(), loginUser.getPassword())) {
-            loginUser.getmAuth().signInWithEmailAndPassword(loginUser.getEmail(), loginUser.getPassword());
+        Household loginHousehold = new Household(email.getValue(), password.getValue(), "");
+        userMutableLiveData.setValue(loginHousehold);
+        loginHousehold.setEmail(email.getValue());
+        loginHousehold.setPassword(password.getValue());
+        if(checkIfPasswordEmailTypedIn(loginHousehold.getEmail(), loginHousehold.getPassword())) {
+            loginHousehold.getmAuth().signInWithEmailAndPassword(loginHousehold.getEmail(), loginHousehold.getPassword());
         }
     }
 

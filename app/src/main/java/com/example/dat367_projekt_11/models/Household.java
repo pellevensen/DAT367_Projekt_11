@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
+public class Household implements ChoreStatusListener{ //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
     private String householdName;
     private List<Profile> profileList;
@@ -18,7 +18,7 @@ public class User implements ChoreStatusListener{ //lyssnar på chores boolean{
     //design by contract
 
 
-    public User(String email, String password, String householdName) {
+    public Household(String email, String password, String householdName) {
         this.password = password;
         this.email = email;
         this.householdName = householdName;

@@ -7,23 +7,21 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.example.dat367_projekt_11.BR;
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
-
 public class RegistrationViewModel extends BaseObservable {
-        private final User user;
+        private final Household household;
         private final FirebaseAuth mAuth;
 
         private final String successMessage = "Registration was successful";
         private final String errorMessage = "Email or Password not valid";
 
         public RegistrationViewModel() {
-                user = new User("","", "");
+                household = new Household("","", "");
                 this.mAuth = FirebaseAuth.getInstance();
         }
         @Bindable
@@ -41,31 +39,31 @@ public class RegistrationViewModel extends BaseObservable {
 
         @Bindable
         public String getUserEmail() {
-                return user.getEmail();
+                return household.getEmail();
         }
 
         public void setUserEmail(String email) {
-                user.setEmail(email);
+                household.setEmail(email);
                 notifyPropertyChanged(BR.userEmail);
         }
 
         @Bindable
         public String getUserPassword() {
-                return user.getPassword();
+                return household.getPassword();
         }
 
         public void setUserPassword(String password) {
-                user.setPassword(password);
+                household.setPassword(password);
                 notifyPropertyChanged(BR.userPassword);
         }
 
         @Bindable
         public String getUserHouseholdName() {
-                return user.getHouseholdName();
+                return household.getHouseholdName();
         }
 
         public void setHouseholdName(String householdName) {
-                user.setHouseholdName(householdName);
+                household.setHouseholdName(householdName);
                 notifyPropertyChanged(BR.userHouseholdName);
         }
 

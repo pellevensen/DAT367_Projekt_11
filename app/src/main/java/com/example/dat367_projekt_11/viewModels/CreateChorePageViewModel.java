@@ -1,18 +1,15 @@
 package com.example.dat367_projekt_11.viewModels;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 
 import java.util.Objects;
 
 public class CreateChorePageViewModel extends ViewModel {
 
 
-  private User user;
+  private Household household;
   private String name;
   private String description;
   private int points;
@@ -39,7 +36,7 @@ public class CreateChorePageViewModel extends ViewModel {
         }
 
         private void addChore() {
-            user.addNewChoreToList(getName(), getDescription(), getPoints());
+            household.addNewChoreToList(getName(), getDescription(), getPoints());
         }
 
 

@@ -4,9 +4,9 @@ package com.example.dat367_projekt_11.models;
 import java.util.ArrayList;
 
 public class Chore{
-    private final String name;
-    private final String description;
-    private final int points;
+    private String name;
+    private String description;
+    private int points;
     private boolean isComplete;
     private ArrayList<ChoreStatusListener> listeners;
 
@@ -29,13 +29,23 @@ public class Chore{
     public String getDescription(){
         return this.description;
     }
-
-
     public int getPoints(){
         return this.points;
     }
     public boolean isComplete(){
         return this.isComplete;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     private void subscribe(ChoreStatusListener listener){

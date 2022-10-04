@@ -1,5 +1,7 @@
 package com.example.dat367_projekt_11.models;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
         this.password = password;
     }
 
-    public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
+    public void addNewChoreToList(MutableLiveData<String> name, MutableLiveData<String> description, MutableLiveData<Integer> points){ //när en chore skapas, meddelas alla som im. chorelist status listener
        Chore chore = new Chore(name, description, points);
        householdChores.add(chore);
        //notifyListeners(); // --> notifiera mainpageview

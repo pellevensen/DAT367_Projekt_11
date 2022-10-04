@@ -1,7 +1,9 @@
 package com.example.dat367_projekt_11.viewModels;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.Household;
 
 import java.util.Objects;
@@ -9,31 +11,38 @@ import java.util.Objects;
 public class CreateChoreViewModel extends ViewModel {
 
 
-  private Household household;
-  private String name;
-  private String description;
-  private int points;
+    public MutableLiveData<String> name = new MutableLiveData<>();
+    public MutableLiveData<String> description = new MutableLiveData<>();
+    public MutableLiveData<Integer> points = new MutableLiveData<>();
+    private MutableLiveData<Chore> userMutableLiveData;
+    private Household household;
 
-        private String getName () {
+    public MutableLiveData<Chore> getChore() {
+
+        if (userMutableLiveData == null) {
+            userMutableLiveData = new MutableLiveData<>();
+        }
+        return userMutableLiveData;
+    }
+    public void onLoginClicked() {
+        Chore chore = new Chore(name.getValue(), description.getValue(), points.getValue());
+        userMutableLiveData.setValue(chore);
+        chore.setName(name.getValue());
+        chore.setDescription(description.getValue());
+        chore.setPoints(points.getValue());
+
+    }
+        private MutableLiveData<String> getName () {
                 return Objects.requireNonNull(this.name);
         }
-        public void setName (String name){
-        this.name = Objects.requireNonNull(name);
+
+        private MutableLiveData<String> getDescription () {
+        return description;
     }
 
-        private String getDescription () {
-        return Objects.requireNonNull(this.name);
-    }
-        public void setDescription (String description){
-        this.description = Objects.requireNonNull(description);
-    }
+        private MutableLiveData<Integer> getPoints () {
+            return points;}
 
-        private int getPoints () {
-            return Objects.requireNonNull(points);}
-        public void setPoints(int points){
-            this.points = Objects.requireNonNull(points);
-
-        }
 
         private void addChore() {
             household.addNewChoreToList(getName(), getDescription(), getPoints());

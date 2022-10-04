@@ -15,12 +15,12 @@ import android.view.ViewGroup;
 import com.example.dat367_projekt_11.viewModels.CreateChoreViewModel;
 import com.example.dat367_projekt_11.R;
 
-public class createChorePage extends Fragment {
+public class CreateChoreView extends Fragment {
 
     private CreateChoreViewModel mViewModel;
 
-    public static createChorePage newInstance() {
-        return new createChorePage();
+    public static CreateChoreView newInstance() {
+        return new CreateChoreView();
     }
 
     @Override

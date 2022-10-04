@@ -24,12 +24,13 @@ public class CreateChoreViewModel extends ViewModel {
         }
         return userMutableLiveData;
     }
-    public void onLoginClicked() {
+    public void onDoneClicked() {
         Chore chore = new Chore(name.getValue(), description.getValue(), points.getValue());
         userMutableLiveData.setValue(chore);
         chore.setName(name.getValue());
         chore.setDescription(description.getValue());
         chore.setPoints(points.getValue());
+
 
     }
         private MutableLiveData<String> getName () {

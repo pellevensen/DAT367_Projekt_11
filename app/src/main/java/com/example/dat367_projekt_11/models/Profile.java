@@ -8,7 +8,7 @@ public class Profile implements ChoreStatusListener {
     private String name;
     private int currentPoints;
     private final ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
-    private ArrayList<ChoreListStatusListener> listeners;
+    private ArrayList<IsCompleteListener> listeners;
 
 
     public Profile(String name) {
@@ -47,7 +47,7 @@ public class Profile implements ChoreStatusListener {
     }
 
     private void notifyListeners() {
-        for(ChoreListStatusListener listener : listeners){
+        for(IsCompleteListener listener : listeners){
             listener.update(doneChores);
         }
     }

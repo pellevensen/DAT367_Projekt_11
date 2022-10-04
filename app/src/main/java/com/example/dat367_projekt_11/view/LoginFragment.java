@@ -17,7 +17,7 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 import java.util.Objects;
@@ -44,19 +44,19 @@ public class LoginFragment extends Fragment{
         binding.setLifecycleOwner(this);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setLoginViewModel(loginViewModel);
-        loginViewModel.getUser().observe(getViewLifecycleOwner(), new Observer<User>() {
+        loginViewModel.getHousehold().observe(getViewLifecycleOwner(), new Observer<Household>() {
             @Override
-            public void onChanged(@Nullable User user) {
+            public void onChanged(@Nullable Household household) {
 
-                if (TextUtils.isEmpty(Objects.requireNonNull(user).getEmail())) {
+                if (TextUtils.isEmpty(Objects.requireNonNull(household).getEmail())) {
                     Toast.makeText(getActivity(),"Enter an E-Mail Address",Toast.LENGTH_SHORT).show();
                 }
-                else if (TextUtils.isEmpty(Objects.requireNonNull(user).getPassword())) {
+                else if (TextUtils.isEmpty(Objects.requireNonNull(household).getPassword())) {
                     Toast.makeText(getActivity(),"Enter a password",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    binding.emailTextView.setText(user.getEmail());
-                    binding.passwordTextView.setText(user.getPassword());
+                    binding.emailTextView.setText(household.getEmail());
+                    binding.passwordTextView.setText(household.getPassword());
                 }
 
             }

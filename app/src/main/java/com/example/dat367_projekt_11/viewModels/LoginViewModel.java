@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,7 +18,7 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<String> password = new MutableLiveData<>();
     private MutableLiveData<String> householdName = new MutableLiveData<>();
     private MutableLiveData<List> profileList = new MutableLiveData<>();
-    private MutableLiveData<User> userMutableLiveData;
+    private MutableLiveData<Household> householdMutableLiveData;
     private MutableLiveData<String> toastMessage = new MutableLiveData<>();
     private MutableLiveData<Integer> navActionMutableLiveData = new MutableLiveData<>();
 
@@ -57,12 +57,12 @@ public class LoginViewModel extends ViewModel {
         return profileList;
     }
 
-    public MutableLiveData<User> getUser() {
+    public MutableLiveData<Household> getHousehold() {
 
-        if (userMutableLiveData == null) {
-            userMutableLiveData = new MutableLiveData<>();
+        if (householdMutableLiveData == null) {
+            householdMutableLiveData = new MutableLiveData<>();
         }
-        return userMutableLiveData;
+        return householdMutableLiveData;
 
     }
 
@@ -82,13 +82,13 @@ public class LoginViewModel extends ViewModel {
         return navActionMutableLiveData;
     }
     public void onLoginClicked() {
-        User user = new User(email.getValue(), password.getValue(), householdName.getValue());
-        userMutableLiveData.setValue(user);
-        user.setEmail(email.getValue());
-        user.setPassword(password.getValue());
-        user.setHouseholdName(householdName.getValue());
-        if(checkIfPasswordEmailTypedIn(user.getEmail(), user.getPassword())) {
-            user.getmAuth().signInWithEmailAndPassword(user.getEmail(), user.getPassword()).addOnCompleteListener(
+        Household household = new Household(email.getValue(), password.getValue(), householdName.getValue());
+        householdMutableLiveData.setValue(household);
+        household.setEmail(email.getValue());
+        household.setPassword(password.getValue());
+        household.setHouseholdName(householdName.getValue());
+        if(checkIfPasswordEmailTypedIn(household.getEmail(), household.getPassword())) {
+            household.getmAuth().signInWithEmailAndPassword(household.getEmail(), household.getPassword()).addOnCompleteListener(
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(

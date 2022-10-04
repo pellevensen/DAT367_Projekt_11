@@ -2,13 +2,13 @@ package com.example.dat367_projekt_11.viewModels;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
-    private final User user;
+    private final Household household;
 
-    public LoginViewModelFactory(User user) {
-        this.user = user;
+    public LoginViewModelFactory(Household household) {
+        this.household = household;
     }
 
     /*public <T extends ViewModel> T create(Class<T> modelClass) {

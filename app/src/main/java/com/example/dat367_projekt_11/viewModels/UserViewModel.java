@@ -2,18 +2,18 @@ package com.example.dat367_projekt_11.viewModels;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 
 public class UserViewModel extends ViewModel {
-    private User user;
+    private Household household;
 
     public void setPassword(String password){
-        user.setPassword(password);
+        household.setPassword(password);
     }
     public void setEmail(String email){
-        user.setEmail(email);
+        household.setEmail(email);
     }
     public void setHouseholdName(String householdName){
-        user.setHouseholdName(householdName);
+        household.setHouseholdName(householdName);
     }
 }

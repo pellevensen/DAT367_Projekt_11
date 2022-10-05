@@ -1,13 +1,17 @@
 package com.example.dat367_projekt_11.models;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements ChoreStatusListener{ //lyssnar på chores boolean{
-    private final FirebaseAuth mAuth;
+public class Household implements ChoreStatusListener { //lyssnar på chores boolean{
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     private String householdName;
     private List<Profile> profileList;
     private String password;
@@ -24,8 +28,20 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
         this.email = email;
         this.householdName = householdName;
         this.mAuth = FirebaseAuth.getInstance();
+        this.currentUser = mAuth.getCurrentUser();
         this.householdChores = new ArrayList<Chore>();
         this.profileList = new ArrayList<>();
+
+        mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null){
+                    currentUser = firebaseAuth.getCurrentUser();
+                }else{
+                    currentUser = null;
+                }
+            }
+        });
     }
 
     public FirebaseAuth getmAuth(){
@@ -33,6 +49,9 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
     }
     //returnera kopia? orginal kan mixtas med.
 
+    public FirebaseUser getCurrentUser() {
+        return currentUser;
+    }
 
     public void setPassword(String password) {
         this.password = password;

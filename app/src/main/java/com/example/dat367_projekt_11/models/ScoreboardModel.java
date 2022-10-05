@@ -1,6 +1,7 @@
 package com.example.dat367_projekt_11.models;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,17 +15,18 @@ import com.example.dat367_projekt_11.view.MainActivity;
 
 public class ScoreboardModel extends AppCompatActivity {
 
-   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin*/
+   /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin
+   * motsvarande repaint för att uppdatera textview
+   * scores.postInvalidate();
+   * kolla om oncreate blir called
+   * använd System.out.println("Pauline");*/
 
     Profile currentPoints=new Profile();
     int memberScore = currentPoints.getCurrentPoints();
 
-    TextView Scores;
-
     int best1;
     int best2;
     int best3;
-
 
 
     @SuppressLint("SetTextI18n")
@@ -33,7 +35,7 @@ public class ScoreboardModel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_scoreboard);
 
-        Scores = (TextView) findViewById(R.id.Scores);
+        TextView scores = (TextView) findViewById(R.id.Scores);
 
         SharedPreferences preferences = getSharedPreferences("PREF", +0);
         memberScore = preferences.getInt("memberScore", memberScore);
@@ -68,9 +70,11 @@ public class ScoreboardModel extends AppCompatActivity {
             editor.apply();
         }
 
-        Scores.setText("#1" + best1 + "\n" +
+        scores.setText("#1" + best1 + "\n" +
                 "#2" + best2 + "\n" +
                 "#3" + best3);
+
+
 
     }
 

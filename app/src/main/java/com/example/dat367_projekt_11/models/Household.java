@@ -37,15 +37,15 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
         this.password = password;
     }
 
-    public void addChoreToList(Chore chore){ //när en chore skapas, meddelas alla som im. chorelist status listener
+    public void addChoreToList(Chore chore){ //när en chore görs available meddelas alla som im. chorelist status listener
        householdChores.add(chore);
-       notifyListeners(); // --> notifiera mainpageview
+       notifyListeners(); // --> notifiera
     }
 
-    private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
+    private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas eller görs uavailable alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                notifyListeners(); //--> notifiera completeschoreview
+                notifyListeners(); //--> notifiera
 
         }
     }

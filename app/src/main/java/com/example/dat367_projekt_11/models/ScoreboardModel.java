@@ -16,14 +16,14 @@ public class ScoreboardModel extends AppCompatActivity {
 
    /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin*/
 
-    /*Profile currentPoints=new Profile();
-    int memberScore = currentPoints.getCurrentPoints();*/
+    Profile currentPoints=new Profile();
+    int memberScore = currentPoints.getCurrentPoints();
 
     TextView Scores;
 
-    int best1 = 8;
-    int best2 = 4;
-    int best3 = 2;
+    int best1;
+    int best2;
+    int best3;
 
 
 
@@ -35,11 +35,11 @@ public class ScoreboardModel extends AppCompatActivity {
 
         Scores = (TextView) findViewById(R.id.Scores);
 
-        /*SharedPreferences preferences = getSharedPreferences("PREF", +0);
+        SharedPreferences preferences = getSharedPreferences("PREF", +0);
         memberScore = preferences.getInt("memberScore", memberScore);
-        best1 = preferences.getInt("points1", 8);
-        best2 = preferences.getInt("points2", 4);
-        best3 = preferences.getInt("points3", 2);
+        best1 = preferences.getInt("points1", 0);
+        best2 = preferences.getInt("points2", 0);
+        best3 = preferences.getInt("points3", 0);
 
         if( memberScore > best3){
             best3 = memberScore;
@@ -66,7 +66,7 @@ public class ScoreboardModel extends AppCompatActivity {
             editor.putInt("points2", best2);
             editor.putInt("points1", best1);
             editor.apply();
-        }*/
+        }
 
         Scores.setText("#1" + best1 + "\n" +
                 "#2" + best2 + "\n" +

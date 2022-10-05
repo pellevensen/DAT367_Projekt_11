@@ -1,11 +1,14 @@
 package com.example.dat367_projekt_11.viewModels;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.dat367_projekt_11.models.Chore;
 
 public class ChoreViewModel extends ViewModel {
-    private Chore chore; //information från syssla för att få beskrivning.
+    private Chore chore;
+
+
 
 
     // TODO: Implement the ViewModel
@@ -13,8 +16,10 @@ public class ChoreViewModel extends ViewModel {
     //
 
 
+
     public void onCheckBoxclicked(){
         //vill köra uppdate i mainpageView, Donechoresmodelview.
+
 
     }
 

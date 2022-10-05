@@ -58,7 +58,7 @@
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:text="@={CreateChoreViewModel.points}"
+            android:checkedButton="@={CreateChoreViewModel.points}"
             android:layout_width="365dp"
             android:layout_height="191dp"
             android:layout_marginStart="23dp"

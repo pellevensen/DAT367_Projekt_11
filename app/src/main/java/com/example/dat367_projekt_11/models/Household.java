@@ -1,6 +1,5 @@
 package com.example.dat367_projekt_11.models;
 
-import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -96,7 +95,7 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
     }
 
 
-    private void subscribe(ChoreListStatusListener listener) { //broadcast
+    public void subscribe(ChoreListStatusListener listener) { //broadcast
         listeners.add(listener);
     }
 

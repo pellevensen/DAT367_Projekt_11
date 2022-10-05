@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="ChoreViewModel"
-            type="com.example.dat367_projekt_11.viewModels.ChoreViewModel" />
+            name="model"
+            type="com.example.dat367_projekt_11.models.Chore" />
+
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.ChoreView">
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -86,7 +87,6 @@
                     android:layout_marginBottom="16dp"
                     android:text="@string/text_checkBox"
                     android:textStyle="bold"
-                    android:onClick="@{()-> ChoreViewModel.onCheckBoxclicked()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.636"

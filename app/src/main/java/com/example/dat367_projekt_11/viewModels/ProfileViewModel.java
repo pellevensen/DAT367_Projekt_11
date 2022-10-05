@@ -1,36 +1,35 @@
 package com.example.dat367_projekt_11.viewModels;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-import com.example.dat367_projekt_11.BR;
 import com.example.dat367_projekt_11.models.Profile;
-import com.example.dat367_projekt_11.models.Household;
 
-public class ProfileViewModel extends BaseObservable {
-    private final Household household;
-    private final Profile profile;
+public class ProfileViewModel extends ViewModel {
+    private MutableLiveData<String> name;
+    private MutableLiveData<Profile> profileMutableLiveData;
 
-    public ProfileViewModel() {
-        household = new Household("","", "");
-        profile = new Profile("");
-    }
-    @Bindable
-    public String getProfileName() {
-        return profile.getName();
+    public MutableLiveData<String> getName(){
+
+        if (name == null) {
+            name = new MutableLiveData<>();
+        }
+        return name;
     }
 
-    public void setProfileName(String name) {
-        profile.setName(name);
-        notifyPropertyChanged(BR.profileName);
-    }
-    public void onNewProfileClicked(){
-        household.addProfile(profile);
+    public MutableLiveData<Profile> getProfile(){
+
+        if (profileMutableLiveData == null) {
+            profileMutableLiveData = new MutableLiveData<>();
+        }
+        return profileMutableLiveData;
     }
 
-    public void onProfileClicked(){
-        household.setCurrentProfile(profile);
-    }
+    public void onAddProfileClicked() {
+        Profile profile = new Profile(name.getValue());
+        profileMutableLiveData.setValue(profile);
+        profile.setName(name.getValue());
+        }
 
 
 }

@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentProfileBinding;
 import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
@@ -34,6 +36,14 @@ public class ProfileFragment extends Fragment{
         binding.setLifecycleOwner(this);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setLoginViewModel(loginViewModel);
+        addProfile = binding.getRoot().findViewById(R.id.addProfile);
+        addProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_profileFragment_to_addProfileFragment);
+            }
+        });
+
         populateData();
         return binding.getRoot();
     }
@@ -49,4 +59,5 @@ public class ProfileFragment extends Fragment{
         ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
         binding.setProfileAdapter(profileAdapter);
     }
+
 }

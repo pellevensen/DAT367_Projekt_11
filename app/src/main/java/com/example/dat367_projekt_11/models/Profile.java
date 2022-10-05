@@ -4,11 +4,11 @@ package com.example.dat367_projekt_11.models;
 import java.util.ArrayList;
 
 
-public class Profile implements ChoreStatusListener {
+public class Profile implements IsCompleteListener {
     private String name;
     private int currentPoints;
     private final ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
-    private ArrayList<IsCompleteListener> listeners;
+    private ArrayList<DoneChoresListener> listeners;
 
 
     public Profile(String name) {
@@ -47,11 +47,11 @@ public class Profile implements ChoreStatusListener {
     }
 
     private void notifyListeners() {
-        for(IsCompleteListener listener : listeners){
+        for(DoneChoresListener listener : listeners){
             listener.update(doneChores);
         }
     }
-    private void subscribe(IsCompleteListener listener) {
+    private void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
     }
 

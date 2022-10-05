@@ -8,7 +8,7 @@ public class Chore{
     private String description;
     private int points;
     private boolean isComplete;
-    private ArrayList<ChoreStatusListener> listeners;
+    private ArrayList<IsCompleteListener> listeners;
 
 
     public Chore(String name, String description, int points){
@@ -48,12 +48,12 @@ public class Chore{
         this.points = points;
     }
 
-    private void subscribe(ChoreStatusListener listener){
+    private void subscribe(IsCompleteListener listener){
         listeners.add(listener);
 
     }
     private void notifySubscribers() {
-        for (ChoreStatusListener listener : listeners) {
+        for (IsCompleteListener listener : listeners) {
                 listener.update(this);
         }
     }

@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements ChoreStatusListener{ //lyssnar på chores boolean{
+public class Household implements IsCompleteListener { //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
     private String householdName;
     private List<Profile> profileList;
     private String password;
     private String email;
     private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private ArrayList<ChoreListStatusListener> listeners;
+    private ArrayList<AvailableChoresListener> listeners;
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
 
@@ -94,7 +94,7 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
     }
 
 
-    private void subscribe(ChoreListStatusListener listener) { //broadcast
+    private void subscribe(AvailableChoresListener listener) { //broadcast
         listeners.add(listener);
     }
 
@@ -104,7 +104,7 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
 
 
     private void notifyListeners() {
-        for (ChoreListStatusListener listener : listeners) {  //broadcast
+        for (AvailableChoresListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 

@@ -16,7 +16,7 @@
         tools:context=".view.DoneChoresView">
 
         <androidx.recyclerview.widget.RecyclerView
-            tools:listitem="@layout/fragment_chore"
+            tools:listitem="@layout/chore_card"
             android:adapter="@{choreAdapter}"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -10,8 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.dat367_projekt_11.databinding.FragmentChoreBinding;
-import com.example.dat367_projekt_11.databinding.FragmentDonechoresmodelBinding;
+
+import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
+
 
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.viewModels.ChoreViewModel;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoneChoresView extends Fragment {
-    private FragmentDonechoresmodelBinding binding;
+    private FragmentDonechoresBinding binding;
     private ChoreViewModel choreViewModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class DoneChoresView extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentDonechoresmodelBinding.inflate(inflater, container, false);
+        binding = FragmentDonechoresBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         populateData();
         return binding.getRoot();
@@ -39,6 +40,7 @@ public class DoneChoresView extends Fragment {
 
     private void populateData() {
         List<Chore> choreModelList = new ArrayList<>();
+        choreModelList.add(new Chore("hanna", "cool", 300000));
 
 
         ChoreAdapter choreAdapter = new ChoreAdapter(choreModelList, getContext());

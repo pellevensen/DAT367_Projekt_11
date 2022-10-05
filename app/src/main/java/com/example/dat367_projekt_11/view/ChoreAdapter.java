@@ -1,9 +1,7 @@
 package com.example.dat367_projekt_11.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentChoreBinding;
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.Profile;
 
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     public ChoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         FragmentChoreBinding binding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()),
-                R.layout.fragment_chore, parent, false);
+                R.layout.chore_card, parent, false);
 
         return new ChoreViewHolder(binding);
     }

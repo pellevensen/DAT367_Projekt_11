@@ -10,7 +10,7 @@ import com.example.dat367_projekt_11.R;
 
 public class ScoreboardView extends AppCompatActivity{
 
-    TextView Scores;
+    /*TextView Scores;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -22,6 +22,6 @@ public class ScoreboardView extends AppCompatActivity{
 
         Scores.setText("Hej");
 
-    }
+    }*/
 
 }

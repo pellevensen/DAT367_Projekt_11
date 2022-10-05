@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements ChoreStatusListener { //lyssnar på chores boolean{
+public class Household implements AvailableChoresListener { //lyssnar på chores boolean{
     private FirebaseAuth mAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
@@ -110,14 +112,14 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
     public void setHouseholdName(String householdName) {
         this.householdName = householdName;
     }
-    @Override
+   /* @Override
     public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
         this.removeCompletedChore(chore);
 
-    }
+    }*/
 
 
-    private void subscribe(ChoreListStatusListener listener) { //broadcast
+    private void subscribe(AvailableChoresListener listener) { //broadcast
         listeners.add(listener);
     }
 
@@ -127,10 +129,14 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
 
 
     private void notifyListeners() {
-        for (ChoreListStatusListener listener : listeners) {  //broadcast
+        for (AvailableChoresListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 
     }
 
+    @Override
+    public void update(ArrayList<Chore> choreList) {
+
+    }
 }

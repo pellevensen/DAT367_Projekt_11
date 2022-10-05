@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
 
 public class Household implements ChoreStatusListener { //lyssnar på chores boolean{
     private FirebaseAuth mAuth;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference myRef;
     private FirebaseUser currentUser;
     private String householdName;
     private List<Profile> profileList;
@@ -28,6 +32,8 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
         this.email = email;
         this.householdName = householdName;
         this.mAuth = FirebaseAuth.getInstance();
+        this.firebaseDatabase = FirebaseDatabase.getInstance();
+        this.firebaseDatabase.getReference("message");
         this.currentUser = mAuth.getCurrentUser();
         this.householdChores = new ArrayList<Chore>();
         this.profileList = new ArrayList<>();

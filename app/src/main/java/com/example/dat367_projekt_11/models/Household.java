@@ -1,20 +1,19 @@
 package com.example.dat367_projekt_11.models;
 
-
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements ChoreStatusListener{ //lyssnar på chores boolean{
+public class Household implements IsCompleteListener { //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
     private String householdName;
     private List<Profile> profileList;
     private String password;
     private String email;
     private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private ArrayList<ChoreListStatusListener> listeners;
+    private ArrayList<AvailableChoresListener> listeners;
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
 
@@ -38,15 +37,15 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
         this.password = password;
     }
 
-    public void addNewChoreToList(Chore chore){ //när en chore skapas, meddelas alla som im. chorelist status listener
+    public void addChoreToList(Chore chore){ //när en chore görs available meddelas alla som im. chorelist status listener
        householdChores.add(chore);
-       notifyListeners(); // --> notifiera mainpageview
+       notifyListeners(); // --> notifiera
     }
 
-    private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
+    private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas eller görs uavailable alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                notifyListeners(); //--> notifiera completeschoreview
+                notifyListeners(); //--> notifiera
 
         }
     }
@@ -90,12 +89,12 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
     }
     @Override
     public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
-        this.removeCompletedChore(chore);
+        this.removeChoreFromList(chore);
 
     }
 
 
-    public void subscribe(ChoreListStatusListener listener) { //broadcast
+    private void subscribe(AvailableChoresListener listener) { //broadcast
         listeners.add(listener);
     }
 
@@ -105,7 +104,7 @@ public class Household implements ChoreStatusListener{ //lyssnar på chores bool
 
 
     private void notifyListeners() {
-        for (ChoreListStatusListener listener : listeners) {  //broadcast
+        for (AvailableChoresListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 

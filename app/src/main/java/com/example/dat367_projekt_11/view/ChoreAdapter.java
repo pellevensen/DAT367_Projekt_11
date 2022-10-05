@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.databinding.FragmentChoreBinding;
+import com.example.dat367_projekt_11.databinding.ChoreCardBinding;
 import com.example.dat367_projekt_11.models.Chore;
 
 import java.util.List;
@@ -28,9 +28,9 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     }
 
     public static class ChoreViewHolder extends RecyclerView.ViewHolder {
-        public FragmentChoreBinding choreCardBinding;
+        public ChoreCardBinding choreCardBinding;
 
-        public ChoreViewHolder(FragmentChoreBinding choreCardBinding) {
+        public ChoreViewHolder(ChoreCardBinding choreCardBinding) {
             super(choreCardBinding.getRoot());
             this.choreCardBinding = choreCardBinding;
         }
@@ -40,7 +40,7 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     @NonNull
     @Override
     public ChoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        FragmentChoreBinding binding = DataBindingUtil.inflate(
+        ChoreCardBinding binding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()),
                 R.layout.chore_card, parent, false);
 

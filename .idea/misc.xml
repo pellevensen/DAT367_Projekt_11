@@ -44,9 +44,11 @@
         <entry key="app/src/main/res/drawable/background_color.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_donechores_black_24dp.xml" value="0.215" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.12183383991894631" />
+        <entry key="app/src/main/res/layout/chore_card.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_add_profile.xml" value="0.12183383991894631" />
         <entry key="app/src/main/res/layout/fragment_chore.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_create_chore_page.xml" value="0.17481884057971014" />
+        <entry key="app/src/main/res/layout/fragment_donechores.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout/fragment_donechoresmodel.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17481884057971014" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.12183383991894631" />

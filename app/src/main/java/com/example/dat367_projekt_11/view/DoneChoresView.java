@@ -4,11 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
@@ -16,7 +14,6 @@ import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
 
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.viewModels.ChoreViewModel;
-import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +41,6 @@ public class DoneChoresView extends Fragment {
 
 
         ChoreAdapter choreAdapter = new ChoreAdapter(choreModelList, getContext());
-
         binding.setChoreAdapter(choreAdapter);
     }
 

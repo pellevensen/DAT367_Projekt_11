@@ -18,6 +18,7 @@
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/chore_card"
             android:adapter="@{choreAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

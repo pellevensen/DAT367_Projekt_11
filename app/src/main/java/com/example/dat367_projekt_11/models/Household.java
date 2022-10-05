@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Household implements IsCompleteListener { //lyssnar på chores boolean{
     private final FirebaseAuth mAuth;
-    private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private String householdName;
     private List<Profile> profileList;

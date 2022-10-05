@@ -58,7 +58,6 @@
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:checkedButton="@={CreateChoreViewModel.points}"
             android:layout_width="365dp"
             android:layout_height="191dp"
             android:layout_marginStart="23dp"
@@ -73,21 +72,23 @@
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="10 points"
-                android:textSize="20sp" />
+                android:text="10"
+                android:textSize="20sp"
+
+                />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="20 points"
+                android:text="20"
                 android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="30 points"
+                android:text="30"
                 android:textSize="20sp" />
         </RadioGroup>
 

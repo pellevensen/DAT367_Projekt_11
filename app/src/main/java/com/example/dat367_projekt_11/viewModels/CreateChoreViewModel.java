@@ -1,5 +1,7 @@
 package com.example.dat367_projekt_11.viewModels;
 
+import android.widget.RadioButton;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -13,7 +15,7 @@ public class CreateChoreViewModel extends ViewModel {
 
     public MutableLiveData<String> name = new MutableLiveData<>();
     public MutableLiveData<String> description = new MutableLiveData<>();
-    public MutableLiveData<Integer> points = new MutableLiveData<>();
+    public MutableLiveData<Integer> points = new MutableLiveData<>();//
     private MutableLiveData<Chore> userMutableLiveData;
     private Household household;
 
@@ -42,7 +44,8 @@ public class CreateChoreViewModel extends ViewModel {
     }
 
         private MutableLiveData<Integer> getPoints () {
-            return points;}
+
+        return points;}
 
 
         private void addChore(Chore chore) {

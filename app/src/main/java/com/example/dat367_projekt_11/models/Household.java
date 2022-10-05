@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +19,7 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
     private String password;
     private String email;
     private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private ArrayList<ChoreListStatusListener> listeners;
-    //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
+    private ArrayList<AvailableChoresListener> listeners;
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
 
@@ -63,16 +60,15 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
         this.password = password;
     }
 
-    public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
-       Chore chore = new Chore(name, description, points);
+    public void addChoreToList(Chore chore){ //när en chore görs available meddelas alla som im. chorelist status listener
        householdChores.add(chore);
-       //notifyListeners(); // --> notifiera mainpageview
+       notifyListeners(); // --> notifiera
     }
 
-    private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
+    private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas eller görs uavailable alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                //notifyListeners(); //--> notifiera completeschoreview
+                notifyListeners(); //--> notifiera
 
         }
     }

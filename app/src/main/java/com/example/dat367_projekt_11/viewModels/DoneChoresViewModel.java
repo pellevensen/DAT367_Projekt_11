@@ -5,13 +5,12 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.ChoreListStatusListener;
-import com.example.dat367_projekt_11.models.IsCompleteListener;
+import com.example.dat367_projekt_11.models.DoneChoresListener;
 import com.example.dat367_projekt_11.models.Profile;
 
 import java.util.ArrayList;
 
-public class DoneChoresViewModel extends ViewModel implements IsCompleteListener {
+public class DoneChoresViewModel extends ViewModel implements DoneChoresListener {
     private Profile profile;
     private final MutableLiveData<String> mText;
 

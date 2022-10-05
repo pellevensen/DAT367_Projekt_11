@@ -4,18 +4,17 @@ package com.example.dat367_projekt_11.models;
 import java.util.ArrayList;
 
 public class Chore{
-    private final String name;
-    private final String description;
-    private final int points;
+    private String name;
+    private String description;
+    private int points;
     private boolean isComplete;
-    private ArrayList<ChoreStatusListener> listeners;
+    private ArrayList<IsCompleteListener> listeners;
 
 
     public Chore(String name, String description, int points){
         this.name = name;
         this.description = description;
         this.points = points;
-        this.listeners = listeners;
     }
 
     public void completeChore(){
@@ -30,8 +29,6 @@ public class Chore{
     public String getDescription(){
         return this.description;
     }
-
-
     public int getPoints(){
         return this.points;
     }
@@ -39,12 +36,24 @@ public class Chore{
         return this.isComplete;
     }
 
-    private void subscribe(ChoreStatusListener listener){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    private void subscribe(IsCompleteListener listener){
         listeners.add(listener);
 
     }
     private void notifySubscribers() {
-        for (ChoreStatusListener listener : listeners) {
+        for (IsCompleteListener listener : listeners) {
                 listener.update(this);
         }
     }

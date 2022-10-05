@@ -1,16 +1,15 @@
 package com.example.dat367_projekt_11.viewModels;
 
-import androidx.cardview.widget.CardView;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.dat367_projekt_11.models.AvailableChoresListener;
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.ChoreListStatusListener;
 import com.example.dat367_projekt_11.models.Household;
 
 import java.util.ArrayList;
 
-public class ChoreViewModel extends ViewModel implements ChoreListStatusListener {
+public class ChoreViewModel extends ViewModel implements AvailableChoresListener {
     private Chore chore;
     private Household household;
     private MutableLiveData<Chore> userMutableLiveData;

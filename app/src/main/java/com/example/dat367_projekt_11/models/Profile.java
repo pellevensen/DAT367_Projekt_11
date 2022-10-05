@@ -25,11 +25,11 @@ public class Profile implements ChoreStatusListener {
     }
 
 
-    private void addChoretoCompletedChore(Chore chore){
+    private void addToDoneChores(Chore chore){
         doneChores.add(chore);
     }
 
-    private void addPointToCurrentPoints(Chore chore){
+    private void increaseCurrentPoints(Chore chore){
         this.currentPoints += chore.getPoints();
     }
 
@@ -41,8 +41,8 @@ public class Profile implements ChoreStatusListener {
 
     @Override
     public void update(Chore chore) {
-        addPointToCurrentPoints(chore);
-        addChoretoCompletedChore(chore);
+        increaseCurrentPoints(chore);
+        addToDoneChores(chore);
         notifyListeners();
     }
 

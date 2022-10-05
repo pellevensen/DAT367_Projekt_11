@@ -1,7 +1,5 @@
 package com.example.dat367_projekt_11.viewModels;
 
-import android.widget.RadioButton;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -49,7 +47,7 @@ public class CreateChoreViewModel extends ViewModel {
 
 
         private void addChore(Chore chore) {
-            household.addNewChoreToList(chore);
+            household.addChoreToList(chore);
         }
 
 

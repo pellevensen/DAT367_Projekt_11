@@ -14,9 +14,6 @@ public class ScoreboardViewModel extends ViewModel {
 
 
 
-
-
-
     /*TextView Scores;
 
     String memberName = "Pauline";

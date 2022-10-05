@@ -28,7 +28,7 @@
         android:id="@+id/LeaderboardTitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:shadowColor="#000"
         android:shadowRadius="10"

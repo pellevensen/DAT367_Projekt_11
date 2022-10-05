@@ -16,7 +16,7 @@ public class ScoreboardModel extends AppCompatActivity {
 
    /* Behöver en instans av user för att få tillgång till alla profiler - Hanna och Malin*/
 
-    Profile currentPoints=new Profile();
+    /*Profile currentPoints=new Profile();
     int memberScore = currentPoints.getCurrentPoints();
 
     TextView Scores;
@@ -74,11 +74,11 @@ public class ScoreboardModel extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 
 }

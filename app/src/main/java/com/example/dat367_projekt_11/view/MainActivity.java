@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.ActivityMainBinding;
+import com.example.dat367_projekt_11.models.ScoreboardModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+
 
     }
 

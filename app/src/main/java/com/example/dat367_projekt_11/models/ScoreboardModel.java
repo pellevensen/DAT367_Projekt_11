@@ -1,16 +1,12 @@
 package com.example.dat367_projekt_11.models;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.view.MainActivity;
 
 
 public class ScoreboardModel extends AppCompatActivity {
@@ -30,9 +26,9 @@ public class ScoreboardModel extends AppCompatActivity {
 
 
     @SuppressLint("SetTextI18n")
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
+
+    public void setScores(){
+        System.out.println("hej");
         setContentView(R.layout.fragment_scoreboard);
 
         TextView scores = (TextView) findViewById(R.id.Scores);
@@ -70,6 +66,7 @@ public class ScoreboardModel extends AppCompatActivity {
             editor.apply();
         }
 
+
         scores.setText("#1" + best1 + "\n" +
                 "#2" + best2 + "\n" +
                 "#3" + best3);
@@ -77,6 +74,7 @@ public class ScoreboardModel extends AppCompatActivity {
 
 
     }
+
 
     /*@Override
     public void onBackPressed(){

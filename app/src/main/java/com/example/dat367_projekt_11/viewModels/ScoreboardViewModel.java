@@ -12,17 +12,16 @@ import com.example.dat367_projekt_11.models.ScoreboardModel;
 public class ScoreboardViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
+    getGetScore(){};
+
+    public static void GetScores(String arg[]){
+        System.out.println("Pauline vill bara att det här ska fungera nu");
+        ScoreboardModel obj = new ScoreboardModel();
+        obj.setScores();
+
+    }
 
 
-    /*TextView Scores;
 
-    String memberName = "Pauline";
-    int memberScore;
-    int best1, best2, best3;
-    String ThirdPlace, SecondPlace, FirstPlace;
-
-    Scores.setText("#1" + FirstPlace + best1 + "\n" +
-            "#2" + SecondPlace + best2 + "\n" +
-            "#3" + ThirdPlace + best3 + "\n");*/
 
 }

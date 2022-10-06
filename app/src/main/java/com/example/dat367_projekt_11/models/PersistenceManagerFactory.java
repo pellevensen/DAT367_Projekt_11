@@ -1,10 +1,10 @@
 package com.example.dat367_projekt_11.models;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.core.persistence.PersistenceManager;
+
+import android.app.Application;
 
 public class PersistenceManagerFactory {
-    public PersistenceManager getPersistenceManager(FirebaseAuth firebaseAuth){
-        return null;
+    public PersistenceManager getPersistenceManager(Application application){
+        return new PersistenceManager(application);
     }
 }

@@ -9,7 +9,7 @@
 
         <variable
             name="itemClickListener"
-            type="com.example.dat367_projekt_11.view.CustomClickListener" />
+            type="com.example.dat367_projekt_11.models.CustomClickListener" />
 
     </data>
 

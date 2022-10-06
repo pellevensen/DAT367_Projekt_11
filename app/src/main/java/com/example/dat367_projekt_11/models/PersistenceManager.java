@@ -1,6 +1,9 @@
 package com.example.dat367_projekt_11.models;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Application;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,8 +16,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
-public class AuthAppRepository {
+public class PersistenceManager implements IPersistenceManager {
     private Application application;
 
     private FirebaseAuth firebaseAuth;
@@ -23,8 +29,9 @@ public class AuthAppRepository {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("message");
+    private CollectionReference usersRef = database.collection(USERS);
 
-    public AuthAppRepository(Application application) {
+    public PersistenceManager(Application application) {
         this.application = application;
         this.firebaseAuth = FirebaseAuth.getInstance();
         this.userLiveData = new MutableLiveData<>();
@@ -78,8 +85,28 @@ public class AuthAppRepository {
     }
 
 
-    public void writeNewHousehold(String userId, String name, String email) {
-        Household household = new Household(userId, name, email);
-        myRef.child("households").child(userId).setValue(household);
+    MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
+        MutableLiveData<Household> newUserMutableLiveData = new MutableLiveData<>();
+        DocumentReference uidRef = usersRef.document(authenticatedHousehold.getUid());
+        uidRef.get().addOnCompleteListener(uidTask -> {
+            if (uidTask.isSuccessful()) {
+                DocumentSnapshot document = uidTask.getResult();
+                if (!document.exists()) {
+                    uidRef.set(authenticatedHousehold).addOnCompleteListener(userCreationTask -> {
+                        if (userCreationTask.isSuccessful()) {
+                            authenticatedHousehold.isCreated = true;
+                            newUserMutableLiveData.setValue(authenticatedHousehold);
+                        } else {
+                            Log.d(TAG, userCreationTask.getException().getMessage());
+                        }
+                    });
+                } else {
+                    newUserMutableLiveData.setValue(authenticatedHousehold);
+                }
+            } else {
+                Log.d(TAG, uidTask.getException().getMessage());
+            }
+        });
+        return newUserMutableLiveData;
     }
 }

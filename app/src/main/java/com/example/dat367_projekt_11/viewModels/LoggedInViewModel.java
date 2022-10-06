@@ -6,18 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.dat367_projekt_11.models.AuthAppRepository;
+import com.example.dat367_projekt_11.models.PersistenceManager;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoggedInViewModel extends AndroidViewModel {
-    private AuthAppRepository authAppRepository;
+    private PersistenceManager authAppRepository;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
 
     public LoggedInViewModel(@NonNull Application application) {
         super(application);
 
-        authAppRepository = new AuthAppRepository(application);
+        authAppRepository = new PersistenceManager(application);
         userLiveData = authAppRepository.getUserLiveData();
         loggedOutLiveData = authAppRepository.getLoggedOutLiveData();
     }

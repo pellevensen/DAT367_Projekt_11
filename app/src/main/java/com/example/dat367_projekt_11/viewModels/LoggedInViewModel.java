@@ -9,26 +9,28 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.dat367_projekt_11.models.AuthAppRepository;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginViewModel extends AndroidViewModel {
+public class LoggedInViewModel extends AndroidViewModel {
     private AuthAppRepository authAppRepository;
     private MutableLiveData<FirebaseUser> userLiveData;
+    private MutableLiveData<Boolean> loggedOutLiveData;
 
-    public LoginViewModel(@NonNull Application application) {
+    public LoggedInViewModel(@NonNull Application application) {
         super(application);
+
         authAppRepository = new AuthAppRepository(application);
         userLiveData = authAppRepository.getUserLiveData();
+        loggedOutLiveData = authAppRepository.getLoggedOutLiveData();
     }
 
-    public void login(String email, String password) {
-        authAppRepository.login(email, password);
-    }
-
-    public void register(String email, String password) {
-        authAppRepository.register(email, password);
+    public void logOut() {
+        authAppRepository.logOut();
     }
 
     public MutableLiveData<FirebaseUser> getUserLiveData() {
         return userLiveData;
     }
 
+    public MutableLiveData<Boolean> getLoggedOutLiveData() {
+        return loggedOutLiveData;
+    }
 }

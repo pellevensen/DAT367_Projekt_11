@@ -33,6 +33,16 @@ public class LoginFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
+        loginViewModel.getUserLiveData().observe(this, new Observer<FirebaseUser>() {
+            @Override
+            public void onChanged(FirebaseUser firebaseUser) {
+                if (firebaseUser != null) {
+                    //Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_profileFragment);
+                }
+            }
+        });
     }
 
     @Nullable

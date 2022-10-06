@@ -12,13 +12,6 @@ import com.example.dat367_projekt_11.models.ScoreboardModel;
 public class ScoreboardViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
-    private ScoreboardModel scoreboardModel;
 
-
-    private void getScores(){
-        System.out.println("Pauline vill bara att det här ska fungera nu");
-        ScoreboardModel obj = new ScoreboardModel();
-        obj.makeScores();
-    }
 
 }

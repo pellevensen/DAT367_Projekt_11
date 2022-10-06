@@ -18,16 +18,13 @@ public class ScoreboardModel extends AppCompatActivity {
    * använd System.out.println("Pauline");*/
 
     Profile currentPoints=new Profile();
-    int memberScore = currentPoints.getCurrentPoints();
+    private int memberScore = currentPoints.getCurrentPoints();
 
-    int best1;
-    int best2;
-    int best3;
 
 
     @SuppressLint("SetTextI18n")
 
-    public void setScores(){
+    public void makeScores(){
         System.out.println("hej");
         setContentView(R.layout.fragment_scoreboard);
 
@@ -35,9 +32,9 @@ public class ScoreboardModel extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("PREF", +0);
         memberScore = preferences.getInt("memberScore", memberScore);
-        best1 = preferences.getInt("points1", 0);
-        best2 = preferences.getInt("points2", 0);
-        best3 = preferences.getInt("points3", 0);
+        int best1 = preferences.getInt("points1", 0);
+        int best2 = preferences.getInt("points2", 0);
+        int best3 = preferences.getInt("points3", 0);
 
         if( memberScore > best3){
             best3 = memberScore;

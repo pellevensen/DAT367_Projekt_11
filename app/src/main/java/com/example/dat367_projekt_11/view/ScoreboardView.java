@@ -8,20 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dat367_projekt_11.R;
 
-public class ScoreboardView extends AppCompatActivity{
+public class ScoreboardView extends ScoreboardFragment{
 
-    /*TextView Scores;
-
-    @SuppressLint("SetTextI18n")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_scoreboard);
-
-        Scores = (TextView) findViewById(R.id.Scores);
-
-        Scores.setText("Hej");
-
-    }*/
+    private void doSomething(){
+        System.out.println("snälla");
+    }
 
 }

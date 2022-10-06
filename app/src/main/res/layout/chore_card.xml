@@ -12,107 +12,85 @@
 
     </data>
 
- <!--   <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">-->
+        android:layout_height="170dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="223dp"
+            android:layout_width="350dp"
+
+            android:layout_height="150dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
             app:cardBackgroundColor="#00798C"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-<!--
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="337dp">-->
 
-                <TextView
-                    android:id="@+id/choreTitle"
-                    android:text="@={model.name}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="24dp"
+            <TextView
+                android:id="@+id/chorepointstitle"
+                android:layout_width="77dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="points"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                    android:textColor="#212121"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/descriptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="310dp"
+                android:layout_marginBottom="1dp"
+                android:text="@string/title_description"
+                android:textColor="#212121"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/chorepointstitle"
-                    android:layout_width="126dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="38dp"
-                    android:text="@string/title_points"
-                    android:textColor="#212121"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/choreTitle"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <CheckBox
+                android:id="@+id/checkBox_chore"
+                android:layout_width="117dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="185dp"
+                android:text="@string/text_checkBox"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/descriptionTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="230dp"
-                    android:layout_marginBottom="208dp"
-                    android:text="@string/title_description"
-                    android:textColor="#212121"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/choreTitle" />
+            <TextView
+                android:id="@+id/choreTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-                <CheckBox
-                    android:id="@+id/checkBox_chore"
-                    android:layout_width="103dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="287dp"
-                    android:layout_marginTop="200dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/text_checkBox"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.636"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chorepointstitle" />
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="157dp"
+                android:text="@={model.name}"
+                android:textColor="#212121"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/descriptionTextbox"
-                    android:layout_width="390dp"
-                    android:layout_height="118dp"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="19dp"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    app:layout_constraintBottom_toTopOf="@+id/checkBox_chore"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
-
-          <!--  </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <TextView
+                android:id="@+id/descriptionTextbox"
+                android:layout_width="321dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginEnd="46dp"
+                android:layout_marginBottom="7dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:text="@={model.description}" />
 
         </androidx.cardview.widget.CardView>
 
-   <!-- </androidx.constraintlayout.widget.ConstraintLayout>-->
+   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

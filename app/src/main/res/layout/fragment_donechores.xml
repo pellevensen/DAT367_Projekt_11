@@ -16,13 +16,18 @@
         tools:context=".view.DoneChoresView">
 
         <androidx.recyclerview.widget.RecyclerView
-            tools:listitem="@layout/chore_card"
+            android:layout_width="416dp"
+            android:layout_height="511dp"
+            android:layout_marginTop="17dp"
             android:adapter="@{choreAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/doneChoreTitel"
+            tools:listitem="@layout/chore_card" />
 
-        <TextView
+<!--        <TextView
             android:id="@+id/text_dashboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,20 +39,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />-->
 
         <TextView
             android:id="@+id/headerApp"
-            android:layout_width="241dp"
-            android:layout_height="96dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="85dp"
-            android:layout_marginTop="61dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="85dp"
             android:layout_marginBottom="199dp"
             android:gravity="center"
             android:text="@string/title_tidyApp"
             android:textSize="50sp"
-            app:layout_constraintBottom_toTopOf="@+id/text_dashboard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,16 +63,15 @@
             android:layout_marginStart="162dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="104dp"
-            android:layout_marginBottom="163dp"
             android:gravity="center"
             android:text="@string/done_ChoresTitel"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/text_dashboard"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.873"
+            app:layout_constraintHorizontal_bias="0.76"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/headerApp"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/headerApp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+    <!--            app:layout_constraintBottom_toTopOf="@+id/text_dashboard"-->

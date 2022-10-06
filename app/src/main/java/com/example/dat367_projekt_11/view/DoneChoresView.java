@@ -37,7 +37,11 @@ public class DoneChoresView extends Fragment {
 
     private void populateData() {
         List<Chore> choreModelList = new ArrayList<>();
-        choreModelList.add(new Chore("hanna", "cool", 300000));
+        choreModelList.add(new Chore("hanna", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+        choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+        choreModelList.add(new Chore("kristin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+        choreModelList.add(new Chore("pauline", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+
 
 
         ChoreAdapter choreAdapter = new ChoreAdapter(choreModelList, getContext());

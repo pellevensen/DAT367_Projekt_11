@@ -10,6 +10,7 @@ public class MainPageViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
+
     //private ChoreList chorelist;
     public MainPageViewModel() {
         mText = new MutableLiveData<>();

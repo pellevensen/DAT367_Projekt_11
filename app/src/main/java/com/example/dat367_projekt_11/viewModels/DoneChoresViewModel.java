@@ -1,14 +1,11 @@
 package com.example.dat367_projekt_11.viewModels;
 
-import androidx.databinding.Bindable;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.DoneChoresListener;
 import com.example.dat367_projekt_11.models.Profile;
-import com.example.dat367_projekt_11.view.ChoreAdapter;
 import com.example.dat367_projekt_11.view.ChoreAdapterDataModel;
 
 import java.util.ArrayList;
@@ -27,24 +24,23 @@ public class DoneChoresViewModel extends ViewModel implements ChoreAdapterDataMo
     public LiveData<String> getText() {
         return mText;
     }
-    /*
 
+/*
     @Override
     public void update(ArrayList<Chore> choreList) { //tar in lista av donechores
-        for (Chore doneChore: choreList){
 
-        }*/
 
         /*TODO implementera ett sätt att ta listan av donechores och presenterad dem som cards
                 för varje donechore
-         */
+
+    }*/
 
 
 
     @Override
     public List<Chore> getChoreModellist() { //returnerna listan av donechores;
        List<Chore> choreModelList = new ArrayList<>();
-        choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+       choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
       //  choreModelList = profile.getDoneChores();
 
 

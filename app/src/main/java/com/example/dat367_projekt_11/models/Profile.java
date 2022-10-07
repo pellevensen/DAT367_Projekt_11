@@ -51,7 +51,7 @@ public class Profile implements IsCompleteListener {
             listener.update(doneChores);
         }
     }
-    private void subscribe(DoneChoresListener listener) {
+    public void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
     }
 

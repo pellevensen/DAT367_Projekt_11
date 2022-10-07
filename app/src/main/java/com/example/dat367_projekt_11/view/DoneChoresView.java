@@ -50,18 +50,5 @@ public class DoneChoresView extends Fragment {
     }
 
 
-/*
-    private ChoreViewModel choreViewModel;
-    private TextView descriptionTitel;
-    private TextView nametitle;
-    private TextView chorePoints;
-    private CheckBox completeChorecheckBox;
-    private EditText description;
-    private FragmentChoreBinding binding;
-
-    public static ChoreView newInstance() {
-        return new ChoreView();
-    }*/
-
 
 }

@@ -1,7 +1,5 @@
 package com.example.dat367_projekt_11.models;
 
-import static android.content.ContentValues.TAG;
-
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -12,10 +10,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class PersistenceManager implements FirebasePersistenceManager { //Svårt att testa denna klass, kolla upp mocking
 
@@ -24,8 +20,11 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
     private MutableLiveData<Boolean> loggedOutLiveData;
     private MutableLiveData<String> toastMessage;
 
-    private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-    private CollectionReference usersRef = rootRef.collection("users");
+    /*private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    private CollectionReference usersRef = rootRef.collection("users");*/
+
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
 
     public PersistenceManager() {
         this.firebaseAuth = FirebaseAuth.getInstance(); // svårt att testa, kommentarer
@@ -37,6 +36,9 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             userLiveData.postValue(firebaseAuth.getCurrentUser());
             loggedOutLiveData.postValue(false);
         }
+        this.database = FirebaseDatabase.getInstance("https://dat367-projekt-11-default-rtdb.europe-west1.firebasedatabase.app/");
+        this.myRef = database.getReference();
+
     }
 
     public MutableLiveData<Household> login (String inEmail, String inPassword) {
@@ -89,26 +91,14 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
 
     public MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
         MutableLiveData<Household> newUserMutableLiveData = new MutableLiveData<>();
-        DocumentReference uidRef = usersRef.document(authenticatedHousehold.getUid());
-        uidRef.get().addOnCompleteListener(uidTask -> {
-            if (uidTask.isSuccessful()) {
-                DocumentSnapshot document = uidTask.getResult();
-                if (!document.exists()) {
-                    uidRef.set(authenticatedHousehold).addOnCompleteListener(userCreationTask -> {
-                        if (userCreationTask.isSuccessful()) {
-                            authenticatedHousehold.isCreated = true;
-                            newUserMutableLiveData.setValue(authenticatedHousehold);
-                        } else {
-                            Log.d(TAG, userCreationTask.getException().getMessage());
-                        }
-                    });
-                } else {
-                    newUserMutableLiveData.setValue(authenticatedHousehold);
-                }
-            } else {
-                Log.d(TAG, uidTask.getException().getMessage());
-            }
-        });
+        /*myRef.child("users").child(authenticatedHousehold.getUid()).setValue(authenticatedHousehold);
+        newUserMutableLiveData.setValue(authenticatedHousehold);*/
         return newUserMutableLiveData;
     }
+
+    /*public MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
+        MutableLiveData<Household> newUserMutableLiveData = new MutableLiveData<>();
+
+        return newUserMutableLiveData;
+    }*/
 }

@@ -10,14 +10,12 @@ import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.models.PersistenceManagerFactory;
 import com.example.dat367_projekt_11.models.Profile;
 
-import java.util.List;
-
 public class LoginViewModel extends AndroidViewModel {
     private PersistenceManagerFactory persistenceManagerFactory;
     private MutableLiveData<Household> authenticatedHouseholdLiveData;
     private MutableLiveData<Household> createdHouseholdLiveData;
 
-    public MutableLiveData<List<Profile>> listOfProfile;
+    public MutableLiveData<Profile> currentProfile;
 
     private MutableLiveData<String> email = new MutableLiveData<>();
     private MutableLiveData<String> password = new MutableLiveData<>();
@@ -65,6 +63,10 @@ public class LoginViewModel extends AndroidViewModel {
     public void login(String email, String password) {
         authenticatedHouseholdLiveData = persistenceManagerFactory.getPersistenceManager().login(email, password);
     }
+
+/*    public void setCurrentProfile(Profile profile){
+        currentProfile = persistenceManagerFactory.getPersistenceManager()
+    }*/
 
     public void createHousehold(Household authenticatedHousehold) {
         createdHouseholdLiveData = persistenceManagerFactory.getPersistenceManager().createHouseholdInFirestoreIfNotExists(authenticatedHousehold);

@@ -67,6 +67,7 @@ public class LoginFragment extends Fragment {
                 createNewHousehold(authenticatedHousehold);
             } else {
                 goToProfileFragment();
+                createNewHousehold(authenticatedHousehold);
             }
         });
     }

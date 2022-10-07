@@ -13,6 +13,7 @@ import java.util.List;
 
 public class MainPageViewModel extends ViewModel implements ChoreAdapterDataModel {
     private final MutableLiveData<String> mText;
+    private final MutableLiveData<Boolean> mChecked;
     private Household household;
 
 
@@ -20,10 +21,15 @@ public class MainPageViewModel extends ViewModel implements ChoreAdapterDataMode
     public MainPageViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue(""/*chorelist */);
+        mChecked = new MutableLiveData<>();
     }
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    public LiveData<Boolean> getChoreStatus(){
+        return mChecked;
     }
 
     @Override
@@ -35,4 +41,6 @@ public class MainPageViewModel extends ViewModel implements ChoreAdapterDataMode
          // choreModelList = household.getHouseholdChores();
         return choreModelList;
     }
+
+
 }

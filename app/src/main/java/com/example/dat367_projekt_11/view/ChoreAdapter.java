@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +37,11 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     }
 
 
+
+
+    //recyklerview kallar denna metod
+    //metoden kallas när det behövs skapas en ny viewholder, metoden skapar och initialiserar viewholdern och dess
+    //associerade view men fyller inte i dess innehåll (content) (den är inte ännu buden till specifik data)
     @NonNull
     @Override
     public ChoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,6 +51,7 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
 
         return new ChoreViewHolder(binding);
     }
+    /*recyklerview kallar denna metod för att associera viewholder med data,*/
 
     @Override
     public void onBindViewHolder(@NonNull ChoreViewHolder holder, int position) {

@@ -22,29 +22,17 @@ public class ChoreViewModel extends ViewModel implements AvailableChoresListener
         return userMutableLiveData;
 
     }
-   // household.subscribe(this);
 
-
-    // TODO: Implement the ViewModel
-    //skapa metoder för att koppla info till textfields etc -> namn/beskrivning/boolean
-    //
-
-
-
-    public void onCheckBoxclicked(){
+    public void onClick(){
         chore.completeChore();
     }
+
 
     //tar in arraylist med information för varje chore
     @Override
     public void update(ArrayList<Chore> choreList) {
-        for(Chore chore: choreList){
-//            CardView card = new CardView(chore.getDescription(),chore.getName(), chore.getPoints(),chore.isComplete());
-            chore.getDescription();
-            chore.getName();
-            chore.getPoints();
-            chore.isComplete();
-        }
 
     }
+
+
 }

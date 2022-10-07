@@ -1,16 +1,25 @@
 package com.example.dat367_projekt_11.models;
 
-import android.os.CountDownTimer;
 
+import java.util.List;
 
 public class Round {
-    private CountDownTimer countDownTimer;
+    Household household;
+    List<Profile> profiles;
 
+    public Round(Household household) {
+        this.household = household;
+        profiles = household.getProfileList();
 
-    private void resetRound(){
 
     }
-    private void setRound(){
-    }
 
+    public void getWinner(){
+
+    }
+    public void resetPoints(){
+        for(Profile profile : profiles){
+            profile.resetScore();
+        }
+    }
 }

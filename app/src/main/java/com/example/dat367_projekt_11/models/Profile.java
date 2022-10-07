@@ -58,5 +58,11 @@ public class Profile implements IsCompleteListener {
     public void setName(String name){
         this.name = name;
     }
+    /*
+    DENNA KANSKE VI BEHÖVER TA BORT SENARE FÖR JAG ÄR LITE TIPSY NÄR JAG SKRIVER DETTA HEHE
+     */
+    void resetScore(){
+        this.currentPoints=0;
+    }
 
 }

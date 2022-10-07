@@ -42,9 +42,6 @@ public class DoneChoresViewModel extends ViewModel implements ChoreAdapterDataMo
        List<Chore> choreModelList = new ArrayList<>();
        choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
       //  choreModelList = profile.getDoneChores();
-
-
-
-       return choreModelList;
+        return choreModelList;
     }
 }

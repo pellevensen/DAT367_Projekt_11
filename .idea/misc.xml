@@ -49,10 +49,10 @@
         <entry key="app/src/main/res/layout/fragment_add_profile.xml" value="0.12183383991894631" />
         <entry key="app/src/main/res/layout/fragment_chore.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_create_chore_page.xml" value="0.17481884057971014" />
-        <entry key="app/src/main/res/layout/fragment_donechores.xml" value="0.32869110107421873" />
+        <entry key="app/src/main/res/layout/fragment_donechores.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_donechoresmodel.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17481884057971014" />
-        <entry key="app/src/main/res/layout/fragment_mainpage.xml" value="0.3186907560929009" />
+        <entry key="app/src/main/res/layout/fragment_mainpage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.28894199421582134" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/profile_card.xml" value="0.2115036231884058" />

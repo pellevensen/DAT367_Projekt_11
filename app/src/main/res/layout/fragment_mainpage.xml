@@ -5,11 +5,12 @@
 
     <data>
         <variable
-            name="MainPageViewModel"
+            name="mainPageViewModel"
             type="com.example.dat367_projekt_11.viewModels.MainPageViewModel" />
         <variable
             name="choreAdapter"
             type="com.example.dat367_projekt_11.view.ChoreAdapter" />
+
 
     </data>
 
@@ -77,7 +78,7 @@
             android:layout_marginEnd="72dp"
             android:layout_marginBottom="339dp"
             android:text="Create new chore"
-            android:onClick="@{()-> MainPageViewModel}"
+            android:onClick="@{()-> mainPageViewModel}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

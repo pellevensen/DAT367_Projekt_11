@@ -6,6 +6,9 @@
         <variable
             name="model"
             type="com.example.dat367_projekt_11.models.Profile" />
+        <variable
+            name="householdmodel"
+            type="com.example.dat367_projekt_11.models.Household" />
 
         <variable
             name="itemClickListener"

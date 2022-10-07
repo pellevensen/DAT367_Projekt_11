@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
@@ -14,13 +15,17 @@ import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
 
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.viewModels.ChoreViewModel;
+import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
+import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DoneChoresView extends Fragment {
     private FragmentDonechoresBinding binding;
-    private ChoreViewModel choreViewModel;
+    private DoneChoresViewModel doneChoresViewModel;
+ //   private ChoreAdapter choreAdapter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +36,14 @@ public class DoneChoresView extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDonechoresBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
+        doneChoresViewModel = new ViewModelProvider(this).get(DoneChoresViewModel.class);
+        binding.setDoneChoresViewModel(doneChoresViewModel);
         populateData();
         return binding.getRoot();
     }
 
     private void populateData() {
-        List<Chore> choreModelList = new ArrayList<>();
-        choreModelList.add(new Chore("hanna", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
-        choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
-        choreModelList.add(new Chore("kristin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
-        choreModelList.add(new Chore("pauline", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
-
-
+        List<Chore> choreModelList = doneChoresViewModel.getChoreModellist();
 
         ChoreAdapter choreAdapter = new ChoreAdapter(choreModelList, getContext());
         binding.setChoreAdapter(choreAdapter);

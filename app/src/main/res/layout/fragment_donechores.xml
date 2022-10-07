@@ -7,6 +7,9 @@
         <variable
             name="choreAdapter"
             type="com.example.dat367_projekt_11.view.ChoreAdapter" />
+        <variable
+            name="doneChoresViewModel"
+            type="com.example.dat367_projekt_11.viewModels.DoneChoresViewModel" />
 
     </data>
 

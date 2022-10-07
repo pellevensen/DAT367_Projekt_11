@@ -17,7 +17,7 @@ public class LoggedInViewModel extends AndroidViewModel {
     public LoggedInViewModel(@NonNull Application application) {
         super(application);
 
-        authAppRepository = new PersistenceManager(application);
+        authAppRepository = new PersistenceManager();
         userLiveData = authAppRepository.getUserLiveData();
         loggedOutLiveData = authAppRepository.getLoggedOutLiveData();
     }

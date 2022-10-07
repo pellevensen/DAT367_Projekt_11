@@ -2,11 +2,12 @@ package com.example.dat367_projekt_11.models;
 
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements ChoreStatusListener { //lyssnar på chores boolean{
+public class Household implements Serializable { //lyssnar på chores boolean{
     private String householdName;
     private List<Profile> profileList;
     private String password;
@@ -49,7 +50,7 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
     //returnera kopia? orginal kan mixtas med.*/
 
     @Exclude
-    boolean isNew, isCreated;
+    public boolean isNew, isCreated;
 
     @Exclude
     public boolean isAuthenticated;
@@ -109,11 +110,11 @@ public class Household implements ChoreStatusListener { //lyssnar på chores boo
     public void setHouseholdName(String householdName) {
         this.householdName = householdName;
     }
-    @Override
+   /* @Override
     public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
         this.removeCompletedChore(chore);
 
-    }
+    }*/
 
 
     private void subscribe(ChoreListStatusListener listener) { //broadcast

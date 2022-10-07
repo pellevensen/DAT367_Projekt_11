@@ -34,7 +34,7 @@ public class ProfileFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         binding.setLoginViewModel(loginViewModel);
         addProfile = binding.getRoot().findViewById(R.id.addProfile);
         addProfile.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,6 @@ public class ProfileFragment extends Fragment{
                 Navigation.findNavController(binding.getRoot()).navigate(R.id.action_profileFragment_to_addProfileFragment);
             }
         });
-
         populateData();
         return binding.getRoot();
     }

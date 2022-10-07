@@ -33,6 +33,7 @@
 
         <EditText
             android:id="@+id/emailTextView"
+            android:text="@={LoginViewModel.email}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/passwordTextView"
@@ -50,6 +51,7 @@
 
         <EditText
             android:id="@+id/passwordTextView"
+            android:text="@={LoginViewModel.password}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -2,9 +2,7 @@ package com.example.dat367_projekt_11.models;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -14,28 +12,26 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class PersistenceManager implements IPersistenceManager {
-    private Application application;
+public class PersistenceManager implements FirebasePersistenceManager { //Svårt att testa denna klass, kolla upp mocking
 
     private FirebaseAuth firebaseAuth;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
+    private MutableLiveData<String> toastMessage;
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("message");
-    private CollectionReference usersRef = database.collection(USERS);
+    private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    private CollectionReference usersRef = rootRef.collection("users");
 
-    public PersistenceManager(Application application) {
-        this.application = application;
-        this.firebaseAuth = FirebaseAuth.getInstance();
+    public PersistenceManager() {
+        this.firebaseAuth = FirebaseAuth.getInstance(); // svårt att testa, kommentarer
         this.userLiveData = new MutableLiveData<>();
         this.loggedOutLiveData = new MutableLiveData<>();
+        this.toastMessage = new MutableLiveData<>();
 
         if (firebaseAuth.getCurrentUser() != null) {
             userLiveData.postValue(firebaseAuth.getCurrentUser());
@@ -43,18 +39,25 @@ public class PersistenceManager implements IPersistenceManager {
         }
     }
 
-    public void login(String email, String password) {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            userLiveData.postValue(firebaseAuth.getCurrentUser());
-                        } else {
-                            Toast.makeText(application.getApplicationContext(), "Login Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+    public MutableLiveData<Household> login (String inEmail, String inPassword) {
+        MutableLiveData<Household> authenticatedHouseholdMutableLiveData = new MutableLiveData<>();
+        firebaseAuth.signInWithEmailAndPassword(inEmail, inPassword).addOnCompleteListener(authTask -> {
+            if (authTask.isSuccessful()) {
+                boolean isNewUser = authTask.getResult().getAdditionalUserInfo().isNewUser();
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                if (firebaseUser != null) {
+                    String uid = firebaseUser.getUid();
+                    String name = firebaseUser.getDisplayName();
+                    String email = firebaseUser.getEmail();
+                    Household household = new Household(uid, name, email);
+                    household.isNew = isNewUser;
+                    authenticatedHouseholdMutableLiveData.setValue(household);
+                }
+            } else {
+                Log.d("LOG", authTask.getException().getMessage());
+            }
+        });
+        return authenticatedHouseholdMutableLiveData;
     }
 
     public void register(String email, String password) {
@@ -65,7 +68,7 @@ public class PersistenceManager implements IPersistenceManager {
                         if (task.isSuccessful()) {
                             userLiveData.postValue(firebaseAuth.getCurrentUser());
                         } else {
-                            Toast.makeText(application.getApplicationContext(), "Registration Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            toastMessage.setValue("Registration failure "+ task.getException().getMessage());
                         }
                     }
                 });
@@ -84,8 +87,7 @@ public class PersistenceManager implements IPersistenceManager {
         return loggedOutLiveData;
     }
 
-
-    MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
+    public MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
         MutableLiveData<Household> newUserMutableLiveData = new MutableLiveData<>();
         DocumentReference uidRef = usersRef.document(authenticatedHousehold.getUid());
         uidRef.get().addOnCompleteListener(uidTask -> {

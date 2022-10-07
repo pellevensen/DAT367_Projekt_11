@@ -1,5 +1,6 @@
 package com.example.dat367_projekt_11.view;
 
+import androidx.annotation.IdRes;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,12 +28,14 @@ import com.example.dat367_projekt_11.viewModels.CreateChoreViewModel;
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class CreateChoreView extends Fragment {
     private Button doneButton;
     private RadioGroup radioGroup;
-    private RadioButton selectedRadioButton;
+    private RadioButton radioButton;
     private CreateChoreViewModel createChoreViewModel;
     private FragmentCreateChorePageBinding binding;
 
@@ -60,27 +64,27 @@ public class CreateChoreView extends Fragment {
 
             public void onChanged(@Nullable Chore chore) {
                 if (TextUtils.isEmpty(Objects.requireNonNull(chore).getName())) {
-                    Toast.makeText(getActivity(),"Enter the chore name",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Enter the chore's name",Toast.LENGTH_SHORT).show();
                 }
-                else {
+                /*else {
                     binding.nameText.setText(chore.getName());
-                }
+                }*/
                 if (TextUtils.isEmpty(Objects.requireNonNull(chore).getDescription())) {
-                    Toast.makeText(getActivity(),"Enter the chore description",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Enter the chore's description",Toast.LENGTH_SHORT).show();
                 }
-                else {
+                /*else {
                     binding.descriptionText.setText(chore.getDescription());
 
+                }*/
+                if (Objects.nonNull(radioGroup.getCheckedRadioButtonId())){
+                    Toast.makeText(getActivity(),"Pick the chore's points",Toast.LENGTH_SHORT).show();
                 }
-                if (radioGroup.getCheckedRadioButtonId() != -1) {
-                    selectedRadioButton = binding.getRoot().findViewById(radioGroup.getCheckedRadioButtonId());
-                    selectedRadioButton.setText(chore.getPoints());
 
-            }
             }
         });
         return binding.getRoot();
     }
+
 
 
     @Override

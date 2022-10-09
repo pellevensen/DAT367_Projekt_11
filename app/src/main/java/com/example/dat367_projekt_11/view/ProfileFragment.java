@@ -44,8 +44,8 @@ public class ProfileFragment extends Fragment{
     }
 
     private void populateData() {
-        authViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedUser -> {
-            ProfileAdapter profileAdapter = new ProfileAdapter(authenticatedUser.getProfileList(), getContext());
+        authViewModel.getListOfProfiles().observe(getViewLifecycleOwner(), listOfProfiles -> {
+            ProfileAdapter profileAdapter = new ProfileAdapter(listOfProfiles, getContext());
             binding.setProfileAdapter(profileAdapter);
         });
 

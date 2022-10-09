@@ -10,10 +10,13 @@ import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.models.PersistenceManagerFactory;
 import com.example.dat367_projekt_11.models.Profile;
 
+import java.util.List;
+
 public class AuthViewModel extends AndroidViewModel {
     private PersistenceManagerFactory persistenceManagerFactory;
     private MutableLiveData<Household> authenticatedHouseholdLiveData;
     private MutableLiveData<Household> createdHouseholdLiveData;
+    private MutableLiveData<List<Profile>> listOfProfiles;
 
     private MutableLiveData<String> email = new MutableLiveData<>();
     private MutableLiveData<String> password = new MutableLiveData<>();
@@ -61,6 +64,13 @@ public class AuthViewModel extends AndroidViewModel {
         return householdName;
     }
 
+    public MutableLiveData<List<Profile>> getListOfProfiles() {
+        if (listOfProfiles == null) {
+            listOfProfiles = new MutableLiveData<>();
+        }
+        return listOfProfiles;
+    }
+
     public AuthViewModel(@NonNull Application application) {
         super(application);
         persistenceManagerFactory = new PersistenceManagerFactory();
@@ -80,7 +90,7 @@ public class AuthViewModel extends AndroidViewModel {
     }
 
     public void addProfile(Household household, Profile profile){
-        persistenceManagerFactory.getPersistenceManager().addNewProfileToDatabase(household, profile);
+        listOfProfiles = persistenceManagerFactory.getPersistenceManager().addNewProfileToDatabase(household, profile);
     }
 
 }

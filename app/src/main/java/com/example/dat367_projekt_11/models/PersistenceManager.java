@@ -17,11 +17,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 public class PersistenceManager implements FirebasePersistenceManager { //Svårt att testa denna klass, kolla upp mocking
 
     private FirebaseAuth firebaseAuth;
-    private MutableLiveData<FirebaseUser> userLiveData;
-    private MutableLiveData<Boolean> loggedOutLiveData;
     private MutableLiveData<String> toastMessage;
 
     private FirebaseDatabase database;
@@ -29,14 +29,7 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
 
     public PersistenceManager() {
         this.firebaseAuth = FirebaseAuth.getInstance(); // svårt att testa, kommentarer
-        this.userLiveData = new MutableLiveData<>();
-        this.loggedOutLiveData = new MutableLiveData<>();
         this.toastMessage = new MutableLiveData<>();
-
-        if (firebaseAuth.getCurrentUser() != null) {
-            userLiveData.postValue(firebaseAuth.getCurrentUser());
-            loggedOutLiveData.postValue(false);
-        }
         this.database = FirebaseDatabase.getInstance("https://dat367-projekt-11-default-rtdb.europe-west1.firebasedatabase.app/");
         this.myRef = database.getReference("users");
 
@@ -82,7 +75,6 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
                                             }
                                         }
                                     });
-                            userLiveData.postValue(firebaseAuth.getCurrentUser());
                         }
                         else {
                             toastMessage.setValue("Registration failure " + task.getException().getMessage());
@@ -93,15 +85,6 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
 
     public void logOut() {
         firebaseAuth.signOut();
-        loggedOutLiveData.postValue(true);
-    }
-
-    public MutableLiveData<FirebaseUser> getUserLiveData() {
-        return userLiveData;
-    }
-
-    public MutableLiveData<Boolean> getLoggedOutLiveData() {
-        return loggedOutLiveData;
     }
 
     public MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
@@ -121,7 +104,10 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
         return newHouseholdMutableLiveData;
     }
 
-    public void addNewProfileToDatabase(Household household, Profile profile){
+    public MutableLiveData<List<Profile>> addNewProfileToDatabase(Household household, Profile profile){
+        MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").setValue(profile);
+        newListOfProfiles.setValue(household.getProfileList());
+        return newListOfProfiles;
     }
 }

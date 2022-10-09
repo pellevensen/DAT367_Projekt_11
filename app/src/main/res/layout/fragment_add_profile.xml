@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="LoginViewModel"
-            type="com.example.dat367_projekt_11.viewModels.LoginViewModel" />
+            name="AuthViewModel"
+            type="com.example.dat367_projekt_11.viewModels.AuthViewModel" />
 
     </data>
 
@@ -41,7 +41,7 @@
             android:layout_marginBottom="99dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={LoginViewModel.profileName}"
+            android:text="@={AuthViewModel.profileName}"
             app:layout_constraintBottom_toTopOf="@+id/createProfileBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

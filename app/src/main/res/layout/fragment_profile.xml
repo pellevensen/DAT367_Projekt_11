@@ -9,8 +9,8 @@
             name="profileAdapter"
             type="com.example.dat367_projekt_11.view.ProfileAdapter" />
         <variable
-            name="loginViewModel"
-            type="com.example.dat367_projekt_11.viewModels.LoginViewModel" />
+            name="authViewModel"
+            type="com.example.dat367_projekt_11.viewModels.AuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -15,12 +15,12 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentRegistrationBinding;
-import com.example.dat367_projekt_11.viewModels.LoginViewModel;
+import com.example.dat367_projekt_11.viewModels.AuthViewModel;
 
 public class RegistrationFragment extends Fragment {
 
     private FragmentRegistrationBinding binding;
-    private LoginViewModel loginViewModel;
+    private AuthViewModel authViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentRegistrationBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-        binding.setViewModel(loginViewModel);
+        authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+        binding.setViewModel(authViewModel);
         setRegistrationBtnOnAction(binding.getRoot());
         return binding.getRoot();
     }
@@ -44,9 +44,9 @@ public class RegistrationFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = loginViewModel.getEmail().getValue();
-                String password = loginViewModel.getPassword().getValue();
-                String householdName = loginViewModel.getHouseholdName().getValue();
+                String email = authViewModel.getEmail().getValue();
+                String password = authViewModel.getPassword().getValue();
+                String householdName = authViewModel.getHouseholdName().getValue();
                 if (email.length() > 0 && password.length() > 0) {
                     register(email, password, householdName);
                 } else {
@@ -57,7 +57,7 @@ public class RegistrationFragment extends Fragment {
     }
 
     private void register(String email, String password, String householdName) {
-        loginViewModel.register(email, password, householdName);
+        authViewModel.register(email, password, householdName);
         goToLoginFragment();
     }
 

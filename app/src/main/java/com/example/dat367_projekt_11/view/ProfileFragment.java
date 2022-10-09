@@ -14,11 +14,11 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentProfileBinding;
-import com.example.dat367_projekt_11.viewModels.LoginViewModel;
+import com.example.dat367_projekt_11.viewModels.AuthViewModel;
 
 public class ProfileFragment extends Fragment{
     private FragmentProfileBinding binding;
-    private LoginViewModel loginViewModel;
+    private AuthViewModel authViewModel;
     private Button addProfile;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class ProfileFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-        binding.setLoginViewModel(loginViewModel);
+        authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+        binding.setAuthViewModel(authViewModel);
         addProfile = binding.getRoot().findViewById(R.id.addProfile);
         addProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +44,7 @@ public class ProfileFragment extends Fragment{
     }
 
     private void populateData() {
-        loginViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedUser -> {
+        authViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedUser -> {
             ProfileAdapter profileAdapter = new ProfileAdapter(authenticatedUser.getProfileList(), getContext());
             binding.setProfileAdapter(profileAdapter);
         });

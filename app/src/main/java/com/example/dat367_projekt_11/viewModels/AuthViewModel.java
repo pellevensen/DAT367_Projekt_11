@@ -10,7 +10,7 @@ import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.models.PersistenceManagerFactory;
 import com.example.dat367_projekt_11.models.Profile;
 
-public class LoginViewModel extends AndroidViewModel {
+public class AuthViewModel extends AndroidViewModel {
     private PersistenceManagerFactory persistenceManagerFactory;
     private MutableLiveData<Household> authenticatedHouseholdLiveData;
     private MutableLiveData<Household> createdHouseholdLiveData;
@@ -61,7 +61,7 @@ public class LoginViewModel extends AndroidViewModel {
         return householdName;
     }
 
-    public LoginViewModel(@NonNull Application application) {
+    public AuthViewModel(@NonNull Application application) {
         super(application);
         persistenceManagerFactory = new PersistenceManagerFactory();
 

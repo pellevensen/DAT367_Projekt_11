@@ -17,11 +17,11 @@ import androidx.navigation.Navigation;
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
 import com.example.dat367_projekt_11.models.Household;
-import com.example.dat367_projekt_11.viewModels.LoginViewModel;
+import com.example.dat367_projekt_11.viewModels.AuthViewModel;
 
 public class LoginFragment extends Fragment {
 
-    private LoginViewModel loginViewModel;
+    private AuthViewModel authViewModel;
     private FragmentLoginBinding binding;
 
 
@@ -35,8 +35,8 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-        binding.setLoginViewModel(loginViewModel);
+        authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+        binding.setAuthViewModel(authViewModel);
         setLoginBtnOnAction(binding.getRoot());
         return binding.getRoot();
     }
@@ -47,8 +47,8 @@ public class LoginFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = loginViewModel.getEmail().getValue();
-                String password = loginViewModel.getPassword().getValue();
+                String email = authViewModel.getEmail().getValue();
+                String password = authViewModel.getPassword().getValue();
                 if (email.length() > 0 && password.length() > 0) {
                     signIn(email, password);
                 } else {
@@ -59,8 +59,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void signIn(String email, String password) {
-        loginViewModel.login(email, password);
-        loginViewModel.getAuthenticatedHousehold().observe(this, authenticatedHousehold -> {
+        authViewModel.login(email, password);
+        authViewModel.getAuthenticatedHousehold().observe(this, authenticatedHousehold -> {
             if (authenticatedHousehold.isNew) {
                 createNewHousehold(authenticatedHousehold);
             } else {
@@ -71,8 +71,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void createNewHousehold(Household authenticatedHousehold) {
-        loginViewModel.createHousehold(authenticatedHousehold);
-        loginViewModel.getCreatedHousehold().observe(this, household -> {
+        authViewModel.createHousehold(authenticatedHousehold);
+        authViewModel.getCreatedHousehold().observe(this, household -> {
             if (authenticatedHousehold.isCreated) {
                 toastMessage(household.getHouseholdName());
             }

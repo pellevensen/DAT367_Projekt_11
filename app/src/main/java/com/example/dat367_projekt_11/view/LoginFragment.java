@@ -20,8 +20,6 @@ import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 public class LoginFragment extends Fragment {
-    private Button loginButton;
-    private Button registerButton;
 
     private LoginViewModel loginViewModel;
     private FragmentLoginBinding binding;
@@ -44,7 +42,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void setLoginBtnOnAction(View view) {
-        loginButton = view.findViewById(R.id.login);
+        Button loginButton = view.findViewById(R.id.login);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

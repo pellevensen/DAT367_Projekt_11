@@ -15,11 +15,18 @@ public class LoginViewModel extends AndroidViewModel {
     private MutableLiveData<Household> authenticatedHouseholdLiveData;
     private MutableLiveData<Household> createdHouseholdLiveData;
 
-    public MutableLiveData<Profile> currentProfile;
-
     private MutableLiveData<String> email = new MutableLiveData<>();
     private MutableLiveData<String> password = new MutableLiveData<>();
     private MutableLiveData<String> householdName = new MutableLiveData<>();
+
+    private MutableLiveData<String> profileName = new MutableLiveData<>();
+
+    public MutableLiveData<String> getProfileName(){
+        if(profileName == null){
+            profileName = new MutableLiveData<>();
+        }
+        return profileName;
+    }
 
     public MutableLiveData<Household> getAuthenticatedHousehold() {
         if (authenticatedHouseholdLiveData == null) {
@@ -64,12 +71,16 @@ public class LoginViewModel extends AndroidViewModel {
         authenticatedHouseholdLiveData = persistenceManagerFactory.getPersistenceManager().login(email, password);
     }
 
-/*    public void setCurrentProfile(Profile profile){
-        currentProfile = persistenceManagerFactory.getPersistenceManager()
-    }*/
+    public void register(String email, String password, String householdName){
+        persistenceManagerFactory.getPersistenceManager().register(email, password, householdName);
+    }
 
     public void createHousehold(Household authenticatedHousehold) {
         createdHouseholdLiveData = persistenceManagerFactory.getPersistenceManager().createHouseholdInFirestoreIfNotExists(authenticatedHousehold);
+    }
+
+    public void addProfile(Household household, Profile profile){
+        persistenceManagerFactory.getPersistenceManager().addNewProfileToDatabase(household, profile);
     }
 
 }

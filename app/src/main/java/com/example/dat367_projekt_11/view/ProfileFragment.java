@@ -14,11 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentProfileBinding;
-import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.viewModels.LoginViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProfileFragment extends Fragment{
     private FragmentProfileBinding binding;
@@ -48,15 +44,20 @@ public class ProfileFragment extends Fragment{
     }
 
     private void populateData() {
-        List<Profile> profileModelList = new ArrayList<>();
+        loginViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedUser -> {
+            ProfileAdapter profileAdapter = new ProfileAdapter(authenticatedUser.getProfileList(), getContext());
+            binding.setProfileAdapter(profileAdapter);
+        });
+
+/*        List<Profile> profileModelList = new ArrayList<>();
 
         profileModelList.add(new Profile("Mamma"));
         profileModelList.add(new Profile("Pappa"));
         profileModelList.add(new Profile("storasyster"));
-        profileModelList.add(new Profile("lillebror"));
+        profileModelList.add(new Profile("lillebror"));*/
 
-        ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
-        binding.setProfileAdapter(profileAdapter);
+    /*    ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
+        binding.setProfileAdapter(profileAdapter);*/
     }
 
 }

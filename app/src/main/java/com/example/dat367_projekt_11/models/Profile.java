@@ -39,6 +39,8 @@ public class Profile implements IsCompleteListener {
     }
 
 
+
+
     @Override
     public void update(Chore chore) {
         increaseCurrentPoints(chore);

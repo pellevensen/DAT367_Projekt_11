@@ -15,6 +15,7 @@ public class Chore{
         this.name = name;
         this.description = description;
         this.points = points;
+        this.isComplete = false;
     }
 
     public void completeChore(){
@@ -48,7 +49,7 @@ public class Chore{
         this.points = points;
     }
 
-    private void subscribe(IsCompleteListener listener){
+    public void subscribe(IsCompleteListener listener){
         listeners.add(listener);
 
     }

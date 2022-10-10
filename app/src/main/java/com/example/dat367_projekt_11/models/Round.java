@@ -5,15 +5,17 @@ för att förstå timer, timerTask och treads
  */
 
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Round{
+    List<RoundListener> roundListeners;
 
     public void example(){
         TimerTask roundTask = new TimerTask() {
             public void run() {
-                System.out.println("Hej");
+                notifySubscribers();
             }
         };
         Timer timer = new Timer("Timer");
@@ -22,6 +24,16 @@ public class Round{
         timer.scheduleAtFixedRate(roundTask,delay,period);
 
         }
+
+    public void notifySubscribers(){
+        for(RoundListener roundListsner: roundListeners){
+            roundListsner.update();
+        }
+    }
+    public void subscribe(RoundListener listener){
+        roundListeners.add(listener);
+
+    }
 
     }
 

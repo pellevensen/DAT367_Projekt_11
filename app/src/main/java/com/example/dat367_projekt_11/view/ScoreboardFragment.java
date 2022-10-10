@@ -24,6 +24,7 @@ import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 import org.w3c.dom.Text;
 
 import java.text.BreakIterator;
+import java.util.Objects;
 
 public class ScoreboardFragment extends Fragment {
 
@@ -31,6 +32,7 @@ public class ScoreboardFragment extends Fragment {
 
     private ScoreboardViewModel mViewModel;
 
+    String ranking = "hej";
 
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
@@ -39,10 +41,13 @@ public class ScoreboardFragment extends Fragment {
     @SuppressLint("LongLogTag")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) {;
+
         mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
         System.out.println("Usch va detta är jobbigt");
         mViewModel.rankProfiles();
+        makeScores(ranking);
+
         return inflater.inflate(R.layout.fragment_scoreboard, container, false);
     }
 
@@ -57,10 +62,11 @@ public class ScoreboardFragment extends Fragment {
     private numberOne = bestOne.getBestOne;*/
 
 
-    @SuppressLint("SetTextI18n")
+
     public void makeScores(String s){
 
-        TextView scores = (TextView) getView().findViewById(R.id.Scores);
+        TextView scores;
+        scores = (TextView) scores.findViewById(R.id.Scores);
 
         scores.setText(s);
 

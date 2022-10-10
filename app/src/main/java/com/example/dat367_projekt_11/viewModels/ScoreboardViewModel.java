@@ -44,6 +44,7 @@ public class ScoreboardViewModel extends AndroidViewModel {
         return scoreboardFragmentMutableLiveData;
     }
 
+    @SuppressLint("SetTextI18n")
     public void rankProfiles () {
         System.out.println("Snälla säg att den kommer hit");
 
@@ -84,10 +85,16 @@ public class ScoreboardViewModel extends AndroidViewModel {
             editor.apply();
         }*/
 
+        System.out.println("bajskorv");
+
 
         makeScores.setValue(/*"1" + best1 + "\n" +
                 "#2" + best2 + "\n" +*/
                 "#3" + bestThree);
+
+
+
+        System.out.println("hejsan svejsan");
 
     }
 }

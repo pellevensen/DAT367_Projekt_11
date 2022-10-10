@@ -18,7 +18,7 @@ public class Household implements Serializable { //lyssnar på chores boolean{
     }
 
     private String uid;
-    private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
     private ArrayList<ChoreListStatusListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 //kolla att sakerna är nollskilda, objekt required non null.
@@ -43,6 +43,7 @@ public class Household implements Serializable { //lyssnar på chores boolean{
             }
         });*/
     }
+    public Household() {}
 
    /* public FirebaseAuth getmAuth(){
         return  mAuth;

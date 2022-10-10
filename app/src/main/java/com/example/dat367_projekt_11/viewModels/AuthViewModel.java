@@ -93,4 +93,5 @@ public class AuthViewModel extends AndroidViewModel {
         listOfProfiles = persistenceManagerFactory.getPersistenceManager().addNewProfileToDatabase(household, profile);
     }
 
+
 }

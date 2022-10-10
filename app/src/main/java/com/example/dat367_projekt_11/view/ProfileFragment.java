@@ -39,6 +39,7 @@ public class ProfileFragment extends Fragment{
                 Navigation.findNavController(binding.getRoot()).navigate(R.id.action_profileFragment_to_addProfileFragment);
             }
         });
+
         populateData();
         return binding.getRoot();
     }
@@ -48,16 +49,6 @@ public class ProfileFragment extends Fragment{
             ProfileAdapter profileAdapter = new ProfileAdapter(listOfProfiles, getContext());
             binding.setProfileAdapter(profileAdapter);
         });
-
-/*        List<Profile> profileModelList = new ArrayList<>();
-
-        profileModelList.add(new Profile("Mamma"));
-        profileModelList.add(new Profile("Pappa"));
-        profileModelList.add(new Profile("storasyster"));
-        profileModelList.add(new Profile("lillebror"));*/
-
-    /*    ProfileAdapter profileAdapter = new ProfileAdapter(profileModelList, getContext());
-        binding.setProfileAdapter(profileAdapter);*/
     }
 
 }

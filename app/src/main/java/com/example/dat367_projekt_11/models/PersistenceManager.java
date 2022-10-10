@@ -106,8 +106,10 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
 
     public MutableLiveData<List<Profile>> addNewProfileToDatabase(Household household, Profile profile){
         MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
-        myRef.child(household.getUid()).child("profiles").setValue(profile);
+        myRef.child(household.getUid()).child("profiles").child(profile.getName()).setValue(profile);
+        household.addProfile(profile);
         newListOfProfiles.setValue(household.getProfileList());
         return newListOfProfiles;
     }
+
 }

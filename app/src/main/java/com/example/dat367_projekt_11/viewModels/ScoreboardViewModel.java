@@ -4,18 +4,21 @@ package com.example.dat367_projekt_11.viewModels;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.dat367_projekt_11.R;
+import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.view.ScoreboardFragment;
 
-public class ScoreboardViewModel extends AndroidViewModel /*implements ViewModelStoreOwner*/ {
+public class ScoreboardViewModel extends AndroidViewModel {
     public ScoreboardViewModel(@NonNull Application application) {
         super(application);
     }
@@ -29,22 +32,30 @@ public class ScoreboardViewModel extends AndroidViewModel /*implements ViewModel
         return null;
     }
 
-    private ScoreboardFragment mFragment;
+    public MutableLiveData<String> makeScores = new MutableLiveData<>();
 
+    private MutableLiveData<ScoreboardFragment> scoreboardFragmentMutableLiveData;
 
+    public MutableLiveData<ScoreboardFragment> getScoreboardFragment() {
 
-    @SuppressLint("SetTextI18n")
+        if (scoreboardFragmentMutableLiveData == null) {
+            scoreboardFragmentMutableLiveData = new MutableLiveData<>();
+        }
+        return scoreboardFragmentMutableLiveData;
+    }
+
     public void rankProfiles () {
         System.out.println("Snälla säg att den kommer hit");
 
-        /*mFragment = new ViewModelProvider(this).get(ScoreboardFragment.class);*/
 
+        /*getSharedPreferences("PREF", +0);*/
 
-        SharedPreferences preferences = getSharedPreferences("PREF", +0);
-        int memberScore = preferences.getInt("memberScore", 10/*memberScore*/);
-        /*int bestOne = preferences.getInt("points1", 8);
-        int bestTwo = preferences.getInt("points2", 4);*/
-        int bestThree = preferences.getInt("points3", 2);
+        SharedPreferences preferences = getSharedPreferences("PREF", 0);
+        int memberScore = preferences != null ? preferences.getInt("memberScore", 0/*memberScore*/) : 0;
+        /*int bestOne = preferences.getInt("points1", 0);
+        int bestTwo = preferences.getInt("points2", 0);*/
+        int bestThree = preferences != null ? preferences.getInt("points3", 0) : 0;
+
 
         if (memberScore > bestThree) {
             bestThree = memberScore;
@@ -74,17 +85,11 @@ public class ScoreboardViewModel extends AndroidViewModel /*implements ViewModel
         }*/
 
 
-        mFragment.makeScores(/*"1" + best1 + "\n" +
+        makeScores.setValue(/*"1" + best1 + "\n" +
                 "#2" + best2 + "\n" +*/
                 "#3" + bestThree);
 
     }
-
-
-    /*@NonNull
-    @Override
-    public ViewModelStore getViewModelStore() {
-        return null;
-    }*/
 }
+
 

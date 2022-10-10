@@ -58,15 +58,9 @@ public class ScoreboardFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public static void makeScores(String s){
 
-
         TextView scores = scores.findViewById(R.id.Scores);
 
-
-        scores.setText(/*"1" + best1 + "\n" +
-                "#2" + best2 + "\n" +*/
-                "#3" + bestThree);
-
-
+        scores.setText(s);
 
     }
 

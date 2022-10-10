@@ -9,11 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.view.ScoreboardFragment;
 
-public class ScoreboardViewModel extends AndroidViewModel {
+public class ScoreboardViewModel extends AndroidViewModel /*implements ViewModelStoreOwner*/ {
     public ScoreboardViewModel(@NonNull Application application) {
         super(application);
     }
@@ -30,11 +32,12 @@ public class ScoreboardViewModel extends AndroidViewModel {
     private ScoreboardFragment mFragment;
 
 
+
     @SuppressLint("SetTextI18n")
     public void rankProfiles () {
         System.out.println("Snälla säg att den kommer hit");
 
-        mFragment = new FragmentProvider(this ).get(ScoreboardFragment.class);
+        /*mFragment = new ViewModelProvider(this).get(ScoreboardFragment.class);*/
 
 
         SharedPreferences preferences = getSharedPreferences("PREF", +0);
@@ -71,10 +74,17 @@ public class ScoreboardViewModel extends AndroidViewModel {
         }*/
 
 
-
+        mFragment.makeScores(/*"1" + best1 + "\n" +
+                "#2" + best2 + "\n" +*/
+                "#3" + bestThree);
 
     }
 
 
+    /*@NonNull
+    @Override
+    public ViewModelStore getViewModelStore() {
+        return null;
+    }*/
 }
 

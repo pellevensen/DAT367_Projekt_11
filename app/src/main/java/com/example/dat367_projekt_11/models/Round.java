@@ -10,12 +10,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Round{
+    Household household; //vet inte om  jag får tag i rätt household
     List<RoundListener> roundListeners;
 
     public void example(){
         TimerTask roundTask = new TimerTask() {
             public void run() {
-                notifySubscribers();
+                notifySubscribers();//TODO determine winner and display on popup
+                for(Profile profile : household.getProfileList()){
+                    profile.resetScore();
+                }
             }
         };
         Timer timer = new Timer("Timer");

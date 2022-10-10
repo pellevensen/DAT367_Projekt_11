@@ -21,6 +21,8 @@ import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.models.ScoreboardModel;
 import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
+import org.w3c.dom.Text;
+
 import java.text.BreakIterator;
 
 public class ScoreboardFragment extends Fragment {
@@ -56,9 +58,9 @@ public class ScoreboardFragment extends Fragment {
 
 
     @SuppressLint("SetTextI18n")
-    public static void makeScores(String s){
+    public void makeScores(String s){
 
-        TextView scores = scores.findViewById(R.id.Scores);
+        TextView scores = (TextView) getView().findViewById(R.id.Scores);
 
         scores.setText(s);
 

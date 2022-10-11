@@ -29,7 +29,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         this.profileModelList = profileModelList;
         this.context = context;
     }
-
     public MutableLiveData<Profile> getClickedProfile(){
         if(clickedProfile == null){
             clickedProfile = new MutableLiveData<>();

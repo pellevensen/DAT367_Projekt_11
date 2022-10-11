@@ -32,6 +32,10 @@ public class ProfileFragment extends Fragment{
         binding.setLifecycleOwner(this);
         authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
         binding.setAuthViewModel(authViewModel);
+        /*authViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedHousehold -> {
+            authViewModel.makeListOfProfiles(authenticatedHousehold);
+        });*/
+        authViewModel.makeListOfProfiles(authViewModel.getAuthenticatedHousehold().getValue());
         addProfile = binding.getRoot().findViewById(R.id.addProfile);
         addProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +52,7 @@ public class ProfileFragment extends Fragment{
         authViewModel.getListOfProfiles().observe(getViewLifecycleOwner(), listOfProfiles -> {
             ProfileAdapter profileAdapter = new ProfileAdapter(listOfProfiles, getContext());
             profileAdapter.getClickedProfile().observe(getViewLifecycleOwner(), clickedProfile -> {
-                authViewModel.chooseProfile(authViewModel.getAuthenticatedHousehold().getValue(), clickedProfile);
+                authViewModel.chooseProfile(clickedProfile);
             });
             binding.setProfileAdapter(profileAdapter);
         });

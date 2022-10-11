@@ -23,18 +23,25 @@ import java.util.List;
 
 public class PersistenceManager implements FirebasePersistenceManager { //Svårt att testa denna klass, kolla upp mocking
 
+    private static final PersistenceManager instance = new PersistenceManager(); // Singelton patterns
+
     private FirebaseAuth firebaseAuth;
     private MutableLiveData<String> toastMessage;
 
     private FirebaseDatabase database;
     private DatabaseReference myRef;
 
-    public PersistenceManager() {
+
+    private PersistenceManager() {
         this.firebaseAuth = FirebaseAuth.getInstance(); // svårt att testa, kommentarer
         this.toastMessage = new MutableLiveData<>();
         this.database = FirebaseDatabase.getInstance("https://dat367-projekt-11-default-rtdb.europe-west1.firebasedatabase.app/");
         this.myRef = database.getReference("users");
 
+    }
+
+    public static PersistenceManager getInstance(){
+        return instance;
     }
 
     public MutableLiveData<Household> login(String inEmail, String inPassword) {
@@ -106,14 +113,14 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
         return newHouseholdMutableLiveData;
     }
 
-    public MutableLiveData<List<Profile>> addNewProfileToDatabase(Household household, Profile profile){
-        MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
+    public void addNewProfileToDatabase(Household household, Profile profile){
+        //MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").child(profile.getName()).setValue(profile);
-        household.addProfile(profile);
-        newListOfProfiles.setValue(household.getProfileList());
-        return newListOfProfiles;
+        //household.addProfile(profile);
+        //listOfProfiles.setValue(household.getProfileList());
+        //return listOfProfiles;
     }
-    public MutableLiveData<List<Profile>> getListFromFirestore(Household household){
+    public MutableLiveData<List<Profile>> getListFromFirestore(Household household){ // Skulle man kunna bara skicka en lista och inte livedata?
         MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
             @Override
@@ -132,7 +139,7 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
         });
         return newListOfProfiles;
     }
-    public MutableLiveData<Profile> getChosenProfile(Household household, Profile inProfile){
+   /* public MutableLiveData<Profile> getChosenProfile(Household household, Profile inProfile){
         MutableLiveData<Profile> chosenProfile = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
             @Override
@@ -150,6 +157,6 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             }
         });
         return chosenProfile;
-    }
+    }*/
 
 }

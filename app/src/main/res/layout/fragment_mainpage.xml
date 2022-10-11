@@ -88,6 +88,7 @@
             android:layout_width="416dp"
             android:layout_height="340dp"
             android:layout_marginTop="17dp"
+            android:adapter="@{choreAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

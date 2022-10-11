@@ -24,22 +24,13 @@ public class WinnerPopUp extends Fragment {
     private FragmentWinnerPopUpBinding binding;
 
 
-    public WinnerPopUp() {
-
-    }
-
-
-    // TODO: Rename and change types and number of parameters
-    public static WinnerPopUp newInstance() {
-        WinnerPopUp fragment = new WinnerPopUp();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+    public static WinnerPopUp newInstance() {return new WinnerPopUp();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       //TODO inte klart
         binding.winnerText.setText("hej");
     }
 

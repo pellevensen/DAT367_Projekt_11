@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.dat367_projekt_11.BR;
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.Household;
+
 import com.example.dat367_projekt_11.view.ChoreAdapterDataModel;
 
 import java.util.ArrayList;
@@ -13,24 +15,19 @@ import java.util.List;
 
 public class MainPageViewModel extends ViewModel implements ChoreAdapterDataModel {
     private final MutableLiveData<String> mText;
-    private final MutableLiveData<Boolean> mChecked;
     private Household household;
 
-
-    //private ChoreList chorelist;
     public MainPageViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue(""/*chorelist */);
-        mChecked = new MutableLiveData<>();
     }
 
     public LiveData<String> getText() {
         return mText;
     }
 
-    public LiveData<Boolean> getChoreStatus(){
-        return mChecked;
-    }
+
+
 
     @Override
     public List<Chore> getChoreModellist() {
@@ -41,6 +38,15 @@ public class MainPageViewModel extends ViewModel implements ChoreAdapterDataMode
          // choreModelList = household.getHouseholdChores();
         return choreModelList;
     }
+
+/*
+    @Override
+    public void onCheckboxClicked(Chore chore) {
+        if (!chore.isComplete()) {
+            chore.completeChore();
+
+        }
+    }*/
 
 
 }

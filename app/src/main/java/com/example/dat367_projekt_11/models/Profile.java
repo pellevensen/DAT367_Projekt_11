@@ -47,6 +47,8 @@ public class Profile implements IsCompleteListener {
     }
 
 
+
+
     @Override
     public void update(Chore chore) {
         increaseCurrentPoints(chore);
@@ -59,12 +61,18 @@ public class Profile implements IsCompleteListener {
             listener.update(doneChores);
         }
     }
-    private void subscribe(DoneChoresListener listener) {
+    public void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
     }
 
     public void setName(String name){
         this.name = name;
+    }
+    /*
+    DENNA KANSKE VI BEHÖVER TA BORT SENARE FÖR JAG ÄR LITE TIPSY NÄR JAG SKRIVER DETTA HEHE
+     */
+    void resetScore(){
+        this.currentPoints=0;
     }
 
 }

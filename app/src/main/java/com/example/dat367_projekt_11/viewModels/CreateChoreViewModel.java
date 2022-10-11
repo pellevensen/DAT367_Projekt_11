@@ -33,22 +33,31 @@ public class CreateChoreViewModel extends ViewModel {
         addChore(chore);
 
     }
-        private MutableLiveData<String> getName () {
-                return Objects.requireNonNull(this.name);
+    private MutableLiveData<String> getName () {
+        return Objects.requireNonNull(this.name);
         }
 
-        private MutableLiveData<String> getDescription () {
+    private MutableLiveData<String> getDescription () {
         return description;
     }
 
-        private MutableLiveData<Integer> getPoints () {
-
+    private MutableLiveData<Integer> getPoints () {
         return points;}
 
 
-        private void addChore(Chore chore) {
+    private void addChore(Chore chore) {
             household.addChoreToList(chore);
         }
 
+    public void onClickRB1() {
+        points.setValue(10);
+    }
+    public void onClickRB2(){
+        points.setValue(20);
+    }
+    public void onClickRB3(){
+        points.setValue(30);
+    }
 
 }
+

@@ -1,22 +1,43 @@
 package com.example.dat367_projekt_11.viewModels;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.dat367_projekt_11.models.AvailableChoresListener;
 import com.example.dat367_projekt_11.models.Chore;
-
-public class ChoreViewModel extends ViewModel {
-    private Chore chore; //information från syssla för att få beskrivning.
+import com.example.dat367_projekt_11.models.Household;
 
 
-    // TODO: Implement the ViewModel
-    //skapa metoder för att koppla info till textfields etc -> namn/beskrivning/boolean
-    //
+import java.util.ArrayList;
+
+public class ChoreViewModel extends ViewModel implements AvailableChoresListener {
+    private Chore chore;
+    private Household household;
+    private MutableLiveData<Chore> userMutableLiveData;
 
 
-    public void onCheckBoxclicked(){
-        //vill köra uppdate i mainpageView, Donechoresmodelview.
+
+
+    public MutableLiveData<Chore> getHousehold() {
+
+        if (userMutableLiveData == null) {
+            userMutableLiveData = new MutableLiveData<>();
+        }
+        return userMutableLiveData;
 
     }
+
+    public void onClick(){
+        chore.completeChore();
+    }
+
+
+    //tar in arraylist med information för varje chore
+    @Override
+    public void update(ArrayList<Chore> choreList) {
+
+    }
+
 
 
 }

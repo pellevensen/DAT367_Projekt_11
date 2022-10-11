@@ -15,16 +15,16 @@ public class Chore{
         this.name = name;
         this.description = description;
         this.points = points;
-        this.isComplete = true;
+        this.isComplete = false;
     }
 
     public void completeChore(){
         this.isComplete = true;
-        notifySubscribers();
+        //notifySubscribers();
     }
     public void unCompleteChore(){
         this.isComplete = false;
-        notifySubscribers();
+       // notifySubscribers();
 
     }
 

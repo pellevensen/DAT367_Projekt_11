@@ -1,7 +1,6 @@
 package com.example.dat367_projekt_11.viewModels;
 
 
-import android.widget.AdapterView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -31,6 +30,7 @@ public class DoneChoresViewModel extends ViewModel implements ChoreAdapterDataMo
     public List<Chore> getChoreModellist() { //returnerna listan av donechores;
        List<Chore> choreModelList = new ArrayList<>();
        choreModelList.add(new Chore("malin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
+       choreModelList.add(new Chore("kristin", "Hej jag heter hanna och jag är världens cooolaste person", 300000));
       //  choreModelList = profile.getDoneChores();
         return choreModelList;
     }

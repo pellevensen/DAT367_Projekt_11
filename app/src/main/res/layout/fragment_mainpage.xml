@@ -7,9 +7,9 @@
         <variable
             name="mainPageViewModel"
             type="com.example.dat367_projekt_11.viewModels.MainPageViewModel" />
-<!--        <variable
+        <variable
             name="choreAdapter"
-            type="com.example.dat367_projekt_11.view.ChoreAdapter" />-->
+            type="com.example.dat367_projekt_11.view.ChoreAdapter" />
 
 
     </data>

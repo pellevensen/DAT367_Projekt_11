@@ -8,9 +8,11 @@
         <variable
             name="model"
             type="com.example.dat367_projekt_11.models.Chore" />
+
         <variable
             name="checkBoxClickListener"
             type="com.example.dat367_projekt_11.view.CheckboxClickListener" />
+
 
 
 
@@ -24,7 +26,6 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="350dp"
-
             android:layout_height="150dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="10dp"
@@ -60,6 +61,7 @@
                     android:layout_marginStart="232dp"
                     android:layout_marginTop="108dp"
                     android:text="@string/text_checkBox"
+                    android:onClick="@{()-> checkBoxClickListener.CheckBoxClicked(model)}"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -112,3 +114,4 @@
 
 <!--    android:onCheckedChanged="@{()-> checkBoxClickListener.onCheckboxClicked(model)}"-->
 <!--    android:onClick="@{() -> checkBoxClickListener.CheckBoxClicked(model)}"-->
+<!--    android:onCheckedChanged="@{()-> checkBoxClickListener.CheckBoxClicked(model)}"-->

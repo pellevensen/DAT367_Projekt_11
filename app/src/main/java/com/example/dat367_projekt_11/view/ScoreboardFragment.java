@@ -1,5 +1,6 @@
 package com.example.dat367_projekt_11.view;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
@@ -17,22 +18,30 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dat367_projekt_11.R;
+import com.example.dat367_projekt_11.databinding.FragmentScoreboardBinding;
 import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.models.ScoreboardModel;
 import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
 import org.w3c.dom.Text;
 
+
+
 import java.text.BreakIterator;
 import java.util.Objects;
 
-public class ScoreboardFragment extends Fragment {
-
+public class ScoreboardFragment extends Fragment{
 
 
     private ScoreboardViewModel mViewModel;
 
     String ranking = "hej";
+
+    private FragmentScoreboardBinding binding;
+
+    public MutableLiveData<String> scoreText = new MutableLiveData<>();
+
+
 
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
@@ -46,9 +55,10 @@ public class ScoreboardFragment extends Fragment {
         mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
         System.out.println("Usch va detta är jobbigt");
         mViewModel.rankProfiles();
-        makeScores(ranking);
+        onLeaderboardClicked(ranking);
+        binding = FragmentScoreboardBinding.inflate(inflater, container, false);
 
-        return inflater.inflate(R.layout.fragment_scoreboard, container, false);
+        return binding.getRoot(); /*inflater.inflate(R.layout.fragment_scoreboard, container, false);*/
     }
 
 
@@ -57,16 +67,17 @@ public class ScoreboardFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
-    /*private final ScoreboardModel rankProfiles = new ScoreboardModel();
+/*private final ScoreboardModel rankProfiles = new ScoreboardModel();
     private numberOne = bestOne.getBestOne;*/
 
+    private TextView scores;
 
 
-    public void makeScores(String s){
+    public void onLeaderboardClicked(String s){
 
-        TextView scores;
-        scores = (TextView) scores.findViewById(R.id.Scores);
+        /*scores = (TextView) scores.findViewById(R.id.Scores);*/
+
+        MutableLiveData.setValue(s);
 
         scores.setText(s);
 

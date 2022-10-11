@@ -32,7 +32,7 @@ public class ScoreboardViewModel extends AndroidViewModel {
         return null;
     }
 
-    public MutableLiveData<String> makeScores = new MutableLiveData<>();
+    public MutableLiveData<String> onLeaderboardClicked = new MutableLiveData<>();
 
     private MutableLiveData<ScoreboardFragment> scoreboardFragmentMutableLiveData;
 
@@ -88,7 +88,7 @@ public class ScoreboardViewModel extends AndroidViewModel {
         System.out.println("bajskorv");
 
 
-        makeScores.setValue(/*"1" + best1 + "\n" +
+        onLeaderboardClicked.setValue(/*"1" + best1 + "\n" +
                 "#2" + best2 + "\n" +*/
                 "#3" + bestThree);
 

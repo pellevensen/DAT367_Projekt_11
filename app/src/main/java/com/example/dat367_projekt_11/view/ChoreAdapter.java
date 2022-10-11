@@ -7,6 +7,7 @@ import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -18,7 +19,7 @@ import com.example.dat367_projekt_11.models.Profile;
 
 import java.util.List;
 
-public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHolder> implements CheckboxClickListener{
+public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHolder> /*implements CheckboxClickListener*/{
     private List<Chore>choreModelList; //lista för kort
     private Context context;
     private ChoreAdapterDataModel choreAdapterDataModel;
@@ -31,10 +32,17 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
         this.context = context;
     }
 
+/*
     @Override
     public void CheckBoxClicked(Chore chore) {
+        if(chore.isComplete()){
+        chore.unCompleteChore();
+        } else{
+            chore.completeChore();
+        }
 
-    }
+
+    }*/
 
 
     public static class ChoreViewHolder extends RecyclerView.ViewHolder {
@@ -43,6 +51,7 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
         public ChoreViewHolder(ChoreCardBinding choreCardBinding) {
             super(choreCardBinding.getRoot());
             this.choreCardBinding = choreCardBinding;
+
 
         }
     }
@@ -68,6 +77,7 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     public void onBindViewHolder(@NonNull ChoreViewHolder holder, int position) {
         Chore choreModel = choreModelList.get(position);
         holder.choreCardBinding.setModel(choreModel);
+      //  holder.choreCardBinding.setCheckBoxClickListener(this);
     }
 
 

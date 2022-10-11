@@ -8,10 +8,9 @@
         <variable
             name="model"
             type="com.example.dat367_projekt_11.models.Chore" />
-<!--        <variable
+        <variable
             name="checkBoxClickListener"
-            type="com.example.dat367_projekt_11.view.CheckboxClicklistener" />-->
-
+            type="com.example.dat367_projekt_11.view.CheckboxClickListener" />
 
 
 
@@ -112,3 +111,4 @@
 </layout>
 
 <!--    android:onCheckedChanged="@{()-> checkBoxClickListener.onCheckboxClicked(model)}"-->
+<!--    android:onClick="@{() -> checkBoxClickListener.CheckBoxClicked(model)}"-->

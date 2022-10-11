@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.ChoreCardBinding;
 import com.example.dat367_projekt_11.models.Chore;
+import com.example.dat367_projekt_11.models.Profile;
 
 
 import java.util.List;
 
-public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHolder>{
+public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHolder> implements CheckboxClickListener{
     private List<Chore>choreModelList; //lista för kort
     private Context context;
     private ChoreAdapterDataModel choreAdapterDataModel;
@@ -28,6 +29,11 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
     public ChoreAdapter(List<Chore> choreModelList, Context context) {
         this.choreModelList = choreModelList;
         this.context = context;
+    }
+
+    @Override
+    public void CheckBoxClicked(Chore chore) {
+
     }
 
 

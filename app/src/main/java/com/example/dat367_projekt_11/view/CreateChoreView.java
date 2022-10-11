@@ -26,10 +26,7 @@ import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.viewModels.CreateChoreViewModel;
 import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class CreateChoreView extends Fragment {

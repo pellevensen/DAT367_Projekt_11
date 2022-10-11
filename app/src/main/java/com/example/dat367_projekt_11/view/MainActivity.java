@@ -1,7 +1,10 @@
 package com.example.dat367_projekt_11.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -10,11 +13,14 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.ActivityMainBinding;
+import com.example.dat367_projekt_11.models.Household;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements FirebaseAuth.AuthStateListener {
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+    }
+
+    private Household getHouseholdFromIntent() {
+        return (Household) getIntent().getSerializableExtra("USER");
     }
 
 
+    @Override
+    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser == null) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
 }

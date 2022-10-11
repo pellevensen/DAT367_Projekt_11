@@ -1,37 +1,55 @@
 package com.example.dat367_projekt_11.models;
 
+import com.google.firebase.database.Exclude;
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Household implements IsCompleteListener { //lyssnar på chores boolean{
-    private final FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     private String householdName;
     private List<Profile> profileList;
     private String password;
     private String email;
-    private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+
+    public String getUid() {
+        return uid;
+    }
+
+    private String uid;
+    private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
     private ArrayList<AvailableChoresListener> listeners;
+    //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
 
 
-    public Household(String email, String password, String householdName) {
-        this.password = password;
+    public Household(String uid, String email, String householdName) {
+        this.uid = uid;
         this.email = email;
         this.householdName = householdName;
         this.mAuth = FirebaseAuth.getInstance();
+        this.currentUser = mAuth.getCurrentUser();
         this.householdChores = new ArrayList<Chore>();
         this.profileList = new ArrayList<>();
     }
+    public Household() {}
 
-    public FirebaseAuth getmAuth(){
+   /* public FirebaseAuth getmAuth(){
         return  mAuth;
     }
-    //returnera kopia? orginal kan mixtas med.
+    //returnera kopia? orginal kan mixtas med.*/
 
+    @Exclude
+    public boolean isNew, isCreated;
+
+    @Exclude
+    public boolean isAuthenticated;
 
     public void setPassword(String password) {
         this.password = password;
@@ -90,7 +108,6 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     @Override
     public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
         this.removeChoreFromList(chore);
-
     }
 
 

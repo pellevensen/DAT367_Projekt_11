@@ -7,9 +7,9 @@
         <variable
             name="mainPageViewModel"
             type="com.example.dat367_projekt_11.viewModels.MainPageViewModel" />
-        <variable
+<!--        <variable
             name="choreAdapter"
-            type="com.example.dat367_projekt_11.view.ChoreAdapter" />
+            type="com.example.dat367_projekt_11.view.ChoreAdapter" />-->
 
 
     </data>
@@ -88,7 +88,6 @@
             android:layout_width="416dp"
             android:layout_height="340dp"
             android:layout_marginTop="17dp"
-            android:adapter="@{choreAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -97,3 +96,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+    <!-- android:adapter="@{choreAdapter}"-->

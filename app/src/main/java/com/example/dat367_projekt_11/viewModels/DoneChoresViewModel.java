@@ -1,6 +1,8 @@
 package com.example.dat367_projekt_11.viewModels;
 
 
+import android.widget.AdapterView;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -20,21 +22,9 @@ public class DoneChoresViewModel extends ViewModel implements ChoreAdapterDataMo
         mText.setValue("@string/done_ChoreTitle");
     }
 
-
     public LiveData<String> getText() {
         return mText;
     }
-
-/*
-    @Override
-    public void update(ArrayList<Chore> choreList) { //tar in lista av donechores
-
-
-        /*TODO implementera ett sätt att ta listan av donechores och presenterad dem som cards
-                för varje donechore
-
-    }*/
-
 
 
     @Override
@@ -44,4 +34,5 @@ public class DoneChoresViewModel extends ViewModel implements ChoreAdapterDataMo
       //  choreModelList = profile.getDoneChores();
         return choreModelList;
     }
+
 }

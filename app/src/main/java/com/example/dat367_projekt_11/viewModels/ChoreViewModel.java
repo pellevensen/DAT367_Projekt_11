@@ -7,12 +7,16 @@ import com.example.dat367_projekt_11.models.AvailableChoresListener;
 import com.example.dat367_projekt_11.models.Chore;
 import com.example.dat367_projekt_11.models.Household;
 
+
 import java.util.ArrayList;
 
 public class ChoreViewModel extends ViewModel implements AvailableChoresListener {
     private Chore chore;
     private Household household;
     private MutableLiveData<Chore> userMutableLiveData;
+
+
+
 
     public MutableLiveData<Chore> getHousehold() {
 
@@ -33,6 +37,7 @@ public class ChoreViewModel extends ViewModel implements AvailableChoresListener
     public void update(ArrayList<Chore> choreList) {
 
     }
+
 
 
 }

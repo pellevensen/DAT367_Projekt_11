@@ -8,10 +8,11 @@
         <variable
             name="model"
             type="com.example.dat367_projekt_11.models.Chore" />
+<!--        <variable
+            name="checkBoxClickListener"
+            type="com.example.dat367_projekt_11.view.CheckboxClicklistener" />-->
 
-        <variable
-            name="choreViewModel"
-            type="com.example.dat367_projekt_11.viewModels.ChoreViewModel" />
+
 
 
     </data>
@@ -60,10 +61,10 @@
                     android:layout_marginStart="232dp"
                     android:layout_marginTop="108dp"
                     android:text="@string/text_checkBox"
-                    android:onClick="@{()-> choreViewModel.onClick()}"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/descriptionTitle"
@@ -109,3 +110,5 @@
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+<!--    android:onCheckedChanged="@{()-> checkBoxClickListener.onCheckboxClicked(model)}"-->

@@ -1,6 +1,5 @@
 package com.example.dat367_projekt_11.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,11 +80,11 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void goToMainActivity(Household household) {
+    /*private void goToMainActivity(Household household) {
         Intent intent = new Intent(getActivity(), MainActivity.class);
         intent.putExtra("USER", household);
         startActivity(intent);
-    }
+    }*/
 
     private void goToProfileFragment() {
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_profileFragment);

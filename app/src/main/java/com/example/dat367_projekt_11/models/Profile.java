@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Profile implements IsCompleteListener {
     private String name;
     private int currentPoints;
-    private final ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
+    private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
     private ArrayList<DoneChoresListener> listeners;
 
 
@@ -20,11 +20,6 @@ public class Profile implements IsCompleteListener {
         this.currentPoints = currentPoints;
         this.doneChores = doneChores;
     }*/
-
-    public Profile() {
-        int currentPoints = 10/*this.currentPoints*/;
-        this.doneChores = new ArrayList<Chore>();
-    }
 
 
     public Profile() {}

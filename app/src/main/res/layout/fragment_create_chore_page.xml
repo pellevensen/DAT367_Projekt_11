@@ -74,7 +74,6 @@
                 android:layout_height="50dp"
                 android:text="10"
                 android:textSize="20sp"
-                android:checkedButton="true"
 
                 />
 

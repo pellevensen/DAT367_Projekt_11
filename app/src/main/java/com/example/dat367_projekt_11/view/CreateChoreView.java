@@ -1,14 +1,6 @@
 package com.example.dat367_projekt_11.view;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +10,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.dat367_projekt_11.databinding.FragmentCreateChorePageBinding;
-import com.example.dat367_projekt_11.databinding.FragmentLoginBinding;
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.viewModels.CreateChoreViewModel;
-import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.viewModels.LoginViewModel;
 
 import java.util.Objects;
 

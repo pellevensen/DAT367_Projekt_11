@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Malin Kihlström 2022-10
+ */
+
 public class Round{
     Household household; //TODO hämta rätt household från firebase
     List<RoundListener> roundListeners;

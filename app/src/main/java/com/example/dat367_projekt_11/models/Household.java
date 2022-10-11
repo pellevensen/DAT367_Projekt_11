@@ -48,8 +48,8 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     @Exclude
     public boolean isNew, isCreated;
 
-    @Exclude
-    public boolean isAuthenticated;
+/*    @Exclude
+    public boolean isAuthenticated;*/
 
     public void setPassword(String password) {
         this.password = password;

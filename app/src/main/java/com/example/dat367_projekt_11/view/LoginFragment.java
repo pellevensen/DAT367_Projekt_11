@@ -80,12 +80,6 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    /*private void goToMainActivity(Household household) {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        intent.putExtra("USER", household);
-        startActivity(intent);
-    }*/
-
     private void goToProfileFragment() {
         Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_profileFragment);
     }

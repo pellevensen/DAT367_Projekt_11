@@ -4,17 +4,28 @@ package com.example.dat367_projekt_11.models;
 import java.util.ArrayList;
 
 
-public class Profile implements ChoreStatusListener {
+public class Profile implements IsCompleteListener {
     private String name;
     private int currentPoints;
-    private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
-    private ArrayList<ChoreListStatusListener> listeners;
+    private final ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
+    private ArrayList<DoneChoresListener> listeners;
 
 
     public Profile(String name) {
         this.name = name;
         this.doneChores = new ArrayList<Chore>();
     }
+
+    /*public Profile(int currentPoints, ArrayList<Chore> doneChores) {
+        this.currentPoints = currentPoints;
+        this.doneChores = doneChores;
+    }*/
+
+    public Profile() {
+        int currentPoints = 10/*this.currentPoints*/;
+        this.doneChores = new ArrayList<Chore>();
+    }
+
 
     public Profile() {}
 
@@ -27,11 +38,11 @@ public class Profile implements ChoreStatusListener {
     }
 
 
-    private void addChoretoCompletedChore(Chore chore){
+    private void addToDoneChores(Chore chore){
         doneChores.add(chore);
     }
 
-    private void addPointToCurrentPoints(Chore chore){
+    private void increaseCurrentPoints(Chore chore){
         this.currentPoints += chore.getPoints();
     }
 
@@ -43,17 +54,17 @@ public class Profile implements ChoreStatusListener {
 
     @Override
     public void update(Chore chore) {
-        addPointToCurrentPoints(chore);
-        addChoretoCompletedChore(chore);
+        increaseCurrentPoints(chore);
+        addToDoneChores(chore);
         notifyListeners();
     }
 
     private void notifyListeners() {
-        for(ChoreListStatusListener listener : listeners){
+        for(DoneChoresListener listener : listeners){
             listener.update(doneChores);
         }
     }
-    private void subscribe(ChoreListStatusListener listener) {
+    private void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
     }
 

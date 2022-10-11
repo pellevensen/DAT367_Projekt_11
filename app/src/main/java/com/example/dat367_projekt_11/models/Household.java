@@ -2,12 +2,16 @@ package com.example.dat367_projekt_11.models;
 
 import com.google.firebase.database.Exclude;
 
-import java.io.Serializable;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Household implements Serializable { //lyssnar på chores boolean{
+public class Household implements ChoreStatusListener { //lyssnar på chores boolean{
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     private String householdName;
     private List<Profile> profileList;
     private String password;
@@ -21,6 +25,8 @@ public class Household implements Serializable { //lyssnar på chores boolean{
     private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
     private ArrayList<ChoreListStatusListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
+    private final ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private ArrayList<AvailableChoresListener> listeners;
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
 
@@ -29,6 +35,8 @@ public class Household implements Serializable { //lyssnar på chores boolean{
         this.uid = uid;
         this.email = email;
         this.householdName = householdName;
+        this.mAuth = FirebaseAuth.getInstance();
+        this.currentUser = mAuth.getCurrentUser();
         this.householdChores = new ArrayList<Chore>();
         this.profileList = new ArrayList<>();
     }
@@ -49,16 +57,15 @@ public class Household implements Serializable { //lyssnar på chores boolean{
         this.password = password;
     }
 
-    public void addNewChoreToList(String name, String description, int points){ //när en chore skapas, meddelas alla som im. chorelist status listener
-       Chore chore = new Chore(name, description, points);
+    public void addChoreToList(Chore chore){ //när en chore görs available meddelas alla som im. chorelist status listener
        householdChores.add(chore);
-       //notifyListeners(); // --> notifiera mainpageview
+       notifyListeners(); // --> notifiera
     }
 
-    private void removeCompletedChore(Chore chore){ //när en chore tas bort meddelas alla som implementerar choreliststatuslistener
+    private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas eller görs uavailable alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                //notifyListeners(); //--> notifiera completeschoreview
+                notifyListeners(); //--> notifiera
 
         }
     }
@@ -100,14 +107,14 @@ public class Household implements Serializable { //lyssnar på chores boolean{
     public void setHouseholdName(String householdName) {
         this.householdName = householdName;
     }
-   /* @Override
+    @Override
     public void update(Chore chore) {  //updateras householdchores -> available chores -> lyssnar på chores boolean
         this.removeCompletedChore(chore);
 
-    }*/
+    }
 
 
-    private void subscribe(ChoreListStatusListener listener) { //broadcast
+    private void subscribe(AvailableChoresListener listener) { //broadcast
         listeners.add(listener);
     }
 
@@ -117,7 +124,7 @@ public class Household implements Serializable { //lyssnar på chores boolean{
 
 
     private void notifyListeners() {
-        for (ChoreListStatusListener listener : listeners) {  //broadcast
+        for (AvailableChoresListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 

@@ -63,9 +63,10 @@ public class LoginFragment extends Fragment {
         authViewModel.getAuthenticatedHousehold().observe(this, authenticatedHousehold -> {
             if (authenticatedHousehold.isNew) {
                 createNewHousehold(authenticatedHousehold);
+                authViewModel.makeListOfProfiles(authenticatedHousehold);
             } else {
+                authViewModel.makeListOfProfiles(authenticatedHousehold);
                 goToProfileFragment();
-                createNewHousehold(authenticatedHousehold);
             }
         });
     }

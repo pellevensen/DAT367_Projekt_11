@@ -14,8 +14,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -110,6 +112,44 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
         household.addProfile(profile);
         newListOfProfiles.setValue(household.getProfileList());
         return newListOfProfiles;
+    }
+    public MutableLiveData<List<Profile>> getListFromFirestore(Household household){
+        MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
+        myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
+                    Profile profile = profileSnapPost.getValue(Profile.class);
+                    household.addProfile(profile);
+                    newListOfProfiles.setValue(household.getProfileList());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
+        return newListOfProfiles;
+    }
+    public MutableLiveData<Profile> getChosenProfile(Household household, Profile inProfile){
+        MutableLiveData<Profile> chosenProfile = new MutableLiveData<>();
+        myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
+                    Profile profile = profileSnapPost.getValue(Profile.class);
+                    if(profile==inProfile){
+                        chosenProfile.setValue(profile);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
+        return chosenProfile;
     }
 
 }

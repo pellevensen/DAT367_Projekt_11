@@ -17,6 +17,7 @@ public class AuthViewModel extends AndroidViewModel {
     private MutableLiveData<Household> authenticatedHouseholdLiveData;
     private MutableLiveData<Household> createdHouseholdLiveData;
     private MutableLiveData<List<Profile>> listOfProfiles;
+    private MutableLiveData<Profile> chosenProfile;
 
     private MutableLiveData<String> email = new MutableLiveData<>();
     private MutableLiveData<String> password = new MutableLiveData<>();
@@ -71,6 +72,13 @@ public class AuthViewModel extends AndroidViewModel {
         return listOfProfiles;
     }
 
+    public MutableLiveData<Profile> getChosenProfile(){
+        if (chosenProfile == null) {
+            chosenProfile = new MutableLiveData<>();
+        }
+        return chosenProfile;
+    }
+
     public AuthViewModel(@NonNull Application application) {
         super(application);
         persistenceManagerFactory = new PersistenceManagerFactory();
@@ -91,6 +99,12 @@ public class AuthViewModel extends AndroidViewModel {
 
     public void addProfile(Household household, Profile profile){
         listOfProfiles = persistenceManagerFactory.getPersistenceManager().addNewProfileToDatabase(household, profile);
+    }
+    public void makeListOfProfiles(Household household){
+        listOfProfiles = persistenceManagerFactory.getPersistenceManager().getListFromFirestore(household);
+    }
+    public void chooseProfile(Household household, Profile profile){
+        chosenProfile = persistenceManagerFactory.getPersistenceManager().getChosenProfile(household, profile);
     }
 
 

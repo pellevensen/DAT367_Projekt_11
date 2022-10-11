@@ -31,17 +31,6 @@ public class Household implements Serializable { //lyssnar på chores boolean{
         this.householdName = householdName;
         this.householdChores = new ArrayList<Chore>();
         this.profileList = new ArrayList<>();
-
-        /*mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser()!=null){
-                    currentUser = firebaseAuth.getCurrentUser();
-                }else{
-                    currentUser = null;
-                }
-            }
-        });*/
     }
     public Household() {}
 

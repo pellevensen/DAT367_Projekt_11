@@ -1,7 +1,11 @@
 package com.example.dat367_projekt_11.models;
 
 
+
+
 import java.util.ArrayList;
+import java.util.Observer;
+
 
 public class Chore{
     private String name;
@@ -21,13 +25,16 @@ public class Chore{
 
     public void completeChore(){
         this.isComplete = true;
-        notifySubscribers();
+
+       // notifySubscribers();
     }
     public void unCompleteChore(){
         this.isComplete = false;
        // notifySubscribers();
 
     }
+
+
 
     public String getName() {
         return this.name;
@@ -59,11 +66,18 @@ public class Chore{
         listeners.add(listener);
 
     }
+
+    public void unsubscribe(IsCompleteListener listener){
+        listeners.remove(listener);
+    }
+    /*
     private void notifySubscribers() {  //notifiera lyssnare
         for (IsCompleteListener listener : listeners) {
                 listener.update(this);
         }
-    }
+    }*/
+
+
 
 
 

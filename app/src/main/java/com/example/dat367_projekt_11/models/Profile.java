@@ -9,6 +9,7 @@ public class Profile implements IsCompleteListener {
     private int currentPoints;
     private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
     private ArrayList<DoneChoresListener> listeners;
+    private Chore chore;
 
 
     public Profile(String name) {
@@ -16,13 +17,14 @@ public class Profile implements IsCompleteListener {
         this.doneChores = new ArrayList<Chore>();
     }
 
-    /*public Profile(int currentPoints, ArrayList<Chore> doneChores) {
+   /* public Profile(int currentPoints, ArrayList<Chore> doneChores) {
         this.currentPoints = currentPoints;
         this.doneChores = doneChores;
     }*/
 
 
-    public Profile() {}
+
+ //   public Profile() {}
 
     public String getName() {
         return name;
@@ -33,8 +35,9 @@ public class Profile implements IsCompleteListener {
     }
 
 
-    private void addToDoneChores(Chore chore){
+    public void addToDoneChores(Chore chore){
         doneChores.add(chore);
+       // chore.subscribe(this);
     }
 
     private void increaseCurrentPoints(Chore chore){
@@ -53,17 +56,17 @@ public class Profile implements IsCompleteListener {
     public void update(Chore chore) {
         increaseCurrentPoints(chore);
         addToDoneChores(chore);
-        notifyListeners();
+       // notifyListeners();
     }
 
-    private void notifyListeners() {
+/*    private void notifyListeners() {
         for(DoneChoresListener listener : listeners){
             listener.update(doneChores);
         }
-    }
-    public void subscribe(DoneChoresListener listener) {
+    }*/
+/*    public void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
-    }
+    }*/
 
     public void setName(String name){
         this.name = name;

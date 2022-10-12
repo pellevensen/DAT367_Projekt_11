@@ -16,6 +16,8 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     private List<Profile> profileList;
     private String password;
     private String email;
+    private Chore chore; //instans av subjekt
+
 
     public String getUid() {
         return uid;
@@ -23,7 +25,7 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
 
     private String uid;
     private ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
-    private ArrayList<AvailableChoresListener> listeners;
+  //  private ArrayList<AvailableChoresListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 //kolla att sakerna är nollskilda, objekt required non null.
     //design by contract
@@ -56,14 +58,16 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     }
 
     public void addChoreToList(Chore chore){ //när en chore görs available meddelas alla som im. chorelist status listener
-       householdChores.add(chore);
-       notifyListeners(); // --> notifiera
+        householdChores.add(chore);
+        //chore.subscribe(this);
+      // notifyListeners(); // --> notifiera
     }
+
 
     private void removeChoreFromList(Chore chore){ //när en chore tas bort meddelas eller görs uavailable alla som implementerar choreliststatuslistener
             if (chore.isComplete()){
                 householdChores.remove(chore);
-                notifyListeners(); //--> notifiera
+               // notifyListeners(); //--> notifiera
 
         }
     }
@@ -111,20 +115,20 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     }
 
 
-    private void subscribe(AvailableChoresListener listener) { //broadcast
+  /*  private void subscribe(AvailableChoresListener listener) { //broadcast
         listeners.add(listener);
-    }
+    }*/
 
     public void setCurrentProfile(Profile profile) {
 
     }
 
 
-    private void notifyListeners() {
+/*    private void notifyListeners() {
         for (AvailableChoresListener listener : listeners) {  //broadcast
             listener.update(householdChores);
         }
 
-    }
+    }*/
 
 }

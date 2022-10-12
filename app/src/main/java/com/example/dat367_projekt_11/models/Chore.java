@@ -8,7 +8,7 @@ public class Chore{
     private String description;
     private int points;
     private boolean isComplete;
-    private ArrayList<IsCompleteListener> listeners;
+    private ArrayList<IsCompleteListener> listeners = new ArrayList<>(); //listan med subscribers
 
 
     public Chore(String name, String description, int points){
@@ -16,11 +16,12 @@ public class Chore{
         this.description = description;
         this.points = points;
         this.isComplete = false;
+        this.listeners = new ArrayList<>();
     }
 
     public void completeChore(){
         this.isComplete = true;
-        //notifySubscribers();
+        notifySubscribers();
     }
     public void unCompleteChore(){
         this.isComplete = false;
@@ -54,11 +55,11 @@ public class Chore{
         this.points = points;
     }
 
-    public void subscribe(IsCompleteListener listener){
+    public void subscribe(IsCompleteListener listener){ //lägg till lyssnare
         listeners.add(listener);
 
     }
-    private void notifySubscribers() {
+    private void notifySubscribers() {  //notifiera lyssnare
         for (IsCompleteListener listener : listeners) {
                 listener.update(this);
         }

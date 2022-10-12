@@ -33,13 +33,13 @@ import java.util.Objects;
 public class ScoreboardFragment extends Fragment{
 
 
-    private ScoreboardViewModel mViewModel;
+    private ScoreboardViewModel fViewModel;
 
-    String ranking = "hej";
+    /*String ranking = "hej";*/
 
     private FragmentScoreboardBinding binding;
 
-    public MutableLiveData<String> scoreText = new MutableLiveData<>();
+    public MutableLiveData<String> rankingText = new MutableLiveData<>();
 
 
 
@@ -52,11 +52,13 @@ public class ScoreboardFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {;
 
-        mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
-        System.out.println("Usch va detta är jobbigt");
-        mViewModel.rankProfiles();
-        onLeaderboardClicked(ranking);
         binding = FragmentScoreboardBinding.inflate(inflater, container, false);
+        binding.setLifecycleOwner(this);
+        fViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
+        /*binding.setScoreboardViewModel(fViewModel);*/
+        rankingText.setValue("Hej hallå");
+        
+        /*onLeaderboardClicked(rankingOfScoresText);*/
 
         return binding.getRoot(); /*inflater.inflate(R.layout.fragment_scoreboard, container, false);*/
     }
@@ -70,17 +72,13 @@ public class ScoreboardFragment extends Fragment{
 /*private final ScoreboardModel rankProfiles = new ScoreboardModel();
     private numberOne = bestOne.getBestOne;*/
 
-    private TextView scores;
+    /*private TextView scores;*/
 
 
-    public void onLeaderboardClicked(String s){
+   /* public void onLeaderboardClicked(String s){
 
-        /*scores = (TextView) scores.findViewById(R.id.Scores);*/
+        rankingText.setText(s);
 
-        MutableLiveData.setValue(s);
-
-        scores.setText(s);
-
-    }
+    }*/
 
 }

@@ -7,23 +7,26 @@ import java.util.ArrayList;
 
 public class Profile implements IsCompleteListener, Serializable {
     private String name;
-    private int currentPoints;
+    private int currentPoints = 0;
     private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
-    private ArrayList<DoneChoresListener> listeners;
+   // private ArrayList<DoneChoresListener> listeners;
+    //private Chore chore;
 
 
     public Profile(String name) {
         this.name = name;
         this.doneChores = new ArrayList<Chore>();
+
     }
 
-    /*public Profile(int currentPoints, ArrayList<Chore> doneChores) {
+   /* public Profile(int currentPoints, ArrayList<Chore> doneChores) {
         this.currentPoints = currentPoints;
         this.doneChores = doneChores;
     }*/
 
 
-    public Profile() {}
+
+ //   public Profile() {}
 
     public String getName() {
         return name;
@@ -34,8 +37,9 @@ public class Profile implements IsCompleteListener, Serializable {
     }
 
 
-    private void addToDoneChores(Chore chore){
+    public void addToDoneChores(Chore chore){
         doneChores.add(chore);
+        chore.subscribe(this);
     }
 
     private void increaseCurrentPoints(Chore chore){
@@ -48,24 +52,37 @@ public class Profile implements IsCompleteListener, Serializable {
     }
 
 
+
+
     @Override
     public void update(Chore chore) {
         increaseCurrentPoints(chore);
-        addToDoneChores(chore);
-        notifyListeners();
+        if (chore.isComplete()) { // om true
+            addToDoneChores(chore);
+        }else if (!chore.isComplete()){ //om false
+            doneChores.remove(chore);
+           // chore.unsubscribe(this);
+        }
+       // notifyListeners();
     }
 
-    private void notifyListeners() {
+/*    private void notifyListeners() {
         for(DoneChoresListener listener : listeners){
             listener.update(doneChores);
         }
-    }
-    private void subscribe(DoneChoresListener listener) {
+    }*/
+/*    public void subscribe(DoneChoresListener listener) {
         listeners.add(listener);
-    }
+    }*/
 
     public void setName(String name){
         this.name = name;
+    }
+    /*
+    DENNA KANSKE VI BEHÖVER TA BORT SENARE FÖR JAG ÄR LITE TIPSY NÄR JAG SKRIVER DETTA HEHE
+     */
+    void resetScore(){
+        this.currentPoints=0;
     }
 
 }

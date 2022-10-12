@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Profile implements IsCompleteListener {
     private String name;
-    private int currentPoints;
+    private int currentPoints = 0;
     private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
    // private ArrayList<DoneChoresListener> listeners;
     //private Chore chore;
@@ -56,11 +56,11 @@ public class Profile implements IsCompleteListener {
     @Override
     public void update(Chore chore) {
         increaseCurrentPoints(chore);
-        if (chore.isComplete()) {
+        if (chore.isComplete()) { // om true
             addToDoneChores(chore);
-        }else if (!chore.isComplete()){
+        }else if (!chore.isComplete()){ //om false
             doneChores.remove(chore);
-            chore.unsubscribe(this);
+           // chore.unsubscribe(this);
         }
        // notifyListeners();
     }

@@ -25,12 +25,11 @@ public class Chore{
 
     public void completeChore(){
         this.isComplete = true;
-
-       // notifySubscribers();
+        //notifySubscribers();
     }
     public void unCompleteChore(){
         this.isComplete = false;
-       // notifySubscribers();
+        notifySubscribers();
 
     }
 
@@ -70,12 +69,12 @@ public class Chore{
     public void unsubscribe(IsCompleteListener listener){
         listeners.remove(listener);
     }
-    /*
+
     private void notifySubscribers() {  //notifiera lyssnare
         for (IsCompleteListener listener : listeners) {
                 listener.update(this);
         }
-    }*/
+    }
 
 
 

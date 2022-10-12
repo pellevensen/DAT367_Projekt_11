@@ -44,9 +44,10 @@ public class AddProfileFragment extends Fragment {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                authViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedHousehold -> {
+                /*authViewModel.getAuthenticatedHousehold().observe(getViewLifecycleOwner(), authenticatedHousehold -> {
                     authViewModel.addProfile(authenticatedHousehold, new Profile(authViewModel.getProfileName().getValue()));
-                });
+                });*/
+                authViewModel.addProfile(authViewModel.getAuthenticatedHousehold().getValue(), new Profile(authViewModel.getProfileName().getValue()));
                 Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addProfileFragment_to_mainActivity);
             }
         });

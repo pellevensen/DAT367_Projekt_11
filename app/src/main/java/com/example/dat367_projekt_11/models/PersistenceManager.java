@@ -13,6 +13,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -118,28 +119,43 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
     }
     public MutableLiveData<List<Profile>> getListFromFirestore(Household household){ // Skulle man kunna bara skicka en lista och inte livedata?
         MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
-        myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
+        ChildEventListener childEventListener = new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
-                    Profile profile = profileSnapPost.getValue(Profile.class);
-                    if(!household.getProfileList().contains(profile)){
-                        household.addProfile(profile);
-                    }
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+                Profile profile = dataSnapshot.getValue(Profile.class);
+                if(!household.getProfileList().contains(profile)){
+                    household.addProfile(profile);
                 }
                 newListOfProfiles.setValue(household.getProfileList());
+                Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
             }
-        });
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "postComments:onCancelled", databaseError.toException());
+            }
+        };
+        myRef.child(household.getUid()).child("profiles").addChildEventListener(childEventListener);
         return newListOfProfiles;
     }
-   /* public MutableLiveData<Profile> getChosenProfile(Household household, Profile inProfile){
+    public MutableLiveData<Profile> getChosenProfileData(Household household, Profile inProfile){
         MutableLiveData<Profile> chosenProfile = new MutableLiveData<>();
-        myRef.child(household.getUid()).child("profiles").addValueEventListener(new ValueEventListener() {
+        myRef.child(household.getUid()).child("profiles").child(inProfile.getName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
@@ -155,6 +171,6 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             }
         });
         return chosenProfile;
-    }*/
+    }
 
 }

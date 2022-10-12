@@ -114,11 +114,7 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
     }
 
     public void addNewProfileToDatabase(Household household, Profile profile){
-        //MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").child(profile.getName()).setValue(profile);
-        //household.addProfile(profile);
-        //listOfProfiles.setValue(household.getProfileList());
-        //return listOfProfiles;
     }
     public MutableLiveData<List<Profile>> getListFromFirestore(Household household){ // Skulle man kunna bara skicka en lista och inte livedata?
         MutableLiveData<List<Profile>> newListOfProfiles = new MutableLiveData<>();
@@ -127,9 +123,11 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
                     Profile profile = profileSnapPost.getValue(Profile.class);
-                    household.addProfile(profile);
-                    newListOfProfiles.setValue(household.getProfileList());
+                    if(!household.getProfileList().contains(profile)){
+                        household.addProfile(profile);
+                    }
                 }
+                newListOfProfiles.setValue(household.getProfileList());
             }
 
             @Override

@@ -1,10 +1,11 @@
 package com.example.dat367_projekt_11.models;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Profile implements IsCompleteListener {
+public class Profile implements IsCompleteListener, Serializable {
     private String name;
     private int currentPoints;
     private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,

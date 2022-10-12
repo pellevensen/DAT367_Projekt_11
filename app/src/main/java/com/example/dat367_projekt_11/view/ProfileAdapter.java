@@ -79,9 +79,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         //clickedProfile.setValue(profile);
         Toast.makeText(context, "Du klickade på " + profile.getName(),
                 Toast.LENGTH_LONG).show();
-
-       Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
-       context.startActivity(intent);
+       Intent i = new Intent(context.getApplicationContext(),MainActivity.class);
+       i.putExtra("User",profile);
+       context.startActivity(i);
+       //Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+       //context.startActivity(intent);
 
     }
 }

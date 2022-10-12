@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentScoreboardBinding;
@@ -35,12 +36,7 @@ public class ScoreboardFragment extends Fragment{
 
     private ScoreboardViewModel fViewModel;
 
-    /*String ranking = "hej";*/
-
     private FragmentScoreboardBinding binding;
-
-    public MutableLiveData<String> rankingText = new MutableLiveData<>();
-
 
 
     public static ScoreboardFragment newInstance() {
@@ -53,12 +49,10 @@ public class ScoreboardFragment extends Fragment{
                              @Nullable Bundle savedInstanceState) {;
 
         binding = FragmentScoreboardBinding.inflate(inflater, container, false);
-        binding.setLifecycleOwner(this);
         fViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
-        /*binding.setScoreboardViewModel(fViewModel);*/
-        rankingText.setValue("Hej hallå");
-        
-        /*onLeaderboardClicked(rankingOfScoresText);*/
+        System.out.println("Kommer den hit?");
+        fViewModel.onLeaderboardClicked();
+        System.out.println("Hit då?");
 
         return binding.getRoot(); /*inflater.inflate(R.layout.fragment_scoreboard, container, false);*/
     }
@@ -71,14 +65,5 @@ public class ScoreboardFragment extends Fragment{
 
 /*private final ScoreboardModel rankProfiles = new ScoreboardModel();
     private numberOne = bestOne.getBestOne;*/
-
-    /*private TextView scores;*/
-
-
-   /* public void onLeaderboardClicked(String s){
-
-        rankingText.setText(s);
-
-    }*/
 
 }

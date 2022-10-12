@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="ScoreboardFragment"
-            type="com.example.dat367_projekt_11.view.ScoreboardFragment" />
+            name="ScoreboardViewModel"
+            type="com.example.dat367_projekt_11.viewModels.ScoreboardViewModel" />
 
     </data>
 
@@ -24,7 +24,7 @@
             android:gravity="center"
             android:shadowColor="#000"
             android:shadowRadius="10"
-            android:text="@={ScoreboardFragment.scoreText}"
+            android:text="@={ScoreboardViewModel.rankingText}"
             android:textColor="#FFF"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"

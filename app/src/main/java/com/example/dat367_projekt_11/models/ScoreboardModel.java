@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
 
 public class ScoreboardModel extends AppCompatActivity {
@@ -17,7 +21,7 @@ public class ScoreboardModel extends AppCompatActivity {
         return null;
     }
 
-    /*private ScoreboardViewModel mViewModel;
+    private ScoreboardViewModel mViewModel;
 
 
 
@@ -29,7 +33,7 @@ public class ScoreboardModel extends AppCompatActivity {
             scoreboardViewModelMutableLiveData = new MutableLiveData<>();
         }
         return scoreboardViewModelMutableLiveData;
-    }*/
+    }
 
     private String rankingOfScoresText;
 
@@ -37,7 +41,7 @@ public class ScoreboardModel extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public String rankProfiles() {
 
-        /*mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);*/
+        mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
 
 
         /*getSharedPreferences("PREF", +0);*/
@@ -85,7 +89,6 @@ public class ScoreboardModel extends AppCompatActivity {
         return rankingOfScoresText;
 
     }
-
 
 
 

@@ -60,15 +60,18 @@ public class LoginFragment extends Fragment {
     private void signIn(String email, String password) {
         authViewModel.login(email, password);
         authViewModel.getAuthenticatedHousehold().observe(this, authenticatedHousehold -> {
-            if (authenticatedHousehold.isNew) {
+            createNewHousehold(authenticatedHousehold);
+            goToProfileFragment();
+            /*if (authenticatedHousehold.isNew) {
                 createNewHousehold(authenticatedHousehold);
             } else {
                 goToProfileFragment();
-            }
+            }*/
         });
     }
 
     private void createNewHousehold(Household authenticatedHousehold) {
+        //authenticatedHousehold.addChoreToList(new Chore("hej", "hj", 10));
         authViewModel.createHousehold(authenticatedHousehold);
         authViewModel.getCreatedHousehold().observe(this, household -> {
             if (authenticatedHousehold.isCreated) {

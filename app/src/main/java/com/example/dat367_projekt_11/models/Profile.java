@@ -3,21 +3,23 @@ package com.example.dat367_projekt_11.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Profile implements IsCompleteListener, Serializable {
     private String name;
-    private int currentPoints = 0;
-    private ArrayList<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
+    private int currentPoints;
+    private List<Chore> doneChores;//delmängd av alla householdChores bara chores med complete = true,
    // private ArrayList<DoneChoresListener> listeners;
     //private Chore chore;
 
 
     public Profile(String name) {
+        this.currentPoints = 0;
         this.name = name;
-        this.doneChores = new ArrayList<Chore>();
-
+        this.doneChores = new ArrayList<>();
     }
+    public Profile(){}
 
    /* public Profile(int currentPoints, ArrayList<Chore> doneChores) {
         this.currentPoints = currentPoints;
@@ -47,7 +49,7 @@ public class Profile implements IsCompleteListener, Serializable {
     }
 
 
-    public ArrayList<Chore> getDoneChores(){
+    public List<Chore> getDoneChores(){
         return this.doneChores;
     }
 

@@ -99,16 +99,20 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
 
     public MutableLiveData<Household> createHouseholdInFirestoreIfNotExists(Household authenticatedHousehold) {
         MutableLiveData<Household> newHouseholdMutableLiveData = new MutableLiveData<>();
-        myRef.child(authenticatedHousehold.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        myRef.child(authenticatedHousehold.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                    myRef.child(authenticatedHousehold.getUid()).child("username").setValue(authenticatedHousehold);
-                    newHouseholdMutableLiveData.setValue(authenticatedHousehold);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    Log.d(TAG, "User already exist");
                 } else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    myRef.child(authenticatedHousehold.getUid()).child("userinfo").setValue(authenticatedHousehold);
+                    newHouseholdMutableLiveData.setValue(authenticatedHousehold);
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "postComments:onCancelled", error.toException());
             }
         });
         return newHouseholdMutableLiveData;
@@ -123,8 +127,12 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Profile profile = dataSnapshot.getValue(Profile.class);
-                if(!household.getProfileList().contains(profile)){
+                if(dataSnapshot.exists()){
+                    Log.d(TAG, "profile already exist");
                     household.addProfile(profile);
+                }
+                else{
+                    //household.addProfile(profile);
                 }
                 newListOfProfiles.setValue(household.getProfileList());
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
@@ -153,7 +161,30 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
         myRef.child(household.getUid()).child("profiles").addChildEventListener(childEventListener);
         return newListOfProfiles;
     }
-    public MutableLiveData<Profile> getChosenProfileData(Household household, Profile inProfile){
+    public void addChoreToHousehold(Chore chore){
+        myRef.child(firebaseAuth.getCurrentUser().getUid()).child("userinfo").child("chores").setValue(chore);
+    }
+
+    public MutableLiveData<Household> getCurrentHousehold(){
+        MutableLiveData<Household> currentHousehold = new MutableLiveData<>();
+        myRef.child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot profileSnapPost: snapshot.getChildren()) {
+                    Household household = profileSnapPost.getValue(Household.class);
+                    currentHousehold.setValue(household);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
+        return currentHousehold;
+    }
+
+
+   /* public MutableLiveData<Profile> getChosenProfileData(Household household, Profile inProfile){
         MutableLiveData<Profile> chosenProfile = new MutableLiveData<>();
         myRef.child(household.getUid()).child("profiles").child(inProfile.getName()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -171,6 +202,6 @@ public class PersistenceManager implements FirebasePersistenceManager { //Svårt
             }
         });
         return chosenProfile;
-    }
+    }*/
 
 }

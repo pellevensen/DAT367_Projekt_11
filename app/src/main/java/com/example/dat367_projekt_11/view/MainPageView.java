@@ -11,11 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.dat367_projekt_11.R;
-import com.example.dat367_projekt_11.databinding.FragmentDonechoresBinding;
 import com.example.dat367_projekt_11.databinding.FragmentMainpageBinding;
 import com.example.dat367_projekt_11.models.Chore;
-import com.example.dat367_projekt_11.viewModels.DoneChoresViewModel;
 import com.example.dat367_projekt_11.viewModels.MainPageViewModel;
 
 import java.util.List;
@@ -42,7 +39,7 @@ public class MainPageView extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentMainpageBinding.inflate(inflater, container, false);
-        binding.setLifecycleOwner(this);
+        //binding.setLifecycleOwner(this);
         mainPageViewModel = new ViewModelProvider(this).get(MainPageViewModel.class);
         binding.setMainPageViewModel(mainPageViewModel);
         populateData();

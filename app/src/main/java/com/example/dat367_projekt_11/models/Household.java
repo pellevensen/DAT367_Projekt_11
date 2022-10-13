@@ -1,13 +1,8 @@
 package com.example.dat367_projekt_11.models;
 
-import android.database.Observable;
-
-import androidx.databinding.ObservableArrayList;
-
-import com.google.firebase.database.Exclude;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +22,7 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     }
 
     private String uid;
-    private ArrayList<Chore> householdChores;//ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
+    private List<Chore> householdChores;//ArrayList<Chore> householdChores; //ev. hashmap, bara chores med is.complete = false
   //  private ArrayList<AvailableChoresListener> listeners;
     //måste vi inte skapa listan av householdchores och listeners någonstans för att kunna lägga till i?
 //kolla att sakerna är nollskilda, objekt required non null.
@@ -41,7 +36,6 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
         this.mAuth = FirebaseAuth.getInstance();
         this.currentUser = mAuth.getCurrentUser();
         this.householdChores = new ArrayList<Chore>();
-
         this.profileList = new ArrayList<>();
     }
     public Household() {}
@@ -79,7 +73,7 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
 
     //defensiv inkopiering, defensiv utkopiering -> kan göra så man får en wrapper som gör unmodifiable. blir körningsfel om så händer. läs collectionsklassen.
 
-    public ArrayList<Chore> getHouseholdChores() { //jättemuterbar obs! collections. java utility collections.-> unmodifiable, ex of chores. kan ej modifiera listan
+    public List<Chore> getHouseholdChores() { //jättemuterbar obs! collections. java utility collections.-> unmodifiable, ex of chores. kan ej modifiera listan
         return householdChores;
     }
 
@@ -98,6 +92,8 @@ public class Household implements IsCompleteListener { //lyssnar på chores bool
     public String getHouseholdName() {
         return householdName;
     }
+
+    public void setProfileList(List<Profile> profileList){this.profileList = profileList;}
 
     public List<Profile> getProfileList() {
         return profileList;

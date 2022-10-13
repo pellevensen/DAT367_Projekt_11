@@ -4,6 +4,7 @@ package com.example.dat367_projekt_11.models;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Observer;
 
 
@@ -12,7 +13,7 @@ public class Chore{
     private String description;
     private int points;
     private boolean isComplete;
-    private ArrayList<IsCompleteListener> listeners = new ArrayList<>(); //listan med subscribers
+    private Collection<IsCompleteListener> listeners = new ArrayList<>(); //listan med subscribers
 
 
     public Chore(String name, String description, int points){
@@ -25,7 +26,7 @@ public class Chore{
 
     public void completeChore(){
         this.isComplete = true;
-        //notifySubscribers();
+        notifySubscribers();
     }
     public void unCompleteChore(){
         this.isComplete = false;
@@ -61,13 +62,14 @@ public class Chore{
         this.points = points;
     }
 
-    public void subscribe(IsCompleteListener listener){ //lägg till lyssnare
-        listeners.add(listener);
-
+    public void subscribe(IsCompleteListener listener){
+        if(!listeners.contains(listener)){//lägg till lyssnare om den ej finns redan
+            listeners.add(listener);
+        }
     }
 
     public void unsubscribe(IsCompleteListener listener){
-        listeners.remove(listener);
+        listeners.remove(listener); //reset när timern går ut antar jag?
     }
 
     private void notifySubscribers() {  //notifiera lyssnare

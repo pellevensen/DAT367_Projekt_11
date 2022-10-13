@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.models.ScoreboardModel;
 import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.view.MainActivity;
@@ -72,6 +73,7 @@ public class ScoreboardViewModel extends AndroidViewModel {
         ScoreboardModel.rankProfiles();
 
         MainActivity.setRankingText(rankingOfScores);
+
 
         /*rankingText.setValue("Hej");
         System.out.println(rankingText.getValue());

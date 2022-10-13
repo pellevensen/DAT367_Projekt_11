@@ -55,7 +55,7 @@ public class ScoreboardFragment extends Fragment{
         fViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
         System.out.println("Kommer den hit?");
         fViewModel.onLeaderboardClicked();
-
+        binding.getRoot().findViewById(R.id.Scores);
         System.out.println("Hit då?");
 
         return binding.getRoot(); /*inflater.inflate(R.layout.fragment_scoreboard, container, false);*/

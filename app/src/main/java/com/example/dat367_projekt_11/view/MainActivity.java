@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView scoresText = (TextView) findViewById(R.id.Scores);
 
-    public TextView getScoresText(){ return scoresText;}
+    /*public TextView getScoresText(){ return scoresText;}*/
 
     public void setRankingText(String s){
 

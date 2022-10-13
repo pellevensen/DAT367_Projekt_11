@@ -21,19 +21,7 @@ public class ScoreboardModel extends AppCompatActivity {
         return null;
     }
 
-    private ScoreboardViewModel mViewModel;
 
-
-
-    private MutableLiveData<ScoreboardViewModel> scoreboardViewModelMutableLiveData;
-
-    public MutableLiveData<ScoreboardViewModel> getScoreboardViewModel() {
-
-        if (scoreboardViewModelMutableLiveData == null) {
-            scoreboardViewModelMutableLiveData = new MutableLiveData<>();
-        }
-        return scoreboardViewModelMutableLiveData;
-    }
 
     private String rankingOfScoresText;
 
@@ -41,7 +29,6 @@ public class ScoreboardModel extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public String rankProfiles() {
 
-        mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
 
 
         /*getSharedPreferences("PREF", +0);*/

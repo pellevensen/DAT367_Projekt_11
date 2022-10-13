@@ -22,7 +22,7 @@ import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentScoreboardBinding;
 import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.models.ScoreboardModel;
-import com.example.dat367_projekt_11.models.User;
+import com.example.dat367_projekt_11.models.Household;
 import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
 import org.w3c.dom.Text;

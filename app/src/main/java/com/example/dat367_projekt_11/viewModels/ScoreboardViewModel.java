@@ -19,7 +19,7 @@ public class ScoreboardViewModel extends AndroidViewModel {
     }
     // TODO: Implement the ViewModel
 
-    public MutableLiveData<String> RankingOfScoresText = new MutableLiveData<>();
+    /*public MutableLiveData<String> RankingOfScoresText = new MutableLiveData<>();*/
 
     private MutableLiveData<ScoreboardViewModel> scoreboardFragmentMutableLiveData;
 
@@ -58,9 +58,14 @@ public class ScoreboardViewModel extends AndroidViewModel {
 
     }
 
+    private static final ScoreboardModel rankingOfScoresText = new ScoreboardModel();
+    private static final String rankingOfScores = rankingOfScoresText.getRankingOfScoresText();
+
     public void onLeaderboardClicked(){
 
         rankingText.setValue("Hej");
+
+        System.out.println(rankingText.getValue());
         System.out.println("bajsa på dig");
 
     }

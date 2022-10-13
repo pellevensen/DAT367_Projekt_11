@@ -4,10 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
 
 public class ScoreboardModel extends AppCompatActivity {
@@ -17,11 +13,11 @@ public class ScoreboardModel extends AppCompatActivity {
     private static int memberScore = currentPoints.getCurrentPoints();*/
 
 
-    public SharedPreferences getSharedPreferences (String pref,int i){
+    public SharedPreferences getSharedPreferences(String pref, int i) {
         return null;
     }
 
-    private ScoreboardViewModel mViewModel;
+    /*private ScoreboardViewModel mViewModel;
 
 
 
@@ -33,12 +29,15 @@ public class ScoreboardModel extends AppCompatActivity {
             scoreboardViewModelMutableLiveData = new MutableLiveData<>();
         }
         return scoreboardViewModelMutableLiveData;
-    }
+    }*/
+
+    private String rankingOfScoresText;
+
 
     @SuppressLint("SetTextI18n")
-    public String rankProfiles () {
+    public String rankProfiles() {
 
-        mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
+        /*mViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);*/
 
 
         /*getSharedPreferences("PREF", +0);*/
@@ -78,15 +77,19 @@ public class ScoreboardModel extends AppCompatActivity {
         }*/
 
 
-        String RankingOfScoresText= "Hejsan svejsan" /*"1" + best1 + "\n" +
+        rankingOfScoresText = "Hejsan svejsan" /*"1" + best1 + "\n" +
                 "#2" + best2 + "\n" +
                 "#3" + bestThree*/;
 
-        return RankingOfScoresText;
 
-
+        return rankingOfScoresText;
 
     }
+
+
+
+
+    public String getRankingOfScoresText(){return rankingOfScoresText;}
 
 
 

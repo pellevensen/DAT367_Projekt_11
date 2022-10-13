@@ -22,6 +22,7 @@ import com.example.dat367_projekt_11.R;
 import com.example.dat367_projekt_11.databinding.FragmentScoreboardBinding;
 import com.example.dat367_projekt_11.models.Profile;
 import com.example.dat367_projekt_11.models.ScoreboardModel;
+import com.example.dat367_projekt_11.models.User;
 import com.example.dat367_projekt_11.viewModels.ScoreboardViewModel;
 
 import org.w3c.dom.Text;
@@ -39,6 +40,8 @@ public class ScoreboardFragment extends Fragment{
     private FragmentScoreboardBinding binding;
 
 
+
+
     public static ScoreboardFragment newInstance() {
         return new ScoreboardFragment();
     }
@@ -52,6 +55,7 @@ public class ScoreboardFragment extends Fragment{
         fViewModel = new ViewModelProvider(this ).get(ScoreboardViewModel.class);
         System.out.println("Kommer den hit?");
         fViewModel.onLeaderboardClicked();
+
         System.out.println("Hit då?");
 
         return binding.getRoot(); /*inflater.inflate(R.layout.fragment_scoreboard, container, false);*/
